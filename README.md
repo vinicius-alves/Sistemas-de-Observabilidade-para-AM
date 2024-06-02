@@ -1,4 +1,4 @@
-# Seleção de Gênero Músical
+# Evaluation Store Project
 Este software é parte do meu projeto de mestrado em Ciências da Computação USP.
 
 ##  Autor
