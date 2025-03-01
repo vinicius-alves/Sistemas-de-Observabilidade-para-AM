@@ -1,6 +1,22 @@
-class Model:
-    def __init__(self, model_id, name, version, description):
-        self.model_id = model_id
+from .DatabaseManager import *
+from sqlalchemy import  Column, Integer, String
+
+class Model(Base):
+    __tablename__ = 'model'
+
+    idModel = Column(Integer, primary_key=True)
+    name = Column(String(255), nullable=False)
+    version = Column(String(50), nullable=False)
+    description = Column(String(1000), nullable=True)
+
+    def __init__(self, idModel, name, version, description):
+        self.idModel = idModel
         self.name = name
         self.version = version
         self.description = description
+
+
+# 🔹 Repositório específico para Dataset (herda de GenericRepository)
+class ModelRepository(GenericRepository):
+    def __init__(self, session):
+        super().__init__(session, Model)

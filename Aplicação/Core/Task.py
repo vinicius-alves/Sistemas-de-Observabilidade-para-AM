@@ -1,10 +1,33 @@
-class Task:
-    def __init__(self, task_id, name, task_type, dataset, time_frame):
-        self.task_id = task_id
+from .DatabaseManager import *
+from sqlalchemy import  Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
+from .Run import Run
+
+class Task(Base):
+    __tablename__ = 'task'
+
+    task_id = Column(Integer, primary_key=True)
+    name = Column(String(255), nullable=False)
+    task_type = Column(String(50), nullable=False)
+    dataset_id = Column(Integer, ForeignKey('dataset.idDataset'), nullable=False)
+    time_frame = Column(String(50), nullable=True)
+
+    #dataset = relationship('dataset', back_populates='task')
+
+    def __init__(self, idTask, name, task_type, dataset, time_frame):
+        self.idTask = idTask
         self.name = name
         self.task_type = task_type
         self.dataset = dataset
         self.time_frame = time_frame
 
     def execute(self, model, parameters):
-        return Run(run_id=1, task=self, model=model, dataset=self.dataset, parameters=parameters)
+        """Executa a tarefa e cria um Run"""
+        #return Run(run_id=1, task=self, model=model, dataset=self.dataset, parameters=parameters)
+        pass
+    
+
+# 🔹 Repositório específico (herda de GenericRepository)
+class TaskRepository(GenericRepository):
+    def __init__(self, session):
+        super().__init__(session, Task)

@@ -5,3 +5,4 @@ dask
 numpy
 openml
 mysql-connector-python
+sqlalchemy
