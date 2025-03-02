@@ -1,6 +1,8 @@
 from .DatabaseManager import *
 from sqlalchemy import  Column, Integer, String, LargeBinary
 from sqlalchemy.orm import relationship
+import io
+import pandas as pd
 
 
 # 🔹 Modelo genérico de dataset (pode haver outros modelos)
@@ -14,10 +16,24 @@ class Dataset(Base):
     tasks = relationship('Task', back_populates='dataset')
     runs = relationship('Run', back_populates='dataset')
 
-    def __init__(self, idDataset, targetFeature, data=None):
+    def __init__(self, idDataset, targetFeature, data=None, df = None):
         self.idDataset = idDataset
         self.targetFeature = targetFeature
         self.data = data
+        self.df = df
+        if df is not None and data is None:
+            self.df_to_data()
+        if data is not None and df is None:
+            self.data_to_df()
+
+    def df_to_data(self):
+        buffer = io.BytesIO()
+        self.df.to_parquet(buffer, engine='pyarrow')
+        self.data= buffer.getvalue()
+    
+    def data_to_df(self):
+        buffer = io.BytesIO(self.data)  
+        self.df = pd.read_parquet(buffer, engine='pyarrow')
 
 # 🔹 Repositório específico (herda de GenericRepository)
 class DatasetRepository(GenericRepository):
