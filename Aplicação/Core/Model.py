@@ -1,5 +1,6 @@
 from .DatabaseManager import *
 from sqlalchemy import  Column, Integer, String
+from sqlalchemy.orm import relationship
 
 class Model(Base):
     __tablename__ = 'model'
@@ -8,6 +9,8 @@ class Model(Base):
     name = Column(String(255), nullable=False)
     version = Column(String(50), nullable=False)
     description = Column(String(1000), nullable=True)
+
+    runs = relationship('Run', back_populates='model')
 
     def __init__(self, idModel, name, version, description):
         self.idModel = idModel

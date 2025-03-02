@@ -12,7 +12,7 @@ class Task(Base):
     dataset_id = Column(Integer, ForeignKey('dataset.idDataset'), nullable=False)
     time_frame = Column(String(50), nullable=True)
 
-    #dataset = relationship('dataset', back_populates='task')
+    dataset = relationship('Dataset', back_populates='tasks')
 
     def __init__(self, idTask, name, task_type, dataset, time_frame):
         self.idTask = idTask

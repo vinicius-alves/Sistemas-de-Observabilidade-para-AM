@@ -12,8 +12,8 @@ class Run(Base):
     parameters = Column(Text, nullable=False)  # Armazena parâmetros como texto JSON ou similar
     results = Column(Text, nullable=True)  # Armazena resultados como texto (pode ser JSON)
 
-    #model = relationship('Model', back_populates='runs')
-    #dataset = relationship('Dataset', back_populates='runs')
+    model = relationship('Model', back_populates='runs')
+    dataset = relationship('Dataset', back_populates='runs')
 
     def __init__(self, idRun, task, model, dataset, parameters):
         self.idRun = idRun
