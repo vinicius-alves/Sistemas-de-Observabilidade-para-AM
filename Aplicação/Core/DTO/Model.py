@@ -1,6 +1,7 @@
 from .DatabaseManager import *
 from sqlalchemy import  Column, Integer, String
 from sqlalchemy.orm import relationship
+from .Dataset import Dataset
 
 class Model(Base):
     __tablename__ = 'model'
@@ -17,6 +18,15 @@ class Model(Base):
         self.name = name
         self.version = version
         self.description = description
+
+    def fit(self, data : Dataset):
+        pass
+
+    def predict(self, data: Dataset):
+        pass
+
+    def predict_proba(self, data: Dataset):
+        pass
 
 
 # 🔹 Repositório específico para Dataset (herda de GenericRepository)
