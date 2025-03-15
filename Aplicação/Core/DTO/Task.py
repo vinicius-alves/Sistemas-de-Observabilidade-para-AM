@@ -14,7 +14,7 @@ class Task(Base):
 
     dataset = relationship('Dataset', back_populates='tasks')
 
-    def __init__(self, name, task_type, dataset, time_frame, idTask = None):
+    def __init__(self, name= None, task_type= None, dataset= None, time_frame= None, idTask = None):
         self.idTask = idTask
         self.name = name
         self.task_type = task_type

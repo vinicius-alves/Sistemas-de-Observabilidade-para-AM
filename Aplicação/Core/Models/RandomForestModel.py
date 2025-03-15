@@ -1,6 +1,6 @@
-from .Model import Model  
+from ..DTO.Model import Model  
 from sklearn.ensemble import RandomForestClassifier
-from .Dataset import Dataset
+from ..DTO.Dataset import Dataset
 
 class RandomForestModel(Model):
 
