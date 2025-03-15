@@ -6,7 +6,7 @@ from .Run import Run
 class Task(Base):
     __tablename__ = 'task'
 
-    task_id = Column(Integer, primary_key=True)
+    task_id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(255), nullable=False)
     task_type = Column(String(50), nullable=False)
     dataset_id = Column(Integer, ForeignKey('dataset.idDataset'), nullable=False)
@@ -14,7 +14,7 @@ class Task(Base):
 
     dataset = relationship('Dataset', back_populates='tasks')
 
-    def __init__(self, idTask, name, task_type, dataset, time_frame):
+    def __init__(self, name, task_type, dataset, time_frame, idTask = None):
         self.idTask = idTask
         self.name = name
         self.task_type = task_type

@@ -5,7 +5,7 @@ from sqlalchemy.orm import relationship
 class Run(Base):
     __tablename__ = 'run'
 
-    idRun = Column(Integer, primary_key=True)
+    idRun = Column(Integer, primary_key=True, autoincrement=True)
     task = Column(String(255), nullable=False)
     model_id = Column(Integer, ForeignKey('model.idModel'), nullable=False)
     dataset_id = Column(Integer, ForeignKey('dataset.idDataset'), nullable=False)
@@ -15,7 +15,7 @@ class Run(Base):
     model = relationship('Model', back_populates='runs')
     dataset = relationship('Dataset', back_populates='runs')
 
-    def __init__(self, idRun, task, model, dataset, parameters):
+    def __init__(self, task, model, dataset, parameters, idRun = None):
         self.idRun = idRun
         self.task = task
         self.model = model

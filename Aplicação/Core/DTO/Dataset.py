@@ -9,14 +9,14 @@ import pandas as pd
 class Dataset(Base):
     __tablename__ = 'dataset'
 
-    idDataset = Column(Integer, primary_key=True)
+    idDataset = Column(Integer, primary_key=True, autoincrement=True)
     targetFeature = Column(String(45), nullable=False)
     data = Column(LargeBinary, nullable=True)  # Armazena grandes volumes de dados binários
 
     tasks = relationship('Task', back_populates='dataset')
     runs = relationship('Run', back_populates='dataset')
 
-    def __init__(self, idDataset, targetFeature, data=None, df = None):
+    def __init__(self, targetFeature, data=None, df = None, idDataset=None):
         self.idDataset = idDataset
         self.targetFeature = targetFeature
         self.data = data
