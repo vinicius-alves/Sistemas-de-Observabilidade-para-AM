@@ -5,17 +5,13 @@ class EvaluationMeasure(Base):
     __tablename__ = 'evaluationmeasure'
 
     idMeasure = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255), nullable=False)
     description = Column(String(1000), nullable=True)
+    measureValue = Column(Integer, nullable=False)
 
-    def __init__(self, name, description, idMeasure = None):
+    def __init__(self, measureValue, description, idMeasure = None):
         self.idMeasure = idMeasure
-        self.name = name
+        self.measureValue = measureValue
         self.description = description
-
-    def compute(self, dataset, model):
-        """Método de cálculo que pode ser implementado conforme necessidade."""
-        pass
 
 # 🔹 Repositório específico (herda de GenericRepository)
 class EvaluationMeasureRepository(GenericRepository):

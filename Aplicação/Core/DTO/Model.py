@@ -28,6 +28,9 @@ class Model(Base):
     def predict_proba(self, data: Dataset):
         pass
 
+    def setModelParameters(self,modelParameters):
+        pass
+
 
 # 🔹 Repositório específico para Dataset (herda de GenericRepository)
 class ModelRepository(GenericRepository):
