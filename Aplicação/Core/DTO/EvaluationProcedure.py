@@ -13,8 +13,10 @@ class EvaluationProcedure(Base):
         self.name = name
         self.scriptEvaluation = scriptEvaluation
 
+    def evaluate(self, **kwargs):
+        raise NotImplementedError('Base class method')
+
   
-# 🔹 Repositório específico (herda de GenericRepository)
 class EvaluationMeasureRepository(GenericRepository):
     def __init__(self, session):
         super().__init__(session, EvaluationProcedure)

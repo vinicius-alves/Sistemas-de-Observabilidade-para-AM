@@ -6,38 +6,24 @@ class Run(Base):
     __tablename__ = 'run'
 
     idRun = Column(Integer, primary_key=True, autoincrement=True)
-    task = Column(String(255), nullable=False)
-    model_id = Column(Integer, ForeignKey('model.idModel'), nullable=False)
-    dataset_id = Column(Integer, ForeignKey('dataset.idDataset'), nullable=False)
-    parameters = Column(Text, nullable=False)  # Armazena parâmetros como texto JSON ou similar
-    results = Column(Text, nullable=True)  # Armazena resultados como texto (pode ser JSON)
+    idTask = Column(Integer, ForeignKey('task.idTask'), nullable=True)
+    idModel = Column(Integer, ForeignKey('model.idModel'), nullable=True)
+     
+    measures = relationship('EvaluationMeasure', back_populates='run', cascade="all") 
+    model = relationship('Model', back_populates='runs', cascade="all")
+    taskParameters = relationship('TaskParameter', back_populates='run', cascade="all")
+    task = relationship('Task', back_populates='runs', cascade="all")
 
-    model = relationship('Model', back_populates='runs')
-    dataset = relationship('Dataset', back_populates='runs')
-
-    def __init__(self, task, model, dataset, parameters, idRun = None):
+    def __init__(self, idTask = None, idModel = None,  idRun = None):
         self.idRun = idRun
-        self.task = task
-        self.model = model
-        self.dataset = dataset
-        self.parameters = parameters
-        self.results = {}
+        self.idTask = idTask
+        self.idModel = idModel
 
-    def execute(self):
-        """Executa o processo de treinamento/predição do modelo"""
-        pass
-        # self.model.train(self.dataset)
-        # predictions = self.model.predict(self.dataset)
-        # return predictions
-    
-    def evaluate(self, evaluation_measures):
-        """Avalia o modelo com base nas métricas fornecidas"""
-        for measure in evaluation_measures:
-            self.results[measure.name] = measure.compute(self.dataset, self.model)
-        return self.results
+    def execute(self, task, measureProcedures, model, taskParameters):
+        self.taskParameters = taskParameters
+        self.measures = task.execute(model,  measureProcedures = measureProcedures, taskParameters = taskParameters)
     
 
-# 🔹 Repositório específico (herda de GenericRepository)
 class RunRepository(GenericRepository):
     def __init__(self, session):
         super().__init__(session, Run)

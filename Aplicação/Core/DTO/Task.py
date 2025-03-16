@@ -1,33 +1,29 @@
 from .DatabaseManager import *
 from sqlalchemy import  Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from .Run import Run
 
 class Task(Base):
     __tablename__ = 'task'
 
-    task_id = Column(Integer, primary_key=True, autoincrement=True)
+    idTask = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(255), nullable=False)
-    task_type = Column(String(50), nullable=False)
-    dataset_id = Column(Integer, ForeignKey('dataset.idDataset'), nullable=False)
-    time_frame = Column(String(50), nullable=True)
+    idTaskType = Column(Integer, ForeignKey('tasktype.idTaskType'), nullable=False)
+    idDataset = Column(Integer, ForeignKey('dataset.idDataset'), nullable=False)
 
-    dataset = relationship('Dataset', back_populates='tasks')
+    dataset = relationship('Dataset', back_populates='tasks', cascade="all")
+    taskType = relationship('TaskType', back_populates='tasks', cascade="all")
+    runs = relationship('Run', back_populates='task')
 
-    def __init__(self, name= None, task_type= None, dataset= None, time_frame= None, idTask = None):
+    def __init__(self, name= None, idTaskType= None, dataset= None, idTask = None):
         self.idTask = idTask
         self.name = name
-        self.task_type = task_type
+        self.idTaskType = idTaskType
         self.dataset = dataset
-        self.time_frame = time_frame
 
     def execute(self, model, parameters):
-        """Executa a tarefa e cria um Run"""
-        #return Run(run_id=1, task=self, model=model, dataset=self.dataset, parameters=parameters)
-        pass
+        raise NotImplementedError('Base class method')
     
 
-# 🔹 Repositório específico (herda de GenericRepository)
 class TaskRepository(GenericRepository):
     def __init__(self, session):
         super().__init__(session, Task)

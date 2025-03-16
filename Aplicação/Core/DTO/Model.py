@@ -20,16 +20,16 @@ class Model(Base):
         self.description = description
 
     def fit(self, data : Dataset):
-        pass
+        raise NotImplementedError('Base class method')
 
     def predict(self, data: Dataset):
-        pass
+        raise NotImplementedError('Base class method')
 
     def predict_proba(self, data: Dataset):
-        pass
+        raise NotImplementedError('Base class method')
 
     def setModelParameters(self,modelParameters):
-        pass
+        raise NotImplementedError('Base class method')
 
 
 # 🔹 Repositório específico para Dataset (herda de GenericRepository)

@@ -8,6 +8,8 @@ class AccuracyMeasureProcedure(EvaluationProcedure):
         self.name = 'AccuracyMeasureProcedure'
         self.scriptEvaluation = None 
 
-    def evaluate(self, y_truth, y_pred):
+    def evaluate(self, **kwargs):
+        y_truth = kwargs.get("y_truth", None)
+        y_pred = kwargs.get("y_pred", None)
         accuracy = accuracy_score(y_truth, y_pred)
         return EvaluationMeasure(description = 'accuracy', measureValue= accuracy)

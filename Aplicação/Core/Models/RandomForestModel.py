@@ -12,20 +12,14 @@ class RandomForestModel(Model):
         self.clf = RandomForestClassifier(n_estimators=100, random_state=42)
 
     def setModelParameters(self,modelParameters):
-        self.clf = RandomForestClassifier(*modelParameters)
+        if modelParameters is not None:
+            self.clf = RandomForestClassifier(*modelParameters)
     
-    def fit(self,X,y):
-        #df = data.df
-        #X = df.drop(columns=[data.targetFeature])
-        #y = df[data.targetFeature]    
+    def fit(self,X,y): 
         self.clf.fit(X, y)
 
     def predict(self, X):
-        #df = data.df
-        #X = df.drop(columns=[data.targetFeature], errors ='ignore')
         return self.clf.predict (X) 
 
     def predict_proba(self, X):
-        #df = data.df
-        #X = df.drop(columns=[data.targetFeature], errors ='ignore')
         return self.clf.predict_proba(X)
