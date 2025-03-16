@@ -6,19 +6,16 @@ class EvaluationMeasure(Base):
     __tablename__ = 'evaluationmeasure'
 
     idMeasure = Column(Integer, primary_key=True, autoincrement=True)
-    description = Column(String(1000), nullable=True)
+    name = Column(String(1000), nullable=True)
     measureValue = Column(Integer, nullable=False)
     idRun = Column(Integer, ForeignKey('run.idRun'), nullable=True)
 
     run = relationship('Run', back_populates='measures')
 
-    def __init__(self, measureValue, description, idMeasure = None):
+    def __init__(self, measureValue, name, idMeasure = None):
         self.idMeasure = idMeasure
         self.measureValue = measureValue
-        self.description = description
-
-    def evaluate(self, **kwargs):
-        raise NotImplementedError('Base class method')
+        self.name = name
 
 class EvaluationMeasureRepository(GenericRepository):
     def __init__(self, session):

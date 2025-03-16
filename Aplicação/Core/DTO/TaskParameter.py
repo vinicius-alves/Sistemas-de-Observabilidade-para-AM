@@ -6,15 +6,15 @@ class TaskParameter(Base):
     __tablename__ = 'TaskParameter'
 
     idTaskParameter = Column(Integer, primary_key=True, autoincrement=True)
-    nameTaskParameter = Column(String(255), nullable=False)
-    valueTaskParameter = Column(Integer, nullable=False)
+    name = Column(String(255), nullable=False)
+    value = Column(Integer, nullable=False)
     idRun = Column(Integer, ForeignKey('run.idRun'), nullable=False)
     run = relationship('Run', back_populates='taskParameters')
 
-    def __init__(self, idTaskParameter = None, nameTaskParameter = None, valueTaskParameter = None):
+    def __init__(self, idTaskParameter = None, name = None, value = None):
         self.idTaskParameter = idTaskParameter
-        self.nameTaskParameter = nameTaskParameter
-        self.valueTaskParameter = valueTaskParameter
+        self.name = name
+        self.value = value
 
 class TaskParameterRepository(GenericRepository):
     def __init__(self, session):

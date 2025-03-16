@@ -1,5 +1,6 @@
 from ..DTO.DatabaseManager import *
 from ..DTO.Task import Task
+from ..DTO.TaskType import *
 from ..DTO.Dataset import *
 from sklearn.model_selection import train_test_split
 from ..DTO.TaskType import *
@@ -7,13 +8,14 @@ from ..DTO.TaskType import *
 class IrisClassificationTask(Task):
     
 
-    def __init__(self, session,name= None, idTaskType= None, dataset= None, idTask = None):
+    def __init__(self, session, idTaskType= None, dataset= None, idTask = None):
         dataset_repo = DatasetRepository(session)
         dataset = dataset_repo.get(1) # iris dataset
         dataset.data_to_df()
-        #self.task_type= 'Classification'
-        self.idTask = idTask
-        self.name = name
+
+        task_type_repo = TaskTypeRepository(session= session)
+        self.taskType = task_type_repo.get(1)
+        self.name = 'IrisClassificationTask'
         self.idTaskType = idTaskType
         self.dataset = dataset
 

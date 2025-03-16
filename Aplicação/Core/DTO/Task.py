@@ -14,11 +14,11 @@ class Task(Base):
     taskType = relationship('TaskType', back_populates='tasks', cascade="all")
     runs = relationship('Run', back_populates='task')
 
-    def __init__(self, name= None, idTaskType= None, dataset= None, idTask = None):
+    def __init__(self, name= None, idTaskType= None, idDataset= None, idTask = None):
         self.idTask = idTask
         self.name = name
         self.idTaskType = idTaskType
-        self.dataset = dataset
+        self.idDataset = idDataset
 
     def execute(self, model, parameters):
         raise NotImplementedError('Base class method')

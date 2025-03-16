@@ -1,14 +1,14 @@
 from ..DTO.Model import Model  
 from sklearn.ensemble import RandomForestClassifier
-from ..DTO.Dataset import Dataset
 
 class RandomForestModel(Model):
 
+
     def __init__(self):
-        self.idModel = 1
-        self.name = 'RandomForest'
-        self.version = 1
-        self.description = None
+        self.idModel = None
+        self.name = 'RandomForestClassifier'
+        self.version = 1 
+        self.object = None
         self.clf = RandomForestClassifier(n_estimators=100, random_state=42)
 
     def setModelParameters(self,modelParameters):

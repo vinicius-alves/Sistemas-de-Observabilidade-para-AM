@@ -6,12 +6,12 @@ class EvaluationProcedure(Base):
 
     idEvaluationProcedure = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(255), nullable=False)
-    scriptEvaluation = Column(LargeBinary, nullable=True)
+    object = Column(LargeBinary, nullable=True)
 
-    def __init__(self, name, scriptEvaluation = None, idEvaluationProcedure = None):
+    def __init__(self, name, object = None, idEvaluationProcedure = None):
         self.idEvaluationProcedure = idEvaluationProcedure
         self.name = name
-        self.scriptEvaluation = scriptEvaluation
+        self.object = object
 
     def evaluate(self, **kwargs):
         raise NotImplementedError('Base class method')
