@@ -1,1 +1,1 @@
-from .RandomForestModel import *
+from .RandomForestModelDTO import *

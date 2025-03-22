@@ -3,18 +3,18 @@ from sqlalchemy import  Column, Integer, ForeignKey,DateTime
 from sqlalchemy.orm import relationship
 from datetime import datetime
 
-class Run(Base):
-    __tablename__ = 'run'
+class RunDTO(Base):
+    __tablename__ = 'Run'
 
     idRun = Column(Integer, primary_key=True, autoincrement=True)
-    idTask = Column(Integer, ForeignKey('task.idTask'), nullable=True)
-    idModel = Column(Integer, ForeignKey('model.idModel'), nullable=True)
+    idTask = Column(Integer, ForeignKey('Task.idTask'), nullable=True)
+    idModel = Column(Integer, ForeignKey('Model.idModel'), nullable=True)
     createdTimestamp = Column(DateTime, default=datetime.now())  
      
-    measures = relationship('EvaluationMeasure', back_populates='run', cascade="all") 
-    model = relationship('Model', back_populates='runs', cascade="all")
-    taskParameters = relationship('TaskParameter', back_populates='run', cascade="all")
-    task = relationship('Task', back_populates='runs', cascade="all")
+    measures = relationship('EvaluationMeasureDTO', back_populates='run', cascade="all") 
+    model = relationship('ModelDTO', back_populates='runs', cascade="all")
+    taskParameters = relationship('TaskParameterDTO', back_populates='run', cascade="all")
+    task = relationship('TaskDTO', back_populates='runs', cascade="all")
 
     def __init__(self, idTask = None, idModel = None,  idRun = None):
         self.idRun = idRun
@@ -30,4 +30,4 @@ class Run(Base):
 
 class RunRepository(GenericRepository):
     def __init__(self, session):
-        super().__init__(session, Run)
+        super().__init__(session, RunDTO)

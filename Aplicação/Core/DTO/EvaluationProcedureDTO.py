@@ -1,7 +1,7 @@
 from .DatabaseManager import *
 from sqlalchemy import  Column, Integer, String, LargeBinary
 
-class EvaluationProcedure(Base):
+class EvaluationProcedureDTO(Base):
     __tablename__ = 'evaluationprocedure'
 
     idEvaluationProcedure = Column(Integer, primary_key=True, autoincrement=True)
@@ -19,4 +19,4 @@ class EvaluationProcedure(Base):
   
 class EvaluationMeasureRepository(GenericRepository):
     def __init__(self, session):
-        super().__init__(session, EvaluationProcedure)
+        super().__init__(session, EvaluationProcedureDTO)

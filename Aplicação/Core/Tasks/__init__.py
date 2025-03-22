@@ -1,1 +1,1 @@
-from .IrisClassificationTask import *
+from .IrisClassificationTaskDTO import *

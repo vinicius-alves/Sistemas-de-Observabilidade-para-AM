@@ -1,32 +1,35 @@
 from ..DTO.DatabaseManager import *
-from ..DTO.Task import Task
-from ..DTO.TaskType import *
-from ..DTO.Dataset import *
+from ..DTO.TaskDTO import TaskDTO
+from ..DTO.TaskTypeDTO import *
+from ..DTO.DatasetDTO import *
 from sklearn.model_selection import train_test_split
-from ..DTO.TaskType import *
+from ..DTO.TaskTypeDTO import *
 
-class IrisClassificationTask(Task):
+class IrisClassificationTaskDTO(TaskDTO):
+
+    pass
+    '''
     
 
-    def __init__(self, session, idTaskType= None, dataset= None, idTask = None):
-        dataset_repo = DatasetRepository(session)
-        dataset = dataset_repo.get(1) # iris dataset
-        dataset.data_to_df()
+    def __init__(self, session, idTaskType= None, DatasetDTO= None, idTask = None):
+        DatasetDTO_repo = DatasetRepository(session)
+        DatasetDTO = DatasetDTO_repo.get(1) # iris DatasetDTO
+        DatasetDTO.data_to_df()
 
-        task_type_repo = TaskTypeRepository(session= session)
-        self.taskType = task_type_repo.get(1)
-        self.name = 'IrisClassificationTask'
+        TaskDTO_type_repo = TaskTypeRepository(session= session)
+        self.TaskTypeDTO = TaskDTO_type_repo.get(1)
+        self.name = 'IrisClassificationTaskDTO'
         self.idTaskType = idTaskType
-        self.dataset = dataset
+        self.DatasetDTO = DatasetDTO
 
 
     def execute(self, model, taskParameters, measureProcedures):
 
         if taskParameters is not None:
-            model.setModelParameters(taskParameters)
+            model.setModelDTOParameters(taskParameters)
 
-        df = self.dataset.df
-        targetFeature = self.dataset.targetFeature
+        df = self.DatasetDTO.df
+        targetFeature = self.DatasetDTO.targetFeature
         y = df[targetFeature]
         X = df.drop(columns=[targetFeature])
 
@@ -40,3 +43,4 @@ class IrisClassificationTask(Task):
             measures.append(measure)
 
         return measures
+    '''

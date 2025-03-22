@@ -1,8 +1,8 @@
-from ..DTO.EvaluationProcedure import EvaluationProcedure
-from ..DTO.EvaluationMeasure import EvaluationMeasure
+from ..DTO.EvaluationProcedureDTO import EvaluationProcedureDTO
+from ..DTO.EvaluationMeasureDTO import EvaluationMeasureDTO
 from sklearn.metrics import accuracy_score  
 
-class AccuracyMeasureProcedure(EvaluationProcedure):
+class AccuracyMeasureProcedure(EvaluationProcedureDTO):
 
     def __init__(self):
         self.name = 'AccuracyMeasureProcedure'
@@ -12,4 +12,4 @@ class AccuracyMeasureProcedure(EvaluationProcedure):
         y_truth = kwargs.get("y_truth", None)
         y_pred = kwargs.get("y_pred", None)
         accuracy = accuracy_score(y_truth, y_pred)
-        return EvaluationMeasure(name = 'accuracy', measureValue= accuracy)
+        return EvaluationMeasureDTO(name = 'accuracy', measureValue= accuracy)

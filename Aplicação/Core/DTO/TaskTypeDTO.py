@@ -2,13 +2,13 @@ from .DatabaseManager import *
 from sqlalchemy import  Column, Integer, String
 from sqlalchemy.orm import relationship
 
-class TaskType(Base):
-    __tablename__ = 'tasktype'
+class TaskTypeDTO(Base):
+    __tablename__ = 'TaskType'
 
     idTaskType = Column(Integer, primary_key=True, autoincrement=True)
     taskType = Column(String(255), nullable=False)
     
-    tasks = relationship('Task', back_populates='taskType')
+    tasks = relationship('TaskDTO', back_populates='taskType')
 
     def __init__(self, idTaskType= None, taskType= None):
         self.idTaskType = idTaskType
@@ -17,4 +17,4 @@ class TaskType(Base):
 
 class TaskTypeRepository(GenericRepository):
     def __init__(self, session):
-        super().__init__(session, TaskType)
+        super().__init__(session, TaskTypeDTO)
