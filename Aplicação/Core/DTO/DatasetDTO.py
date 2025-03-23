@@ -3,7 +3,7 @@ from sqlalchemy import  Column, Integer, String, LargeBinary
 from sqlalchemy.orm import relationship
 import io
 import pandas as pd
-
+from ..Relations import Dataset
 
 class DatasetDTO(Base):
     __tablename__ = 'dataset' 
@@ -31,6 +31,10 @@ class DatasetDTO(Base):
             self.df = pd.read_parquet(buffer, engine='pyarrow')
 
     @property
+    def dataset(self):
+        return Dataset(**self.__dict__)
+
+    @property
     def df(self):
         return self.__dict__["df"]
 
@@ -39,15 +43,18 @@ class DatasetDTO(Base):
         self.__dict__["df"] = novo_valor
         self.df_to_data()
 
+    '''
     @property
     def data(self):
-        return self.__dict__["data"]
+        return self.__dict__["data"]'
+    
 
     @data.setter
     def data(self, novo_valor):
         if novo_valor != self.__dict__.get("data", None):
             self.__dict__["data"] = novo_valor
-            self.data_to_df()
+            self.data_to_df() 
+    '''
 
 
 class DatasetRepository(GenericRepository):

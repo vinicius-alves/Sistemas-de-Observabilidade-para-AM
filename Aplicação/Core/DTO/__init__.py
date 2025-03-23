@@ -6,3 +6,4 @@ from .EvaluationMeasureDTO import *
 from .RunDTO import * 
 from .DatasetDTO import *
 from .DatabaseManager import *
+from .utils import *

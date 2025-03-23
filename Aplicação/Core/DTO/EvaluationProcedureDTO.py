@@ -12,10 +12,6 @@ class EvaluationProcedureDTO(Base):
         self.idEvaluationProcedure = idEvaluationProcedure
         self.name = name
         self.object = object
-
-    def evaluate(self, **kwargs):
-        raise NotImplementedError('Base class method')
-
   
 class EvaluationMeasureRepository(GenericRepository):
     def __init__(self, session):
