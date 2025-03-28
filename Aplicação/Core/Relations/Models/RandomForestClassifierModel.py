@@ -12,10 +12,10 @@ class RandomForestClassifierModel(Model):
         self.clf.fit(X,y)
     
     def predict(self,X):
-        self.clf.predict(X)
+        return self.clf.predict(X)
         
     def predict_proba(self,X):
-        self.clf.predict_proba(X)
+        return self.clf.predict_proba(X)
     
     def set_params(self,**kwargs):
         self.clf.set_params(**kwargs)

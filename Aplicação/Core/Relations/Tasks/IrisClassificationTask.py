@@ -1,4 +1,5 @@
 from ..Task import *
+from ..MeasureProcedures import AccuracyMeasureProcedure
 from sklearn.model_selection import train_test_split
 
 class IrisClassificationTask(Task):
@@ -8,9 +9,11 @@ class IrisClassificationTask(Task):
         self.tastype = tastype
         self.name = 'IrisClassificationTask'
         self.dataset = dataset
+        measureProcedure = AccuracyMeasureProcedure()
+        self.measureProcedures = [measureProcedure]
 
 
-    def execute(self, model, taskParameters, measureProcedures):
+    def execute(self, model, taskParameters):
 
         if taskParameters is not None:
             if len(taskParameters) >0 :
@@ -26,7 +29,7 @@ class IrisClassificationTask(Task):
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
         measures = []
-        for measureProcedure in measureProcedures:
+        for measureProcedure in self.measureProcedures:
             measure = measureProcedure.evaluate(y_truth = y_test, y_pred = y_pred)
             measures.append(measure)
 

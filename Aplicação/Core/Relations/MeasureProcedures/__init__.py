@@ -1,1 +1,1 @@
-from .AccuracyEvaluationMeasureProcedure import *
+from .AccuracyMeasureProcedure import *

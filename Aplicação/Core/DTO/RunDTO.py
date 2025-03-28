@@ -11,7 +11,7 @@ class RunDTO(Base):
     idModel = Column(Integer, ForeignKey('Model.idModel'), nullable=True)
     createdTimestamp = Column(DateTime, default=datetime.now())  
      
-    measures = relationship('EvaluationMeasureDTO', back_populates='run', cascade="all") 
+    measures = relationship('MeasureDTO', back_populates='run', cascade="all") 
     model = relationship('ModelDTO', back_populates='runs', cascade="all")
     taskParameters = relationship('TaskParameterDTO', back_populates='run', cascade="all")
     task = relationship('TaskDTO', back_populates='runs', cascade="all")

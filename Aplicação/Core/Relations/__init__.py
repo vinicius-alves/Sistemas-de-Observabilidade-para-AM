@@ -5,5 +5,5 @@ from .Tasks import *
 from .Run import *
 from .Dataset import *
 from .MeasureProcedures import *
-from .EvaluationMeasure import *
+from .Measure import *
 from .EvaluationProcedure import *
