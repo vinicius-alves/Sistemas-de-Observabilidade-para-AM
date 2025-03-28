@@ -7,3 +7,4 @@ from .Dataset import *
 from .MeasureProcedures import *
 from .Measure import *
 from .EvaluationProcedure import *
+from .EvaluationSpecification import * 

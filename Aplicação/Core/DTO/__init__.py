@@ -7,3 +7,5 @@ from .RunDTO import *
 from .DatasetDTO import *
 from .DatabaseManager import *
 from .utils import *
+from .EvaluationProcedureDTO import *
+from .EvaluationSpecificationDTO import *
