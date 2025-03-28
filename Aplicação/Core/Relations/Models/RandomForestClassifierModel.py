@@ -17,5 +17,5 @@ class RandomForestClassifierModel(Model):
     def predict_proba(self,X):
         return self.clf.predict_proba(X)
     
-    def set_params(self,**kwargs):
-        self.clf.set_params(**kwargs)
+    def set_params(self,params):
+        self.clf.set_params(**params)
