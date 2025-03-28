@@ -9,4 +9,4 @@ from .Measure import *
 from .EvaluationProcedure import *
 from .EvaluationSpecification import * 
 from .TaskParameter import *
-from .TaskParameterType import *
+from .ModelParameter import *

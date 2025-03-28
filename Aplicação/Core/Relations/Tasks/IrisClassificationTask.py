@@ -15,10 +15,6 @@ class IrisClassificationTask(Task):
 
     def execute(self, model, taskParameters):
 
-        if taskParameters is not None:
-            if len(taskParameters) >0 :
-                model.set_params(taskParameters)
-
         df = self.dataset.df
         targetFeature = self.dataset.targetFeature
         y = df[targetFeature]
