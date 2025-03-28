@@ -13,11 +13,19 @@ class DatasetDTO(Base):
     data = Column(LargeBinary, nullable=True)
     tasks = relationship('TaskDTO', back_populates='dataset') 
 
-    def __init__(self, targetFeature, data=None, df=None, idDataset=None):
+    def __init__(self, targetFeature=None, data=None, df=None, idDataset=None):
         self.idDataset = idDataset
         self.targetFeature = targetFeature
         self.data = data
         self.df = df
+        '''
+        self.idDataset = kwargs.get('idDataset',None)
+        self.targetFeature = kwargs.get('targetFeature',None)
+        self.data = kwargs.get('data',None) 
+        self.df = kwargs.get('df',None) 
+        self.tasks = kwargs.get('tasks',None)
+        
+        '''
 
     def df_to_data(self):
         if self.df is not None:

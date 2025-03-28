@@ -11,7 +11,7 @@ class EvaluationProcedureDTO(Base):
 
     evaluationSpecification = relationship('EvaluationSpecificationDTO', back_populates='evaluationProcedures', cascade="all")
 
-    def __init__(self, name, object = None, idEvaluationProcedure = None):
+    def __init__(self, name= None, object = None, idEvaluationProcedure = None):
         self.idEvaluationProcedure = idEvaluationProcedure
         self.name = name
         self.object = object

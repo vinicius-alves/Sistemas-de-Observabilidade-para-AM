@@ -12,7 +12,7 @@ class MeasureDTO(Base):
 
     run = relationship('RunDTO', back_populates='measures')
 
-    def __init__(self, value, name, idMeasure = None):
+    def __init__(self, value = None, name = None, idMeasure = None):
         self.idMeasure = idMeasure
         self.value = value
         self.name = name

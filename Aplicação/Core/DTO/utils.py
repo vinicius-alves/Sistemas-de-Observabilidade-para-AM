@@ -1,15 +1,29 @@
-def copiar_atributos_de_instancia(origem, destino):
-    """
-    Copia todos os atributos de instância (dados) de um objeto para outro.
+import importlib
 
-    Parâmetros:
-    - origem: objeto de onde os dados serão copiados.
-    - destino: objeto que receberá os dados copiados.
+def converter_objeto_para_dto(obj : object):
+    base_class = obj.__class__.__bases__[0]
+    if base_class != object:
+        name_class = base_class.__name__
+    else:
+        name_class = obj.__class__.__name__
 
-    Observações:
-    - Apenas atributos armazenados em `__dict__` são copiados.
-    - Métodos e atributos de classe não são afetados.
-    - Atributos com o mesmo nome no destino serão sobrescritos.
-    """
-    for chave, valor in origem.__dict__.items():
-        setattr(destino, chave, valor)
+    name_class+='DTO'
+
+    module = importlib.import_module('Core.DTO.'+name_class)
+    Classe = getattr(module, name_class)
+    obj_dto = Classe()  
+
+    for key, value in obj.__dict__.items():
+        value_dto = value
+        if value.__class__.__module__.startswith('Core.Relations'):
+            value_dto = converter_objeto_para_dto(value)
+        obj_dto.__dict__[key] = value_dto
+
+        if type(value) == list:
+            lst_value_dto =[]
+            for item in value:
+                item_dto = converter_objeto_para_dto(item)
+                lst_value_dto.append(item_dto)
+            obj_dto.__dict__[key] = lst_value_dto
+
+    return obj_dto

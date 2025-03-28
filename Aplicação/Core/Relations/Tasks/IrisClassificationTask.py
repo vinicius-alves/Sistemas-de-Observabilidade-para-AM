@@ -5,8 +5,8 @@ from sklearn.model_selection import train_test_split
 class IrisClassificationTask(Task):
 
    
-    def __init__(self,  tastype= None, dataset= None):
-        self.tastype = tastype
+    def __init__(self,  type= None, dataset= None):
+        self.type = type
         self.name = 'IrisClassificationTask'
         self.dataset = dataset
         measureProcedure = AccuracyMeasureProcedure()
