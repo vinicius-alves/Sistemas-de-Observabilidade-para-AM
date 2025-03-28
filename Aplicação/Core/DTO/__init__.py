@@ -9,3 +9,4 @@ from .DatabaseManager import *
 from .utils import *
 from .EvaluationProcedureDTO import *
 from .EvaluationSpecificationDTO import *
+from .TaskParameterTypeDTO import *
