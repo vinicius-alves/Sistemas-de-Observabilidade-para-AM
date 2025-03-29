@@ -25,7 +25,8 @@ class GenericRepository:
         return self.session.get(self.dto_obj, item_id)
 
     def save(self, item):
-        """Salva ou atualiza um item no banco."""
+        """Salva o item no banco se ainda não existir. Se já existir, mescla para evitar conflitos."""
+        item = self.session.merge(item)
         self.session.add(item)
         self.session.commit()
 
