@@ -1,4 +1,4 @@
-# 🔹 Classe genérica para gerenciar o banco (serve para qualquer dto_obj)
+# 🔹 Classe genérica para gerenciar o banco (serve para qualquer dto_class)
 from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy import create_engine
 
@@ -16,13 +16,13 @@ class DatabaseManager:
 
 # 🔹 Repositório genérico para qualquer tabela
 class GenericRepository:
-    def __init__(self, session, dto_obj):
+    def __init__(self, session, dto_class):
         self.session = session
-        self.dto_obj = dto_obj
+        self.dto_class = dto_class
 
     def get(self, item_id):
         """Busca um item pelo ID."""
-        return self.session.get(self.dto_obj, item_id)
+        return self.session.get(self.dto_class, item_id)
 
     def save(self, item):
         """Salva o item no banco se ainda não existir. Se já existir, mescla para evitar conflitos."""
@@ -32,4 +32,4 @@ class GenericRepository:
 
     def get_all(self):
         """Retorna todos os registros da tabela."""
-        return self.session.query(self.dto_obj).all()
+        return self.session.query(self.dto_class).all()
