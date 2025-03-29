@@ -13,7 +13,6 @@ class TaskDTO(Base):
     dataset = relationship('DatasetDTO', back_populates='tasks', cascade="all")  
     taskType = relationship('TaskTypeDTO', back_populates='tasks', cascade="all")
     runs = relationship('RunDTO', back_populates='task')
-    evaluationSpecification = relationship('EvaluationSpecificationDTO', back_populates='tasks', cascade="all")  
 
     def __init__(self, name=None, idTaskType=None, idDataset=None, idTask=None):
         self.idTask = idTask

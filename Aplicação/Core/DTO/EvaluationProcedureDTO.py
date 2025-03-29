@@ -8,8 +8,6 @@ class EvaluationProcedureDTO(Base):
     idEvaluationProcedure = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(255), nullable=False)
     object = Column(LargeBinary, nullable=True)
-
-    evaluationSpecification = relationship('EvaluationSpecificationDTO', back_populates='evaluationProcedures', cascade="all")
     measures = relationship('MeasureDTO', back_populates='evaluationProcedure', cascade="all") 
 
     def __init__(self, name= None, object = None, idEvaluationProcedure = None):

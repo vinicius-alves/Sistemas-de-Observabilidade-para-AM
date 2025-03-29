@@ -23,7 +23,6 @@ def converter_objeto_para_dto(obj : object):
         value_dto = value
         if value.__class__.__module__.startswith('Core.Relations'):
             value_dto = converter_objeto_para_dto(value)
-
         
         if type(value) == list:
             if not(hasattr(obj_dto, key)):
@@ -34,5 +33,4 @@ def converter_objeto_para_dto(obj : object):
         else:
             setattr(obj_dto, key, value_dto)
         
-
     return obj_dto

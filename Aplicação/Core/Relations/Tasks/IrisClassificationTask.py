@@ -1,12 +1,13 @@
 from ..Task import *
+from ..TaskType import *
 from ..MeasureProcedures import AccuracyMeasureProcedure
 from sklearn.model_selection import train_test_split
 
 class IrisClassificationTask(Task):
 
    
-    def __init__(self,  taskType= None, dataset= None):
-        self.taskType = taskType
+    def __init__(self,   dataset= None):
+        self.taskType = TaskType(idTaskType = 1)
         self.name = 'IrisClassificationTask'
         self.dataset = dataset
         measureProcedure = AccuracyMeasureProcedure()
