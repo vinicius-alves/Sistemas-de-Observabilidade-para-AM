@@ -13,17 +13,26 @@ def converter_objeto_para_dto(obj : object):
     Classe = getattr(module, name_class)
     obj_dto = Classe()  
 
-    for key, value in obj.__dict__.items():
+    for key in dir(obj):
+        if key.startswith("__"): 
+            continue
+        try:
+            value = getattr(obj, key)
+        except AttributeError:
+            print('error - ',key, value)  
         value_dto = value
         if value.__class__.__module__.startswith('Core.Relations'):
             value_dto = converter_objeto_para_dto(value)
-        obj_dto.__dict__[key] = value_dto
 
+        
         if type(value) == list:
-            lst_value_dto =[]
+            if not(hasattr(obj_dto, key)):
+                setattr(obj_dto, key, [])
             for item in value:
                 item_dto = converter_objeto_para_dto(item)
-                lst_value_dto.append(item_dto)
-            obj_dto.__dict__[key] = lst_value_dto
+                getattr(obj_dto, key).append(item_dto)           
+        else:
+            setattr(obj_dto, key, value_dto)
+        
 
     return obj_dto
