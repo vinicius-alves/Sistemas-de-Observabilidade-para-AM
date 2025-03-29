@@ -1,4 +1,3 @@
-from .ModelParameter import ModelParameter
 from .TaskParameter import TaskParameter
 
 class Run():
@@ -7,18 +6,9 @@ class Run():
         self.task = task
         self.model = model
         
-        model.set_params(modelParameters)
+        self.model.set_params(modelParameters)
         self.measures = task.execute(model = model,  taskParameters = taskParameters)
-
-        if type(modelParameters) == dict:
-
-            modelParameters_list = []
-            for key, value in modelParameters.items():
-                modelParameter = ModelParameter(name = key, value = value)
-                modelParameter.process_type()
-                modelParameters_list.append(modelParameter)
-
-            self.modelParameters = modelParameters_list
+        self.modelParameters = self.model.get_params()
 
         if type(taskParameters) == dict:
 

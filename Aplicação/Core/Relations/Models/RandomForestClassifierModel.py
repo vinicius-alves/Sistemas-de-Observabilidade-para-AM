@@ -1,5 +1,6 @@
 
 from ..Model import Model 
+from ..ModelParameter import ModelParameter
 from sklearn.ensemble import RandomForestClassifier
 
 class RandomForestClassifierModel(Model):
@@ -19,3 +20,12 @@ class RandomForestClassifierModel(Model):
     
     def set_params(self,params):
         self.clf.set_params(**params)
+
+    def get_params(self):
+        params = self.clf.get_params()
+        lst_modelParameters = []
+        for key, value in params.items():
+            modelParameter = ModelParameter(name = key, value = value)
+            modelParameter.process_type()
+            lst_modelParameters.append(modelParameter)
+        return lst_modelParameters
