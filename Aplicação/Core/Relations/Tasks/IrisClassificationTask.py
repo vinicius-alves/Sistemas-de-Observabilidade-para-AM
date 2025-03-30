@@ -7,8 +7,7 @@ class IrisClassificationTask(Task):
 
    
     def __init__(self,   dataset= None):
-        self.taskType = TaskType(idTaskType = 1)
-        #self.taskType = TaskType( type = 'Classification')
+        self.taskType = TaskType( type = 'Classification')
         self.name = 'IrisClassificationTask'
         self.dataset = dataset
         measureProcedure = AccuracyMeasureProcedure()

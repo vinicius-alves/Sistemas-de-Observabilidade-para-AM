@@ -6,9 +6,9 @@ class TaskDTO(Base):
     __tablename__ = 'Task'
 
     idTask = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255), nullable=False)
-    idTaskType = Column(Integer, ForeignKey('TaskType.idTaskType'), nullable=False)
-    idDataset = Column(Integer, ForeignKey('dataset.idDataset'), nullable=False)  
+    name = Column(String(255), nullable=True)
+    idTaskType = Column(Integer, ForeignKey('TaskType.idTaskType'), nullable=True)
+    idDataset = Column(Integer, ForeignKey('dataset.idDataset'), nullable=True)  
 
     dataset = relationship('DatasetDTO', back_populates='tasks', cascade="all")  
     taskType = relationship('TaskTypeDTO', back_populates='tasks', cascade="all")
@@ -19,6 +19,9 @@ class TaskDTO(Base):
         self.name = name
         self.idTaskType = idTaskType
         self.idDataset = idDataset
+
+    def get_secondary_key(self):
+        return 'name'
     
 
 class TaskRepository(GenericRepository):

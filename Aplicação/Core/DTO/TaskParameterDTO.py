@@ -6,10 +6,10 @@ class TaskParameterDTO(Base):
     __tablename__ = 'TaskParameter'
 
     idTaskParameter = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255), nullable=False)
-    value = Column(String(255), nullable=False)
-    type = Column(String(255), nullable=False)
-    idRun = Column(Integer, ForeignKey('Run.idRun'), nullable=False)
+    name = Column(String(255), nullable=True)
+    value = Column(String(255), nullable=True)
+    type = Column(String(255), nullable=True)
+    idRun = Column(Integer, ForeignKey('Run.idRun'), nullable=True)
     run = relationship('RunDTO', back_populates='taskParameters')
 
     def __init__(self, idTaskParameter = None, name = None, value = None):

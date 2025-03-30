@@ -63,5 +63,16 @@ class ConverterDTO:
             existing_item = repo.get(item_id)
             if existing_item:
                 return True, existing_item
+          
+        if hasattr(obj_dto, 'get_secondary_key'):
+            secondary_key = obj_dto.get_secondary_key()
+            item_id =  getattr(obj_dto, secondary_key, None)
+
+            if item_id is not None:
+                with self.session.no_autoflush:
+                    existing_item = repo.filter_by({secondary_key: item_id}).first()
+                if existing_item:
+                    return True, existing_item
+
             
         return False, obj_dto

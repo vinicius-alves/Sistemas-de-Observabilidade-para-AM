@@ -9,7 +9,7 @@ class DatasetDTO(Base):
     __tablename__ = 'dataset' 
 
     idDataset = Column(Integer, primary_key=True, autoincrement=True)
-    targetFeature = Column(String(45), nullable=False)
+    targetFeature = Column(String(45), nullable=True)
     data = Column(LargeBinary, nullable=True)
     tasks = relationship('TaskDTO', back_populates='dataset') 
 
@@ -51,18 +51,8 @@ class DatasetDTO(Base):
         self.__dict__["df"] = novo_valor
         self.df_to_data()
 
-    '''
-    @property
-    def data(self):
-        return self.__dict__["data"]'
-    
-
-    @data.setter
-    def data(self, novo_valor):
-        if novo_valor != self.__dict__.get("data", None):
-            self.__dict__["data"] = novo_valor
-            self.data_to_df() 
-    '''
+    def get_secondary_key(self):
+        return 'name'
 
 
 class DatasetRepository(GenericRepository):

@@ -8,6 +8,7 @@ class RandomForestClassifierModel(Model):
 
     def __init__(self):
         self.clf = RandomForestClassifier()
+        self.name = 'RandomForestClassifierModel'
     
     def fit(self,X,y):
         self.clf.fit(X,y)

@@ -6,7 +6,7 @@ class EvaluationProcedureDTO(Base):
     __tablename__ = 'EvaluationProcedure'
 
     idEvaluationProcedure = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255), nullable=False)
+    name = Column(String(255), nullable=True)
     object = Column(LargeBinary, nullable=True)
     measures = relationship('MeasureDTO', back_populates='evaluationProcedure', cascade="all") 
 
@@ -14,6 +14,9 @@ class EvaluationProcedureDTO(Base):
         self.idEvaluationProcedure = idEvaluationProcedure
         self.name = name
         self.object = object
+
+    def get_secondary_key(self):
+        return 'name'
   
 class EvaluationProcedureRepository(GenericRepository):
     def __init__(self, session):

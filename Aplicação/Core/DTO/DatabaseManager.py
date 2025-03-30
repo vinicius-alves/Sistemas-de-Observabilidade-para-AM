@@ -23,6 +23,10 @@ class GenericRepository:
     def get(self, item_id):
         """Busca um item pelo ID."""
         return self.session.get(self.dto_class, item_id)
+    
+    def filter_by(self, filters):
+        """Busca um item pelo ID."""
+        return self.session.query(self.dto_class).filter_by(**filters) 
 
     def save(self, item):
         """Salva o item no banco se ainda não existir. Se já existir, mescla para evitar conflitos."""

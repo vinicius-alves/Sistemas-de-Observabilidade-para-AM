@@ -20,6 +20,9 @@ class ModelDTO(Base):
         self.object = object
         self.model = model
 
+    def get_secondary_key(self):
+        return 'name'
+
     def serialize(self):
         if self.model is not None:
             buffer = io.BytesIO()
@@ -53,21 +56,6 @@ class ModelDTO(Base):
            self.__dict__["object"] = novo_valor 
            self.deserialize()
     
-
-    # fit methods
-
-    def fit(self, X, y):
-        self.model.fit(X, y)
-
-    def predict(self, X):
-        return self.model.predict (X) 
-
-    def predict_proba(self, X):
-        return self.model.predict_proba(X)
-
-    def setModelParameters(self,modelParameters):
-        if modelParameters is not None:
-            self.model.set_params(**modelParameters)
 
 
 # 🔹 Repositório específico para DatasetDTO (herda de GenericRepository)
