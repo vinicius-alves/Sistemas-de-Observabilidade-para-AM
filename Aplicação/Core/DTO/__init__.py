@@ -7,5 +7,5 @@ from .MeasureDTO import *
 from .RunDTO import * 
 from .DatasetDTO import *
 from .DatabaseManager import *
-from .utils import *
+from .ConverterDTO import *
 from .EvaluationProcedureDTO import *
