@@ -25,6 +25,10 @@ class ConverterDTO:
         return obj_dto, repo
 
     def converter_object_to_dto(self, obj):
+
+        if not(obj.__class__.__module__.startswith('Core.Relations')):
+            return obj
+
         obj_dto, repo = self.get_dto_obj(obj)
         
         for key in dir(obj):

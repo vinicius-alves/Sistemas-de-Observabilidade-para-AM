@@ -1,6 +1,7 @@
 from ..Task import *
 from ..TaskType import * 
 from sklearn.model_selection import train_test_split
+from ..MeasureProcedures import RMSEMeasureProcedure
 
 class SeoulBikeTrainingTask(Task):
 
@@ -9,14 +10,23 @@ class SeoulBikeTrainingTask(Task):
         self.taskType = TaskType( idTaskType = 2,type = 'Regression')
         self.name = type(self).__name__
         self.dataset = dataset
-        #measureProcedure = AccuracyMeasureProcedure()
-        self.measureProcedures = []
+        measureProcedure = RMSEMeasureProcedure()
+        self.measureProcedures = [measureProcedure]
 
 
     def execute(self, model, parameters):
 
         df = self.dataset.df
-        targetFeature = self.dataset.targetFeature
+        targetFeature = self.dataset.targetFeature  
+
+        model.set_categorical_cols(['seasons', 'holiday', 'functioning_day'])
+
+        if type(parameters) == dict:
+            if 'end_date' in parameters.keys():
+                df = df[df['date']<parameters['end_date']].reset_index(drop = True)
+
+        df = df.drop(columns = ['date'], errors = 'ignore')
+
         y = df[targetFeature]
         X = df.drop(columns=[targetFeature])
 

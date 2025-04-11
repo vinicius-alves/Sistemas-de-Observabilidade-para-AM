@@ -9,7 +9,8 @@ class Run():
 
         self.parameters = []
         
-        self.model.set_params(modelParameters)
+        if type(modelParameters) == dict:
+            self.model.set_params(modelParameters)
         self.measures = task.execute(model = model,  parameters = taskParameters)
         self.parameters += self.model.get_params()
 

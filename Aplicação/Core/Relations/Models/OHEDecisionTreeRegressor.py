@@ -10,14 +10,21 @@ import sklearn
 
 class OHEDecisionTreeRegressor(Model):
 
-    def __init__(self, categorical_cols): 
+    def __init__(self, categorical_cols = []): 
         self.name = type(self).__name__
         self.version = sklearn.__version__
+        self.categorical_cols = categorical_cols
+        self.create_pipeline()
 
+    def set_categorical_cols(self,categorical_cols):
+        self.categorical_cols = categorical_cols
+        self.create_pipeline()
+    
+    def create_pipeline(self):
         # Pré-processamento com OneHotEncoder
         preprocessor = ColumnTransformer(
             transformers=[
-                ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), categorical_cols)
+                ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), self.categorical_cols)
             ],
             remainder="passthrough"
         )
@@ -27,6 +34,7 @@ class OHEDecisionTreeRegressor(Model):
             ("preprocessor", preprocessor),
             ("regressor", DecisionTreeRegressor(random_state=42))
         ])
+
     
     def fit(self,X,y):
         self.model.fit(X,y)
@@ -43,12 +51,11 @@ class OHEDecisionTreeRegressor(Model):
         self.serialize()
 
     def get_params(self):
-        params = self.model.get_params()
+        params = self.model.named_steps['regressor'].get_params()
         lst_parameters = []
-        for key, value in params.items():
-            if key != 'steps':
-                modelParameter = Parameter(name = key, value = value)
-                modelParameter.parameterType = ParameterType(idParameterType = 1,name = 'Model')
-                modelParameter.process_type()
-                lst_parameters.append(modelParameter)
+        for key, value in params.items():           
+            modelParameter = Parameter(name = key, value = value)
+            modelParameter.parameterType = ParameterType(idParameterType = 1,name = 'Model')
+            modelParameter.process_type()
+            lst_parameters.append(modelParameter)
         return lst_parameters
