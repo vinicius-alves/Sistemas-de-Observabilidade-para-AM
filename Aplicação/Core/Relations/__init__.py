@@ -8,5 +8,5 @@ from .Dataset import *
 from .MeasureProcedures import *
 from .Measure import *
 from .EvaluationProcedure import * 
-from .TaskParameter import *
-from .ModelParameter import *
+from .Parameter import *
+from .ParameterType import *

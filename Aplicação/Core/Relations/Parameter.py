@@ -1,8 +1,9 @@
-class ModelParameter():
-    def __init__(self,  name = None, value = None,type = None):
+
+class Parameter():
+
+    def __init__(self, name = None, value = None):
         self.name = name
         self.value = value
-        self.type = type
 
     def process_type(self):
         self.type = self.value.__class__.__name__

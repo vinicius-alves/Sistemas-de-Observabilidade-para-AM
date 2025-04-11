@@ -14,7 +14,7 @@ class IrisClassificationTask(Task):
         self.measureProcedures = [measureProcedure]
 
 
-    def execute(self, model, taskParameters):
+    def execute(self, model, parameters):
 
         df = self.dataset.df
         targetFeature = self.dataset.targetFeature

@@ -5,6 +5,6 @@ class Task():
         raise NotImplementedError('Classe abstrata')
 
 
-    def execute(self, model, taskParameters):
+    def execute(self, model, parameters):
         raise NotImplementedError('Classe abstrata')
 
