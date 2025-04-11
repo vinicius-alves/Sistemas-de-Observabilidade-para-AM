@@ -1,8 +1,10 @@
 tqdm
 pandas
 plotly
-dask
 numpy
 openml
 mysql-connector-python
 sqlalchemy
+skl2onnx
+onnx
+onnxruntime

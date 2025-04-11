@@ -1,58 +1,35 @@
 from .DatabaseManager import *
 from sqlalchemy import  Column, Integer, String, LargeBinary
 from sqlalchemy.orm import relationship
-import io
-import pandas as pd
 from ..Relations import Dataset
+
 
 class DatasetDTO(Base):
     __tablename__ = 'dataset' 
 
     idDataset = Column(Integer, primary_key=True, autoincrement=True)
     targetFeature = Column(String(45), nullable=True)
+    name = Column(String(45), nullable=True)
     data = Column(LargeBinary, nullable=True)
     tasks = relationship('TaskDTO', back_populates='dataset') 
 
-    def __init__(self, targetFeature=None, data=None, df=None, idDataset=None):
+    def __init__(self, targetFeature=None, data=None, idDataset=None, name= None, dataset = None):
         self.idDataset = idDataset
         self.targetFeature = targetFeature
         self.data = data
-        self.df = df
-        '''
-        self.idDataset = kwargs.get('idDataset',None)
-        self.targetFeature = kwargs.get('targetFeature',None)
-        self.data = kwargs.get('data',None) 
-        self.df = kwargs.get('df',None) 
-        self.tasks = kwargs.get('tasks',None)
-        
-        '''
+        self.name = name
 
-    def df_to_data(self):
-        if self.df is not None:
-            buffer = io.BytesIO()
-            self.df.to_parquet(buffer, engine='pyarrow')
-            self.data = buffer.getvalue()
-
-    def data_to_df(self):
-        if self.data is not None:
-            buffer = io.BytesIO(self.data)
-            self.df = pd.read_parquet(buffer, engine='pyarrow')
-
-    @property
-    def dataset(self):
-        return Dataset(**self.__dict__)
-
-    @property
-    def df(self):
-        return self.__dict__["df"]
-
-    @df.setter
-    def df(self, novo_valor):
-        self.__dict__["df"] = novo_valor
-        self.df_to_data()
+        if dataset is not None:
+            self.targetFeature = dataset.targetFeature
+            self.data = dataset.data
+            self.name = dataset.name
 
     def get_secondary_key(self):
         return 'name'
+    
+    @property
+    def dataset(self):
+        return Dataset(**self.__dict__)
 
 
 class DatasetRepository(GenericRepository):
