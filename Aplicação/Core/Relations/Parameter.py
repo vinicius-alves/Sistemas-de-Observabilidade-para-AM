@@ -6,5 +6,5 @@ class Parameter():
         self.value = value
 
     def process_type(self):
-        self.type = self.value.__class__.__name__
+        self.valueType = self.value.__class__.__name__
         self.value = str(self.value)

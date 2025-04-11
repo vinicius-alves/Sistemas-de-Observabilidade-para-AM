@@ -1,27 +1,28 @@
 from .Parameter import Parameter
+from .ParameterType import ParameterType
 
 class Run():
 
-    def execute(self, task, model, parameters = None):
+    def execute(self, task, model, taskParameters = None, modelParameters = None):
         self.task = task
-        self.model = model
+        self.model = model 
 
-        modelParameters = parameters
-        taskParameters = parameters
+        self.parameters = []
         
         self.model.set_params(modelParameters)
         self.measures = task.execute(model = model,  parameters = taskParameters)
-        self.modelParameters = self.model.get_params()
+        self.parameters += self.model.get_params()
 
         if type(taskParameters) == dict:
 
             taskParameters_list = []
             for key, value in taskParameters.items():
                 taskParameter = Parameter(name = key, value = value)
+                taskParameter.parameterType = ParameterType(idParameterType = 2,name = 'Task')
                 taskParameter.process_type()
                 taskParameters_list.append(taskParameter)
 
-            self.taskParameters = taskParameters_list
+            self.parameters += taskParameters_list
 
         
 

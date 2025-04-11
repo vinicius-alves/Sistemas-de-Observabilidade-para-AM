@@ -1,6 +1,7 @@
 
 from ..Model import Model 
 from ..Parameter import Parameter
+from ..ParameterType import ParameterType
 from sklearn.ensemble import RandomForestClassifier
 
 class RandomForestClassifierModel(Model):
@@ -27,6 +28,7 @@ class RandomForestClassifierModel(Model):
         lst_parameters = []
         for key, value in params.items():
             modelParameter = Parameter(name = key, value = value)
+            modelParameter.parameterType = ParameterType(idParameterType = 1,name = 'Model')
             modelParameter.process_type()
             lst_parameters.append(modelParameter)
         return lst_parameters

@@ -7,7 +7,7 @@ Base = declarative_base()
 class DatabaseManager:
     def __init__(self, db_url):
         self.engine = create_engine(db_url)
-        self.Session = sessionmaker(bind=self.engine)
+        self.Session = sessionmaker(bind=self.engine, autoflush=False)
         Base.metadata.create_all(self.engine)  # Cria tabelas se necessário
 
     def get_session(self):
@@ -30,7 +30,7 @@ class GenericRepository:
 
     def save(self, item):
         """Salva o item no banco se ainda não existir. Se já existir, mescla para evitar conflitos."""
-        item = self.session.merge(item)
+        #item = self.session.merge(item)
         self.session.add(item)
         self.session.commit()
 
