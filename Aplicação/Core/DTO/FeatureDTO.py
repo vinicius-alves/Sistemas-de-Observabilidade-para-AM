@@ -1,5 +1,5 @@
 from .DatabaseManager import *
-from sqlalchemy import  Column, Integer, String
+from sqlalchemy import  Column, Integer, String, DateTime, ForeignKey
 from sqlalchemy.orm import relationship 
 
 
@@ -10,7 +10,9 @@ class FeatureDTO(Base):
     name = Column(String(45), nullable=True)
     value = Column(String(45), nullable=True)
     type = Column(String(45), nullable=True)
-    dataset = relationship('DatasetDTO', back_populates='feature') 
+    timestamp = Column(DateTime, nullable=True)
+    idDataset = Column(Integer, ForeignKey('Dataset.idDataset'), nullable=True)
+    dataset = relationship('DatasetDTO', back_populates='features') 
 
     def __init__(self, value=None, idFeature=None, name= None, type = None):
         self.idFeature = idFeature

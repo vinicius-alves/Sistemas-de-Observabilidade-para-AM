@@ -1,5 +1,5 @@
 from .DatabaseManager import *
-from sqlalchemy import  Column, Integer, String, ForeignKey
+from sqlalchemy import  Column, Integer, String, ForeignKey,DateTime
 from sqlalchemy.orm import relationship 
 
 class PredictionDTO(Base):
@@ -9,9 +9,10 @@ class PredictionDTO(Base):
     name = Column(String(45), nullable=True)
     value = Column(String(45), nullable=True)
     type = Column(String(45), nullable=True)
+    timestamp = Column(DateTime, nullable=True)
     idRun = Column(Integer, ForeignKey('Run.idRun'), nullable=True)
 
-    run = relationship('RunDTO', back_populates='measures')
+    run = relationship('RunDTO', back_populates='predictions')
      
 
     def __init__(self, value=None, idPrediction=None, name= None, type = None):

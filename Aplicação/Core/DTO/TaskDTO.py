@@ -8,7 +8,7 @@ class TaskDTO(Base):
     idTask = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(255), nullable=True)
     idTaskType = Column(Integer, ForeignKey('TaskType.idTaskType'), nullable=True)
-    idDataset = Column(Integer, ForeignKey('dataset.idDataset'), nullable=True)  
+    idDataset = Column(Integer, ForeignKey('Dataset.idDataset'), nullable=True)  
 
     dataset = relationship('DatasetDTO', back_populates='tasks', cascade="all")  
     taskType = relationship('TaskTypeDTO', back_populates='tasks', cascade="all")

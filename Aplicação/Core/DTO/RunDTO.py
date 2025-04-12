@@ -9,11 +9,13 @@ class RunDTO(Base):
     idRun = Column(Integer, primary_key=True, autoincrement=True)
     idTask = Column(Integer, ForeignKey('Task.idTask'), nullable=True)
     idModel = Column(Integer, ForeignKey('Model.idModel'), nullable=True)
+    idProject = Column(Integer, ForeignKey('Project.idProject'), nullable=True)
     createdTimestamp = Column(DateTime, default=datetime.now())  
      
     measures = relationship('MeasureDTO', back_populates='run', cascade="all") 
     predictions = relationship('PredictionDTO', back_populates='run', cascade="all") 
     model = relationship('ModelDTO', back_populates='runs', cascade="all") 
+    project = relationship('ProjectDTO', back_populates='runs', cascade="all") 
     parameters = relationship('ParameterDTO', back_populates='run', cascade="all")
     task = relationship('TaskDTO', back_populates='runs', cascade="all")
 
