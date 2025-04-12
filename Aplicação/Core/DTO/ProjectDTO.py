@@ -16,6 +16,9 @@ class ProjectDTO(Base):
         self.idProject = idProject
         self.name = name
 
+    def get_secondary_key(self):
+        return 'name'
+
 class ProjectRepository(GenericRepository):
     def __init__(self, session):
         super().__init__(session, ProjectDTO)

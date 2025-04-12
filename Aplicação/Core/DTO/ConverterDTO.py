@@ -28,8 +28,12 @@ class ConverterDTO:
 
         if not(obj.__class__.__module__.startswith('Core.Relations')):
             return obj
-
+        
         obj_dto, repo = self.get_dto_obj(obj)
+
+        item_exists, obj_dto = self.get_if_exists( obj ,obj_dto, repo)
+        if item_exists:
+            return obj_dto
         
         for key in dir(obj):
             if key.startswith("__"): 
@@ -51,17 +55,14 @@ class ConverterDTO:
             else:
                 setattr(obj_dto, key, value_dto)
 
-        item_exists, obj_dto = self.get_if_exists( obj_dto, repo)
-
-        if item_exists:
-            return obj_dto
+        
             
         return obj_dto
 
-    def get_if_exists(self, obj_dto, repo):
+    def get_if_exists(self, obj, obj_dto, repo):
 
         primary_key = obj_dto.__mapper__.primary_key[0].name
-        item_id =  getattr(obj_dto, primary_key, None)
+        item_id =  getattr(obj, primary_key, None) 
 
         if item_id is not None:
             existing_item = repo.get(item_id)
@@ -70,7 +71,7 @@ class ConverterDTO:
           
         if hasattr(obj_dto, 'get_secondary_key'):
             secondary_key = obj_dto.get_secondary_key()
-            item_id =  getattr(obj_dto, secondary_key, None)
+            item_id =  getattr(obj, secondary_key, None) 
 
             if item_id is not None:
                 existing_item = repo.filter_by({secondary_key: item_id}).first()

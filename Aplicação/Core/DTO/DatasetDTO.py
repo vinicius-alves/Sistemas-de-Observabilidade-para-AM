@@ -1,7 +1,7 @@
 from .DatabaseManager import *
 from sqlalchemy import  Column, Integer, String, LargeBinary
 from sqlalchemy.orm import relationship
-from ..Relations import Dataset
+from ..Relations import Dataset, Feature
 
 
 class DatasetDTO(Base):
@@ -13,21 +13,22 @@ class DatasetDTO(Base):
     tasks = relationship('TaskDTO', back_populates='dataset') 
     features = relationship('FeatureDTO', back_populates='dataset') 
 
-    def __init__(self, targetFeature=None, data=None, idDataset=None, name= None, dataset = None):
+    def __init__(self, targetFeature=None,  idDataset=None, name= None):
         self.idDataset = idDataset
         self.targetFeature = targetFeature 
         self.name = name
-
-        if dataset is not None:
-            self.targetFeature = dataset.targetFeature 
-            self.name = dataset.name
 
     def get_secondary_key(self):
         return 'name'
     
     @property
     def dataset(self):
-        return Dataset(**self.__dict__)
+        params = self.__dict__.copy()
+        features = []
+        for feature_dto in self.features:
+            features.append(Feature(**feature_dto.__dict__))
+        params['features'] = features
+        return Dataset(**params)
 
 
 class DatasetRepository(GenericRepository):

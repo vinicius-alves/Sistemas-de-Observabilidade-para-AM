@@ -14,11 +14,12 @@ class FeatureDTO(Base):
     idDataset = Column(Integer, ForeignKey('Dataset.idDataset'), nullable=True)
     dataset = relationship('DatasetDTO', back_populates='features') 
 
-    def __init__(self, value=None, idFeature=None, name= None, type = None):
-        self.idFeature = idFeature
-        self.value = value
-        self.name = name
-        self.type = type
+    def __init__(self, **kwargs):
+        self.idFeature = kwargs.get("idFeature", None) 
+        self.value = kwargs.get("value", None)
+        self.name = kwargs.get("name", None)
+        self.type = kwargs.get("type", None)
+        self.timestamp = kwargs.get("timestamp", None)
 
 
 class FeatureRepository(GenericRepository):

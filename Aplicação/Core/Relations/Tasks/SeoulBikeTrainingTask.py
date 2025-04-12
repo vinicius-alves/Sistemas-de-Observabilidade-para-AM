@@ -7,7 +7,7 @@ class SeoulBikeTrainingTask(Task):
 
    
     def __init__(self,   dataset= None):
-        self.taskType = TaskType( idTaskType = 2,type = 'Regression')
+        self.taskType = TaskType( idTaskType = 2,type = 'Training')
         self.name = type(self).__name__
         self.dataset = dataset
         measureProcedure = RMSEMeasureProcedure()
@@ -23,9 +23,9 @@ class SeoulBikeTrainingTask(Task):
 
         if type(parameters) == dict:
             if 'end_date' in parameters.keys():
-                df = df[df['date']<parameters['end_date']].reset_index(drop = True)
+                df = df[df['timestamp']<parameters['end_date']].reset_index(drop = True)
 
-        df = df.drop(columns = ['date'], errors = 'ignore')
+        df = df.drop(columns = ['timestamp'], errors = 'ignore')
 
         y = df[targetFeature]
         X = df.drop(columns=[targetFeature])

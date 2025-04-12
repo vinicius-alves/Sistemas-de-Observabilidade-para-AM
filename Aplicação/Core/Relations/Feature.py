@@ -1,8 +1,8 @@
 
 class Feature():
    
-    def __init__(self, value=None, name= None, type = None , timestamp = None):
-        self.value = value
-        self.name = name
-        self.type = type
-        self.timestamp = timestamp
+    def __init__(self, **kwargs):
+        self.value = kwargs.get("value", None)
+        self.name = kwargs.get("name", None)
+        self.type = kwargs.get("type", None)
+        self.timestamp = kwargs.get("timestamp", None)
