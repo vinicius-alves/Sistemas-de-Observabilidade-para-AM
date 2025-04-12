@@ -5,13 +5,14 @@ from ..Relations import Dataset
 
 
 class DatasetDTO(Base):
-    __tablename__ = 'dataset' 
+    __tablename__ = 'Dataset' 
 
     idDataset = Column(Integer, primary_key=True, autoincrement=True)
     targetFeature = Column(String(45), nullable=True)
     name = Column(String(45), nullable=True)
     data = Column(LargeBinary, nullable=True)
     tasks = relationship('TaskDTO', back_populates='dataset') 
+    features = relationship('FeatureDTO', back_populates='dataset') 
 
     def __init__(self, targetFeature=None, data=None, idDataset=None, name= None, dataset = None):
         self.idDataset = idDataset

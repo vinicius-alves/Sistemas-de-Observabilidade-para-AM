@@ -1,5 +1,5 @@
 from .DatabaseManager import *
-from sqlalchemy import  Column, Integer, String, ForeignKey
+from sqlalchemy import  Column, Integer, String, ForeignKey, Float
 from sqlalchemy.orm import relationship
 
 class MeasureDTO(Base):
@@ -7,7 +7,7 @@ class MeasureDTO(Base):
 
     idMeasure = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(1000), nullable=True)
-    value = Column(Integer, nullable=True)
+    value = Column(Float, nullable=True)
     idRun = Column(Integer, ForeignKey('Run.idRun'), nullable=True)
     idEvaluationProcedure = Column(Integer, ForeignKey('EvaluationProcedure.idEvaluationProcedure'), nullable=True)
 
