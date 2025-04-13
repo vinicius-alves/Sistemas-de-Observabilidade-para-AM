@@ -2,6 +2,7 @@
 from ..Model import Model 
 from ..Parameter import Parameter
 from ..ParameterType import ParameterType
+from ..FeatureImportance import FeatureImportance
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
@@ -10,18 +11,13 @@ import sklearn
 
 class OHEDecisionTreeRegressor(Model):
 
-    def __init__(self, categorical_cols = []): 
+    def __init__(self): 
         self.name = type(self).__name__
         self.version = sklearn.__version__
-        self.categorical_cols = categorical_cols
-        self.create_pipeline()
-
-    def set_categorical_cols(self,categorical_cols):
-        self.categorical_cols = categorical_cols
-        self.create_pipeline()
     
-    def create_pipeline(self):
-        # Pré-processamento com OneHotEncoder
+    def create_pipeline(self,X):
+        self.categorical_cols = X.select_dtypes(include=["category", "object"]).columns.tolist()
+        self.numeric_cols = X.select_dtypes(include=["number"]).columns.tolist()
         preprocessor = ColumnTransformer(
             transformers=[
                 ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), self.categorical_cols)
@@ -35,9 +31,24 @@ class OHEDecisionTreeRegressor(Model):
             ("regressor", DecisionTreeRegressor(random_state=42))
         ])
 
+    def process_feature_importances(self): 
+        ohe = self.model.named_steps["preprocessor"].named_transformers_["cat"] 
+        ohe_feature_names = ohe.get_feature_names_out(self.categorical_cols)
+ 
+        feature_names = list(ohe_feature_names) + self.numeric_cols
+ 
+        importances = self.model.named_steps["regressor"].feature_importances_
+
+        self.featureImportances = []
+        for feature, importance in zip(feature_names,importances):
+            record = FeatureImportance(feature=feature, importance= importance)
+            self.featureImportances.append(record)
+         
     
     def fit(self,X,y):
+        self.create_pipeline(X)
         self.model.fit(X,y)
+        self.process_feature_importances()
         self.serialize()
     
     def predict(self,X):

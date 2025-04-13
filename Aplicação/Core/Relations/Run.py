@@ -11,7 +11,14 @@ class Run():
         
         if type(modelParameters) == dict:
             self.model.set_params(modelParameters)
-        self.measures = task.execute(model = model,  parameters = taskParameters)
+        predictions , measures= task.execute(model = model,  parameters = taskParameters)
+
+        if predictions:
+            self.predictions = predictions
+
+        if measures:
+            self.measures= measures
+
         self.parameters += self.model.get_params()
 
         if type(taskParameters) == dict:

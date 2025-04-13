@@ -1,6 +1,8 @@
 from ..Task import *
 from ..TaskType import * 
 from ..MeasureProcedures import RMSEMeasureProcedure
+from ..Prediction import *
+from tqdm.notebook import tqdm
 
 class SeoulBikePredictionTask(Task):
 
@@ -24,17 +26,18 @@ class SeoulBikePredictionTask(Task):
             if 'start_date' in parameters.keys():
                 df = df[df['timestamp']>=parameters['start_date']].reset_index(drop = True)
 
-        df = df.drop(columns = ['timestamp'], errors = 'ignore')
+        df_vars = df.drop(columns = ['timestamp'], errors = 'ignore')
 
-        y = df[targetFeature]
-        X = df.drop(columns=[targetFeature])
+        y = df_vars[targetFeature]
+        X = df_vars.drop(columns=[targetFeature])
 
         y_pred = model.predict(X)
-        measures = []
-        for measureProcedure in self.measureProcedures:
-            measure = measureProcedure.evaluate(y_truth = y, y_pred = y_pred)
-            measures.append(measure)
+        df['value'] = y_pred
+        df['type'] = 'float'
 
-        return measures
+        predictions = df.apply(lambda x : Prediction(**x), axis = 1).to_list()
+ 
+
+        return predictions, None
     
     

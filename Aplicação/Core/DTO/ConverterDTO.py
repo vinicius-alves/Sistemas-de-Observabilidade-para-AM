@@ -41,7 +41,11 @@ class ConverterDTO:
             try:
                 value = getattr(obj, key)
             except AttributeError:
-                print('error - ',key, value)  
+                print('error - ',key, value)    
+            
+            if value is None:
+                continue
+
             value_dto = value
             if value.__class__.__module__.startswith('Core.Relations'):
                 value_dto = self.converter_object_to_dto(value)

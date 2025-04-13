@@ -21,6 +21,9 @@ class Model():
     def get_params(self):
         raise NotImplementedError('Classe abstrata')
     
+    def feature_importances(self):
+        raise NotImplementedError('Classe abstrata')
+    
     def serialize(self):
         if self.model is not None:
             buffer = io.BytesIO()
