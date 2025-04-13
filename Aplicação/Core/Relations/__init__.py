@@ -11,7 +11,5 @@ from .EvaluationProcedure import *
 from .Parameter import *
 from .ParameterType import *
 from .FeatureImportance import *
-from .Feature import *
-from .Prediction import *
 from .Project import *
 from .ProjectType import *

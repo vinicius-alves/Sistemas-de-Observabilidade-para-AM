@@ -1,11 +1,8 @@
 from ..Task import *
 from ..TaskType import * 
 from ..MeasureProcedures import RMSEMeasureProcedure
-from ..Prediction import *
-from tqdm.notebook import tqdm
 
 class SeoulBikePredictionTask(Task):
-
    
     def __init__(self,   dataset= None):
         self.taskType = TaskType( idTaskType = 2,type = 'Prediction')
@@ -35,7 +32,8 @@ class SeoulBikePredictionTask(Task):
         df['value'] = y_pred
         df['type'] = 'float'
 
-        predictions = df.apply(lambda x : Prediction(**x), axis = 1).to_list()
+        predictions = df[['timestamp','value','type']]
+        predictions['feature'] = targetFeature
  
 
         return predictions, None
