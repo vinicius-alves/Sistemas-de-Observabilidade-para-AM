@@ -12,3 +12,4 @@ from .DatabaseManager import *
 from .ConverterDTO import *
 from .EvaluationProcedureDTO import * 
 from .FeatureImportanceDTO import *
+from .PredictionDTO import *

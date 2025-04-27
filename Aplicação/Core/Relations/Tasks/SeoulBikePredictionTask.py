@@ -1,6 +1,7 @@
 from ..Task import *
 from ..TaskType import * 
 from ..MeasureProcedures import RMSEMeasureProcedure
+from ..Prediction import *
 
 class SeoulBikePredictionTask(Task):
    
@@ -32,8 +33,7 @@ class SeoulBikePredictionTask(Task):
         df['value'] = y_pred
         df['type'] = 'float'
 
-        predictions = df[['timestamp','value','type']]
-        predictions['feature'] = targetFeature
+        predictions = df.apply(lambda x : Prediction(**x), axis = 1).to_list()
  
 
         return predictions, None
