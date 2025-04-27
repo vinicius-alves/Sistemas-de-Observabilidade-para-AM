@@ -34,8 +34,13 @@ class SeoulBikePredictionTask(Task):
         df['type'] = 'float'
 
         predictions = df.apply(lambda x : Prediction(**x), axis = 1).to_list()
+
+        measures = []
+        for measureProcedure in self.measureProcedures:
+            measure = measureProcedure.evaluate(y_truth = y, y_pred = y_pred)
+            measures.append(measure)
  
 
-        return predictions, None
+        return predictions, measures
     
     

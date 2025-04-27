@@ -25,6 +25,7 @@ class DatasetDTO(Base):
     
     def save_data_mongo(self,mongo_db ,df):
         mycol = mongo_db["feature"]
+        mycol.delete_many(self.instructions)
         lst_records = df.to_dict(orient = 'records')
         return mycol.insert_many(lst_records)
     
