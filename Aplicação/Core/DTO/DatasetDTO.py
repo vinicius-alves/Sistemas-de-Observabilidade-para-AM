@@ -59,7 +59,7 @@ class DatasetDTO(Base):
 
         df = pd.DataFrame(list(mongo_db['feature'].find(filter_dic))).drop(columns = '_id')
         df['value'] = df.apply(lambda x : eval(x['type'])(x['value'])  ,axis = 1)
-        df_data = df.pivot_table(index = ['timestamp'], values= ['value'], columns= ['name'], aggfunc='max')
+        df_data = df.pivot_table(index = ['timestamp','nameSpace'], values= ['value'], columns= ['name'], aggfunc='max')
         df_data.columns = [i[1] for i in df_data.columns]
         df_data = df_data.reset_index()
         self.df = pd.DataFrame(df_data.to_dict())

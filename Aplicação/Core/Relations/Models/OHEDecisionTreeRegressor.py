@@ -14,6 +14,7 @@ class OHEDecisionTreeRegressor(Model):
     def __init__(self): 
         self.name = type(self).__name__
         self.version = sklearn.__version__
+        self.nameSpace = None
     
     def create_pipeline(self,X):
         self.categorical_cols = X.select_dtypes(include=["category", "object"]).columns.tolist()
@@ -41,17 +42,23 @@ class OHEDecisionTreeRegressor(Model):
 
         self.featureImportances = []
         for feature, importance in zip(feature_names,importances):
-            record = FeatureImportance(feature=feature, importance= importance)
+            record = FeatureImportance(feature=feature, importance= importance, featureNameSpace= self.nameSpace)
             self.featureImportances.append(record)
          
     
     def fit(self,X,y):
+
+        if 'nameSpace' in X.columns:
+            self.nameSpace = X['nameSpace'][:1].values[0]
+            X = X.drop(columns = ['nameSpace'], errors = 'ignore')
+
         self.create_pipeline(X)
         self.model.fit(X,y)
         self.process_feature_importances()
         self.serialize()
     
     def predict(self,X):
+        X = X.drop(columns = ['nameSpace'], errors = 'ignore')
         return self.model.predict(X)
         
     def predict_proba(self,X):
