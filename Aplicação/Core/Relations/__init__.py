@@ -14,3 +14,4 @@ from .FeatureImportance import *
 from .Project import *
 from .ProjectType import *
 from .Prediction import *
+from .Feature import *

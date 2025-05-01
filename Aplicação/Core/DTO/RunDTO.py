@@ -18,6 +18,7 @@ class RunDTO(Base):
     parameters = relationship('ParameterDTO', back_populates='run', cascade="all")
     predictions = relationship('PredictionDTO', back_populates='run', cascade="all") 
     task = relationship('TaskDTO', back_populates='runs', cascade="all")
+    featureImportances = relationship('FeatureImportanceDTO', back_populates='run')
 
     def __init__(self, idTask = None, idModel = None,  idRun = None):
         self.idRun = idRun

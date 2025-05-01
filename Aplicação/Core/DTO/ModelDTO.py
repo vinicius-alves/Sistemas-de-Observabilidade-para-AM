@@ -11,7 +11,6 @@ class ModelDTO(Base):
     object = Column(LargeBinary, nullable=True)
 
     runs = relationship('RunDTO', back_populates='model')
-    featureImportances = relationship('FeatureImportanceDTO', back_populates='model')
 
     def __init__(self, name = None, version = None, model = None, object = None, idModel = None):
         self.idModel = idModel

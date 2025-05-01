@@ -7,7 +7,7 @@ class SeoulBikeTrainingTask(Task):
 
    
     def __init__(self,   dataset= None):
-        self.taskType = TaskType( idTaskType = 2,type = 'Training')
+        self.taskType = TaskType( idTaskType = 1,type = 'Training')
         self.name = type(self).__name__
         self.dataset = dataset
         measureProcedure = RMSEMeasureProcedure()

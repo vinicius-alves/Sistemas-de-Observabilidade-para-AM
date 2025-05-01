@@ -13,3 +13,4 @@ from .ConverterDTO import *
 from .EvaluationProcedureDTO import * 
 from .FeatureImportanceDTO import *
 from .PredictionDTO import *
+from .FeatureDTO import *

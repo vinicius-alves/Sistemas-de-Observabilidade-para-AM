@@ -32,5 +32,8 @@ class Run():
 
             self.parameters += task_parameters_list
 
+        if task.taskType.type == 'Training':
+            self.featureImportances = self.model.featureImportances
+
         
 
