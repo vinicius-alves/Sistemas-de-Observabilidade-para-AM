@@ -35,8 +35,6 @@ class GenericRepository:
         return self.session.query(self.dto_class).filter_by(**filters) 
 
     def save(self, item):
-        """Salva o item no banco se ainda não existir. Se já existir, mescla para evitar conflitos."""
-        #item = self.session.merge(item)
         self.session.add(item)
         self.session.commit()
 

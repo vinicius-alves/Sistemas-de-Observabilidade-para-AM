@@ -4,7 +4,6 @@ from sqlalchemy.orm import relationship
 from ..Relations import Dataset
 import pandas as pd
 from .FeatureDTO import FeatureDTO
-from .FeatureNameSpaceDTO import FeatureNameSpaceDTO
 
 
 class DatasetDTO(Base):
@@ -25,16 +24,16 @@ class DatasetDTO(Base):
     def get_secondary_key(self):
         return ['name']
     
-    def save_data_mongo(self,mongo_db ,df, nameSpace):
-        mycol = mongo_db["feature"] 
-        mycol.delete_many({'nameSpace':nameSpace})
-        lst_records = df.to_dict(orient = 'records')
-
-        lst_features = df['name'].drop_duplicates().to_list()
-        nameSpaceDTO =  FeatureNameSpaceDTO(name = nameSpace)
+    def process_feature_list(self, lst_features, name_space):
         for feature in lst_features:
-            self.features.append(FeatureDTO(name = feature, nameSpace=nameSpaceDTO))
+            self.features.append(FeatureDTO(name = feature, nameSpace=name_space))
 
+    
+    def save_data_mongo(self,mongo_db ,df, name_space):
+        mycol = mongo_db["feature"] 
+        mycol.delete_many({'idFeatureNameSpace':name_space.idFeatureNameSpace})
+        df['idFeatureNameSpace'] = name_space.idFeatureNameSpace
+        lst_records = df.to_dict(orient = 'records')
         return mycol.insert_many(lst_records)
     
     def load_data_from_mongo(self, mongo_db):
@@ -45,7 +44,7 @@ class DatasetDTO(Base):
         filter_dic = {'$or': []}
 
         for feature in self.features:
-            filter_dic['$or'].append({'name': feature.name, 'nameSpace':feature.nameSpace.name})
+            filter_dic['$or'].append({'name': feature.name, 'idFeatureNameSpace':feature.nameSpace.idFeatureNameSpace})
 
         if self.startTimestamp or self.endTimestamp:
             filter_dic['timestamp'] = {}
@@ -58,8 +57,8 @@ class DatasetDTO(Base):
 
         df = pd.DataFrame(list(mongo_db['feature'].find(filter_dic))).drop(columns = '_id')
         df['value'] = df.apply(lambda x : eval(x['type'])(x['value'])  ,axis = 1)
-        df['name'] = df['nameSpace']+ '__'+ df['name']
-        df.drop(columns = ['nameSpace'], inplace=True)
+        df['name'] = df['idFeatureNameSpace'].astype('string')+ '__'+ df['name']
+        df.drop(columns = ['idFeatureNameSpace'], inplace=True)
         df_data = df.pivot_table(index = ['timestamp'], values= ['value'], columns= ['name'], aggfunc='max')
         df_data.columns = [i[1] for i in df_data.columns]
         df_data = df_data.reset_index()
