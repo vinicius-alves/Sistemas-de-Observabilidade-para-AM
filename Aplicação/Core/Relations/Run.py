@@ -11,6 +11,8 @@ class Run():
     def execute(self,  task_parameters = None, model_parameters = None):
        
         self.parameters = []
+        target_feature_name = self.project.targetFeature.get_full_name()
+        self.task.set_target_feature_name(target_feature_name = target_feature_name)
         
         if type(model_parameters) == dict:
             self.model.set_params(model_parameters)
@@ -36,7 +38,7 @@ class Run():
             self.parameters += task_parameters_list
 
         if self.task.taskType.type == 'Training':
-            self.featureImportances = self.model.featureImportances
+            self.featureImportances = self.model.feature_importances()
 
         
 

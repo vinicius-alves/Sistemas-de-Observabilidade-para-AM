@@ -5,7 +5,7 @@ from ..Prediction import *
 
 class SeoulBikePredictionTask(Task):
    
-    def __init__(self,   dataset= None):
+    def __init__(self,   dataset= None ):
         self.taskType = TaskType( idTaskType = 2,type = 'Prediction')
         self.name = type(self).__name__
         self.dataset = dataset
@@ -16,7 +16,6 @@ class SeoulBikePredictionTask(Task):
     def execute(self, model, parameters):
 
         df = self.dataset.df
-        targetFeature = self.dataset.targetFeature  
 
         if type(parameters) == dict:
             if 'end_date' in parameters.keys():
@@ -26,8 +25,8 @@ class SeoulBikePredictionTask(Task):
 
         df_vars = df.drop(columns = ['timestamp'], errors = 'ignore')
 
-        y = df_vars[targetFeature]
-        X = df_vars.drop(columns=[targetFeature])
+        y = df_vars[self.target_feature_name]
+        X = df_vars.drop(columns=[self.target_feature_name])
 
         y_pred = model.predict(X)
         df['value'] = y_pred

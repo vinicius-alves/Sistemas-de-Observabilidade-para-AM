@@ -19,12 +19,7 @@ class ModelDTO(Base):
         self.object = object
         self.model = model
 
-    #def get_secondary_key(self):
-    #    return 'name'
-    
 
-
-# 🔹 Repositório específico para DatasetDTO (herda de GenericRepository)
 class ModelRepository(GenericRepository):
     def __init__(self, session):
         super().__init__(session, ModelDTO)

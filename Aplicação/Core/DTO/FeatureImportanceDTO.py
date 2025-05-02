@@ -1,5 +1,5 @@
 from .DatabaseManager import *
-from sqlalchemy import  Column, Integer, String, ForeignKey
+from sqlalchemy import  Column, Integer, String, ForeignKey, Float
 from sqlalchemy.orm import relationship 
 
 
@@ -7,18 +7,18 @@ class FeatureImportanceDTO(Base):
     __tablename__ = 'FeatureImportance' 
 
     idFeatureImportance = Column(Integer, primary_key=True, autoincrement=True)
-    feature = Column(String(45), nullable=True)
-    featureNameSpace = Column(String(45), nullable=True)
-    importance = Column(String(45), nullable=True)
-
+    importance = Column(Float, nullable=True)
     idRun = Column(Integer, ForeignKey('Run.idRun'), nullable=True)
-    run = relationship('RunDTO', back_populates='featureImportances') 
+    idFeature = Column(Integer, ForeignKey('Feature.idFeature'), nullable=True)
 
-    def __init__(self, importance=None, idFeatureImportance=None, feature= None, featureNameSpace = None):
+    run = relationship('RunDTO', back_populates='featureImportances') 
+    feature = relationship('FeatureDTO', back_populates='featureImportances')
+
+    def __init__(self, importance=None, idFeatureImportance=None, idFeature= None, feature = None):
         self.idFeatureImportance = idFeatureImportance
         self.importance = importance
-        self.feature = feature
-        self.featureNameSpace = featureNameSpace
+        self.idFeature = idFeature
+        self.feature= feature
 
 
 class FeatureImportanceRepository(GenericRepository):

@@ -74,13 +74,20 @@ class ConverterDTO:
                 return True, existing_item
           
         if hasattr(obj_dto, 'get_secondary_key'):
-            secondary_key = obj_dto.get_secondary_key()
-            item_id =  getattr(obj, secondary_key, None) 
+            lst_secondary_key = obj_dto.get_secondary_key()
+            dict_search = {}
+            if not(type(lst_secondary_key) == list):
+                return False, obj_dto
 
-            if item_id is not None:
-                existing_item = repo.filter_by({secondary_key: item_id}).first()
-                if existing_item:
-                    return True, existing_item
-
+            for key in lst_secondary_key:
+                item_id =  getattr(obj, key, None) 
+                if item_id is None:
+                    return False, obj_dto
+                dict_search[key] = item_id
+            
+            existing_item = repo.filter_by(dict_search).first()
+            if existing_item:
+                return True, existing_item
             
         return False, obj_dto
+

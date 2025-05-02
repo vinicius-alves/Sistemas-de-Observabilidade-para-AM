@@ -13,11 +13,9 @@ class SeoulBikeTrainingTask(Task):
         measureProcedure = RMSEMeasureProcedure()
         self.measureProcedures = [measureProcedure]
 
-
     def execute(self, model, parameters):
 
-        df = self.dataset.df
-        targetFeature = self.dataset.targetFeature  
+        df = self.dataset.df 
 
         if type(parameters) == dict:
             if 'end_date' in parameters.keys():
@@ -25,8 +23,8 @@ class SeoulBikeTrainingTask(Task):
 
         df = df.drop(columns = ['timestamp'], errors = 'ignore')
 
-        y = df[targetFeature]
-        X = df.drop(columns=[targetFeature])
+        y = df[self.target_feature_name]
+        X = df.drop(columns=[self.target_feature_name])
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 

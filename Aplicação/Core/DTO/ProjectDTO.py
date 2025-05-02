@@ -8,16 +8,19 @@ class ProjectDTO(Base):
     idProject = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(255), nullable=False) 
     idProjectType = Column(Integer, ForeignKey('ProjectType.idProjectType'), nullable=False)
+    idTargetFeature = Column(Integer, ForeignKey('Feature.idFeature'), nullable=False)
 
     runs = relationship('RunDTO', back_populates='project')
     projectType = relationship('ProjectTypeDTO', back_populates='projects')
+    targetFeature = relationship('FeatureDTO', back_populates='projects')
 
-    def __init__(self, idProject = None, name = None):
+    def __init__(self, idProject = None, name = None, idTargetFeature = None):
         self.idProject = idProject
         self.name = name
+        self.idTargetFeature = idTargetFeature
 
     def get_secondary_key(self):
-        return 'name'
+        return ['name']
 
 class ProjectRepository(GenericRepository):
     def __init__(self, session):

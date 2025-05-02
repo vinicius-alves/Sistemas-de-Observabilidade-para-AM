@@ -21,7 +21,7 @@ class TaskDTO(Base):
         self.idDataset = idDataset
 
     def get_secondary_key(self):
-        return 'name'
+        return ['name']
     
 
 class TaskRepository(GenericRepository):

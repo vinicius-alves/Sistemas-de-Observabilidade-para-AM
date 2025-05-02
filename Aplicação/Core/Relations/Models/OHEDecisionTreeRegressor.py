@@ -3,6 +3,8 @@ from ..Model import Model
 from ..Parameter import Parameter
 from ..ParameterType import ParameterType
 from ..FeatureImportance import FeatureImportance
+from ..Feature import Feature
+from ..FeatureNameSpace import FeatureNameSpace
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
@@ -32,33 +34,30 @@ class OHEDecisionTreeRegressor(Model):
             ("regressor", DecisionTreeRegressor(random_state=42))
         ])
 
-    def process_feature_importances(self): 
+    def feature_importances(self): 
         ohe = self.model.named_steps["preprocessor"].named_transformers_["cat"] 
         ohe_feature_names = ohe.get_feature_names_out(self.categorical_cols)
  
         feature_names = list(ohe_feature_names) + self.numeric_cols
  
         importances = self.model.named_steps["regressor"].feature_importances_
-
-        self.featureImportances = []
-        for feature, importance in zip(feature_names,importances):
-            record = FeatureImportance(feature=feature, importance= importance, featureNameSpace= self.nameSpace)
-            self.featureImportances.append(record)
+        feature_importances = []
+        for feature_name_raw, importance in zip(feature_names,importances):
+            feature_name = feature_name_raw.split('__')[0]
+            feature_name_space = '__'.join(feature_name_raw.split('__')[1:])
+            featureNameSpace = FeatureNameSpace(name = feature_name_space)
+            feature = Feature(name = feature_name, nameSpace = featureNameSpace)
+            record = FeatureImportance(feature=feature, importance= importance)
+            feature_importances.append(record)
+        return feature_importances
          
     
     def fit(self,X,y):
-
-        if 'nameSpace' in X.columns:
-            self.nameSpace = X['nameSpace'][:1].values[0]
-            X = X.drop(columns = ['nameSpace'], errors = 'ignore')
-
         self.create_pipeline(X)
         self.model.fit(X,y)
-        self.process_feature_importances()
         self.serialize()
     
     def predict(self,X):
-        X = X.drop(columns = ['nameSpace'], errors = 'ignore')
         return self.model.predict(X)
         
     def predict_proba(self,X):

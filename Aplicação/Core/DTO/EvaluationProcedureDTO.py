@@ -16,7 +16,7 @@ class EvaluationProcedureDTO(Base):
         self.object = object
 
     def get_secondary_key(self):
-        return 'name'
+        return ['name']
   
 class EvaluationProcedureRepository(GenericRepository):
     def __init__(self, session):

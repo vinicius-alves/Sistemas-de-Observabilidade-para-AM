@@ -14,3 +14,4 @@ from .EvaluationProcedureDTO import *
 from .FeatureImportanceDTO import *
 from .PredictionDTO import *
 from .FeatureDTO import *
+from .FeatureNameSpaceDTO import *

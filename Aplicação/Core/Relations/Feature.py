@@ -5,4 +5,7 @@ class Feature():
         self.name = name
         self.nameSpace = nameSpace
 
+    def get_full_name(self):
+        return self.nameSpace.name +'__'+self.name
+
  
