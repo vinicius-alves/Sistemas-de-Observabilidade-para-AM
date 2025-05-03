@@ -15,3 +15,4 @@ from .FeatureImportanceDTO import *
 from .PredictionDTO import *
 from .FeatureDTO import *
 from .FeatureNameSpaceDTO import *
+from .FeatureDatasetDTO import *

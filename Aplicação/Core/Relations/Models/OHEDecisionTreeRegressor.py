@@ -42,10 +42,8 @@ class OHEDecisionTreeRegressor(Model):
  
         importances = self.model.named_steps["regressor"].feature_importances_
         feature_importances = []
-        for feature_name_raw, importance in zip(feature_names,importances):
-            idFeatureNameSpace = int(feature_name_raw.split('__')[0])
-            feature_name = '__'.join(feature_name_raw.split('__')[1:])
-            featureNameSpace = FeatureNameSpace(idFeatureNameSpace = idFeatureNameSpace)
+        featureNameSpace = FeatureNameSpace()
+        for feature_name, importance in zip(feature_names,importances):
             feature = Feature(name = feature_name, nameSpace = featureNameSpace)
             record = FeatureImportance(feature=feature, importance= importance)
             feature_importances.append(record)

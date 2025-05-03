@@ -14,10 +14,12 @@ class ProjectDTO(Base):
     projectType = relationship('ProjectTypeDTO', back_populates='projects')
     targetFeature = relationship('FeatureDTO', back_populates='projects')
 
-    def __init__(self, idProject = None, name = None, idTargetFeature = None):
+    def __init__(self, idProject = None, name = None, idTargetFeature = None, projectType= None, targetFeature = None):
         self.idProject = idProject
         self.name = name
         self.idTargetFeature = idTargetFeature
+        self.projectType = projectType
+        self.targetFeature = targetFeature
 
     def get_secondary_key(self):
         return ['name']

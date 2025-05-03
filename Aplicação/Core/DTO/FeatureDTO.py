@@ -6,14 +6,13 @@ class FeatureDTO(Base):
     __tablename__ = 'Feature' 
 
     idFeature = Column(Integer, primary_key=True, autoincrement=True) 
-    idDataset = Column(Integer, ForeignKey('Dataset.idDataset'), nullable=True) 
     idFeatureNameSpace = Column(Integer, ForeignKey('FeatureNameSpace.idFeatureNameSpace'), nullable=True)
     name = Column(String(45), nullable=True) 
 
     nameSpace = relationship('FeatureNameSpaceDTO', back_populates='features') 
-    dataset = relationship('DatasetDTO', back_populates='features') 
     projects = relationship('ProjectDTO', back_populates='targetFeature')
     featureImportances = relationship('FeatureImportanceDTO', back_populates='feature')
+    featureDatasets = relationship('FeatureDatasetDTO', back_populates='feature')
 
     def __init__(self,  idFeature = None, name = None, nameSpace = None):
         self.idFeature = idFeature 
@@ -22,6 +21,9 @@ class FeatureDTO(Base):
 
     def get_secondary_key(self):
         return ['idFeatureNameSpace','name']
+    
+    def get_full_name(self):
+        return str(self.nameSpace.name) +'__'+self.name
 
 
 class FeatureRepository(GenericRepository):

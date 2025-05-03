@@ -4,6 +4,7 @@ from sqlalchemy.orm import relationship
 from ..Relations import Dataset
 import pandas as pd
 from .FeatureDTO import FeatureDTO
+from .FeatureDatasetDTO import FeatureDatasetDTO
 
 
 class DatasetDTO(Base):
@@ -14,7 +15,7 @@ class DatasetDTO(Base):
     startTimestamp = Column(DateTime, nullable=True) 
     endTimestamp = Column(DateTime, nullable=True) 
     tasks = relationship('TaskDTO', back_populates='dataset') 
-    features = relationship('FeatureDTO', back_populates='dataset')
+    featureDatasets = relationship('FeatureDatasetDTO', back_populates='dataset')
 
     def __init__(self,  idDataset=None, name= None, instructions = None):
         self.idDataset = idDataset
@@ -26,25 +27,48 @@ class DatasetDTO(Base):
     
     def process_feature_list(self, lst_features, name_space):
         for feature in lst_features:
-            self.features.append(FeatureDTO(name = feature, nameSpace=name_space))
+            featureDatasetDTO =FeatureDatasetDTO()
+            featureDatasetDTO.feature = FeatureDTO(name = feature, nameSpace=name_space)
+            self.featureDatasets.append(featureDatasetDTO)
 
-    
-    def save_data_mongo(self,mongo_db ,df, name_space):
+    def save_data_mongo(self,mongo_db ,df):
         mycol = mongo_db["feature"] 
-        mycol.delete_many({'idFeatureNameSpace':name_space.idFeatureNameSpace})
-        df['idFeatureNameSpace'] = name_space.idFeatureNameSpace
+        filter_dic = self.get_mongo_query()
+        mycol.delete_many(filter_dic)
+
+        feature_map = {}
+        for feature in self.get_all_features():
+            feature_map[feature.name] = feature.idFeature
+        
+        df['idFeature'] = df['name'].map(lambda x : feature_map[x])
+        df.drop(columns = ['name'], inplace = True)
         lst_records = df.to_dict(orient = 'records')
         return mycol.insert_many(lst_records)
     
-    def load_data_from_mongo(self, mongo_db):
 
-        if len(self.features) == 0:
+    def get_all_features(self):
+        features = []
+        if len(self.featureDatasets) == 0:
+            return features
+        for featureDataset in self.featureDatasets:
+            features.append(featureDataset.feature)
+        return features
+    
+    def get_feature_by_name(self, name):
+        for feature in self.get_all_features():
+            if feature.name == name:
+                return feature
+    
+
+    def get_mongo_query(self):
+        if len(self.featureDatasets) == 0:
             return
         
         filter_dic = {'$or': []}
 
-        for feature in self.features:
-            filter_dic['$or'].append({'name': feature.name, 'idFeatureNameSpace':feature.nameSpace.idFeatureNameSpace})
+        features = self.get_all_features()
+        for feature in features:
+            filter_dic['$or'].append({'idFeature':feature.idFeature})
 
         if self.startTimestamp or self.endTimestamp:
             filter_dic['timestamp'] = {}
@@ -55,10 +79,21 @@ class DatasetDTO(Base):
             if self.endTimestamp:
                 filter_dic['timestamp']['$lte'] = "ISODate(\'"+str(self.endTimestamp)+  "\')"
 
+        return filter_dic
+    
+    def load_data_from_mongo(self, mongo_db):
+
+        filter_dic = self.get_mongo_query()
         df = pd.DataFrame(list(mongo_db['feature'].find(filter_dic))).drop(columns = '_id')
         df['value'] = df.apply(lambda x : eval(x['type'])(x['value'])  ,axis = 1)
-        df['name'] = df['idFeatureNameSpace'].astype('string')+ '__'+ df['name']
-        df.drop(columns = ['idFeatureNameSpace'], inplace=True)
+
+        feature_map = {}
+        for feature in self.get_all_features():
+            feature_map[feature.idFeature] = feature.get_full_name()
+
+        df['name'] = df['idFeature'].map(lambda x : feature_map[x])  
+        df.drop(columns = ['idFeature'], inplace = True)  
+
         df_data = df.pivot_table(index = ['timestamp'], values= ['value'], columns= ['name'], aggfunc='max')
         df_data.columns = [i[1] for i in df_data.columns]
         df_data = df_data.reset_index()
