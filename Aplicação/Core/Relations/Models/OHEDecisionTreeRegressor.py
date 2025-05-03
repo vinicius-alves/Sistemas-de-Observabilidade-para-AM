@@ -4,7 +4,6 @@ from ..Parameter import Parameter
 from ..ParameterType import ParameterType
 from ..FeatureImportance import FeatureImportance
 from ..Feature import Feature
-from ..FeatureNameSpace import FeatureNameSpace
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
@@ -42,9 +41,8 @@ class OHEDecisionTreeRegressor(Model):
  
         importances = self.model.named_steps["regressor"].feature_importances_
         feature_importances = []
-        featureNameSpace = FeatureNameSpace()
         for feature_name, importance in zip(feature_names,importances):
-            feature = Feature(name = feature_name, nameSpace = featureNameSpace)
+            feature = Feature(name = feature_name)
             record = FeatureImportance(feature=feature, importance= importance)
             feature_importances.append(record)
         return feature_importances

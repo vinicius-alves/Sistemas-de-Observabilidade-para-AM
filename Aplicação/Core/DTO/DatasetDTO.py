@@ -5,6 +5,7 @@ from ..Relations import Dataset
 import pandas as pd
 from .FeatureDTO import FeatureDTO
 from .FeatureDatasetDTO import FeatureDatasetDTO
+from .FeatureNameSpaceDTO import FeatureNameSpaceDTO
 
 
 class DatasetDTO(Base):
@@ -26,9 +27,10 @@ class DatasetDTO(Base):
         return ['name']
     
     def process_feature_list(self, lst_features, name_space):
+        name_space_obj =  FeatureNameSpaceDTO(name = name_space)
         for feature in lst_features:
             featureDatasetDTO =FeatureDatasetDTO()
-            featureDatasetDTO.feature = FeatureDTO(name = feature, nameSpace=name_space)
+            featureDatasetDTO.feature = FeatureDTO(name = feature, nameSpace=name_space_obj)
             self.featureDatasets.append(featureDatasetDTO)
 
     def save_data_mongo(self,mongo_db ,df):

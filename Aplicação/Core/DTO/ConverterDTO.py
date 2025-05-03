@@ -58,8 +58,6 @@ class ConverterDTO:
                     getattr(obj_dto_prototype, key).append(item_dto)           
             else:
                 setattr(obj_dto_prototype, key, value_dto)
-
-        
             
         return obj_dto_prototype
 
@@ -81,11 +79,15 @@ class ConverterDTO:
             if not(type(lst_secondary_key) == list):
                 return False, obj_dto_prototype
 
+            all_items_none = True
             for key in lst_secondary_key:
                 item_id =  getattr(obj, key, None) 
-                if item_id is None:
-                    return False, obj_dto_prototype
+                if item_id is not None:
+                    all_items_none = False
                 dict_search[key] = item_id
+
+            if all_items_none:
+                return False, obj_dto_prototype
             
             existing_item = repo.filter_by(dict_search).first()
             if existing_item:
