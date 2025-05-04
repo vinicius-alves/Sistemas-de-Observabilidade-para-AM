@@ -34,7 +34,7 @@ class DatasetDTO(Base):
             self.featureDatasets.append(featureDatasetDTO)
 
     def save_data_mongo(self,mongo_db ,df):
-        mycol = mongo_db["feature"] 
+        mycol = mongo_db["featurevalue"] 
         filter_dic = self.get_mongo_query()
         mycol.delete_many(filter_dic)
 
@@ -86,7 +86,7 @@ class DatasetDTO(Base):
     def load_data_from_mongo(self, mongo_db):
 
         filter_dic = self.get_mongo_query()
-        df = pd.DataFrame(list(mongo_db['feature'].find(filter_dic))).drop(columns = '_id')
+        df = pd.DataFrame(list(mongo_db['featurevalue'].find(filter_dic))).drop(columns = '_id')
         df['value'] = df.apply(lambda x : eval(x['type'])(x['value'])  ,axis = 1)
 
         feature_map = {}

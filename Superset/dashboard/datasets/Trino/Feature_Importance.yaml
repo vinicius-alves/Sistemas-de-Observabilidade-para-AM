@@ -1,0 +1,91 @@
+table_name: Feature Importance
+main_dttm_col: null
+description: null
+default_endpoint: null
+offset: 0
+cache_timeout: null
+catalog: mysql
+schema: mydb
+sql: "with production_models as (\n select  t1.idmodel, \n  max(t3.name) as projectname\
+  \ \n  from mysql.mydb.prediction t0\n  left join mysql.mydb.run t1\n  on t0.idrun\
+  \ = t1.idrun\n  left join mysql.mydb.model as t2\n  on t1.idmodel = t2.idmodel\n\
+  \  left join mysql.mydb.project as t3 \n  on t1.idproject = t3.idproject\n  group\
+  \ by 1\n)\n\n, featureimportances_runs as (\n\n  select distinct idrun  from mysql.mydb.featureimportance\
+  \ \n\n)\n\n, runs_production_models as (\n  select * from mysql.mydb.run\n  where\
+  \ idmodel in (select idmodel from production_models)\n  and idrun in (select idrun\
+  \ from featureimportances_runs)\n)\n\n, base_relations as (\n  select * from (\n\
+  \    select *, row_number () over (partition by idmodel order by idrun desc ) as\
+  \ nrow  \n    from runs_production_models\n  )\n  where nrow = 1\n)\n\nselect t0.*,\
+  \   t3.name as feature,t2.importance  from production_models as t0\nleft join base_relations\
+  \ as t1 \non t0.idmodel = t1.idmodel\nleft join mysql.mydb.featureimportance as\
+  \ t2 \non t1.idrun = t2.idrun\nleft join mysql.mydb.feature as t3 \non t2.idfeature\
+  \ = t3.idfeature\norder by t0.idmodel, t2.importance desc\n\n  \n  "
+params: null
+template_params: null
+filter_select_enabled: true
+fetch_values_predicate: null
+extra: null
+normalize_columns: false
+always_filter_main_dttm: false
+uuid: 9f4b8b59-c6cc-4cdc-8772-26ad922a20b5
+metrics:
+- metric_name: count
+  verbose_name: COUNT(*)
+  metric_type: count
+  expression: COUNT(*)
+  description: null
+  d3format: null
+  currency: null
+  extra: null
+  warning_text: null
+columns:
+- column_name: projectname
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(45)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: feature
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(45)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: importance
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: REAL
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: idmodel
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: INTEGER
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: null
+version: 1.0.0
+database_uuid: d0f4d9f1-5c16-424b-9b1d-9b359370e237

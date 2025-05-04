@@ -1,0 +1,13 @@
+database_name: Trino
+sqlalchemy_uri: trino://admin:@trino:8080/mysql
+cache_timeout: null
+expose_in_sqllab: true
+allow_run_async: false
+allow_ctas: false
+allow_cvas: false
+allow_dml: false
+allow_file_upload: false
+extra:
+  allows_virtual_table_explore: true
+uuid: d0f4d9f1-5c16-424b-9b1d-9b359370e237
+version: 1.0.0

@@ -1,0 +1,86 @@
+table_name: "Par\xE2metros Modelos"
+main_dttm_col: null
+description: null
+default_endpoint: null
+offset: 0
+cache_timeout: null
+catalog: mysql
+schema: mydb
+sql: "with base as (\n\n  select * from (\n    select t0.idrun, t0.idmodel, t3.name\
+  \ as projectname, \n    row_number() over(partition by idmodel order by t0.idrun\
+  \ desc) as nrow\n    from mysql.mydb.run as t0 \n    left join mysql.mydb.task as\
+  \ t1 \n    on t0.idtask = t1.idtask\n    left join mysql.mydb.tasktype as t2 \n\
+  \    on t1.idtasktype = t2.idtasktype \n    left join mysql.mydb.project as t3 \n\
+  \    on t0.idproject = t3.idproject\n    where t2.type = 'Training'\n  ) where nrow\
+  \ = 1\n)\n\nselect t0.idmodel, t0.projectname, t1.name as parameter ,t1.value\n\
+  from base as t0 \nleft join mysql.mydb.parameter as t1\non t0.idrun = t1.idrun\n\
+  order by t0.idmodel, parameter\n"
+params: null
+template_params: null
+filter_select_enabled: true
+fetch_values_predicate: null
+extra: null
+normalize_columns: false
+always_filter_main_dttm: false
+uuid: 3ab1ebb9-a1e8-4a48-9424-0dc94d629f30
+metrics:
+- metric_name: count
+  verbose_name: COUNT(*)
+  metric_type: count
+  expression: COUNT(*)
+  description: null
+  d3format: null
+  currency: null
+  extra: null
+  warning_text: null
+columns:
+- column_name: parameter
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(45)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: projectname
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(45)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: value
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(45)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: idmodel
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: INTEGER
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: null
+version: 1.0.0
+database_uuid: d0f4d9f1-5c16-424b-9b1d-9b359370e237
