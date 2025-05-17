@@ -17,3 +17,4 @@ from .Prediction import *
 from .Feature import *
 from .FeatureNameSpace import *
 from .FeatureDataset import *
+from .PredictionFeatureContribution import *

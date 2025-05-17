@@ -1,7 +1,6 @@
 from ..Task import *
 from ..TaskType import * 
 from ..MeasureProcedures import RMSEMeasureProcedure
-from ..Prediction import *
 
 class SeoulBikePredictionTask(Task):
    
@@ -25,18 +24,16 @@ class SeoulBikePredictionTask(Task):
 
         df_vars = df.drop(columns = ['timestamp'], errors = 'ignore')
 
-        y = df_vars[self.target_feature_name]
+        
         X = df_vars.drop(columns=[self.target_feature_name])
+        predictions = model.predict(X, generate_explanations = True)
 
-        y_pred = model.predict(X)
-        df['value'] = y_pred
-        df['type'] = 'float'
+        y_pred = [p.value for p in predictions]
 
-        predictions = df.apply(lambda x : Prediction(**x), axis = 1).to_list()
-
+        y_truth = df_vars[self.target_feature_name]
         measures = []
         for measureProcedure in self.measureProcedures:
-            measure = measureProcedure.evaluate(y_truth = y, y_pred = y_pred)
+            measure = measureProcedure.evaluate(y_truth = y_truth, y_pred = y_pred)
             measures.append(measure)
  
 

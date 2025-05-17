@@ -29,7 +29,8 @@ class SeoulBikeTrainingTask(Task):
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
         model.fit(X_train, y_train)
-        y_pred = model.predict(X_test)
+        predictions = model.predict(X_test, generate_explanations = False)
+        y_pred = [p.value for p in predictions]
         measures = []
         for measureProcedure in self.measureProcedures:
             measure = measureProcedure.evaluate(y_truth = y_test, y_pred = y_pred)

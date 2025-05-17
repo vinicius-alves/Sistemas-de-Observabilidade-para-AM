@@ -16,3 +16,4 @@ from .PredictionDTO import *
 from .FeatureDTO import *
 from .FeatureNameSpaceDTO import *
 from .FeatureDatasetDTO import *
+from .PredictionFeatureContributionDTO import *

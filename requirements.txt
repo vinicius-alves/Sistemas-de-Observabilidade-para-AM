@@ -5,6 +5,5 @@ numpy
 openml
 mysql-connector-python
 sqlalchemy
-skl2onnx
-onnx
-onnxruntime
+shap
+pymongo

@@ -13,6 +13,7 @@ class PredictionDTO(Base):
     idRun = Column(Integer, ForeignKey('Run.idRun'), nullable=True)
 
     run = relationship('RunDTO', back_populates='predictions')
+    predictionFeatureContributions = relationship('PredictionFeatureContributionDTO', back_populates='prediction')
     
 
     def __init__(self, value=None, idPrediction=None, name= None, type = None):
