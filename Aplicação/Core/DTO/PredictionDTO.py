@@ -6,21 +6,21 @@ class PredictionDTO(Base):
     __tablename__ = 'Prediction' 
 
     idPrediction = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(45), nullable=True)
     value = Column(String(45), nullable=True)
     type = Column(String(45), nullable=True)
     timestamp = Column(DateTime, nullable=True)
+    idEntity = Column(String(45), nullable=True)
     idRun = Column(Integer, ForeignKey('Run.idRun'), nullable=True)
 
     run = relationship('RunDTO', back_populates='predictions')
     predictionFeatureContributions = relationship('PredictionFeatureContributionDTO', back_populates='prediction')
     
 
-    def __init__(self, value=None, idPrediction=None, name= None, type = None):
+    def __init__(self, value=None, idPrediction=None, type = None, idEntity = None):
         self.idPrediction = idPrediction
         self.value = value
-        self.name = name
         self.type = type
+        self.idEntity = idEntity
 
 
 class PredictionRepository(GenericRepository):

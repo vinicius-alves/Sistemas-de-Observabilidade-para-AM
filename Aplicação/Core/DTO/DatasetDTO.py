@@ -96,7 +96,7 @@ class DatasetDTO(Base):
         df['name'] = df['idFeature'].map(lambda x : feature_map[x])  
         df.drop(columns = ['idFeature'], inplace = True)  
 
-        df_data = df.pivot_table(index = ['timestamp'], values= ['value'], columns= ['name'], aggfunc='max')
+        df_data = df.pivot_table(index = ['timestamp','idEntity'], values= ['value'], columns= ['name'], aggfunc='max')
         df_data.columns = [i[1] for i in df_data.columns]
         df_data = df_data.reset_index()
         self.df = pd.DataFrame(df_data.to_dict())

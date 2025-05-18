@@ -24,7 +24,8 @@ class FeatureDTO(Base):
         return ['idFeatureNameSpace','name']
     
     def get_full_name(self):
-        return str(self.nameSpace.name) +'__'+self.name
+        #return str(self.nameSpace.name) +'__'+self.name
+        return self.name
 
 
 class FeatureRepository(GenericRepository):

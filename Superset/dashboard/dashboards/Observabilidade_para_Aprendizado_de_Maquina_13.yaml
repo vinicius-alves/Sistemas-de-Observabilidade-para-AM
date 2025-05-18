@@ -1,9 +1,9 @@
-dashboard_title: Observability for ML
+dashboard_title: "Observabilidade para Aprendizado de M\xE1quina"
 description: null
 css: ''
 slug: null
-certified_by: ''
-certification_details: ''
+certified_by: null
+certification_details: null
 published: false
 uuid: fbe43686-9506-40b3-92f9-bd3edcfa3272
 position:
@@ -642,8 +642,38 @@ position:
     parents:
     - ROOT_ID
     - TABS-fpw8lo9gzDzyLLuGtLIjY
+    - TAB-huS-4SGaHQqHYpyEGwG-4
+    - ROW-DrkwrwXvEAFXXeArqTOJ5
+    type: CHART
+  CHART-explore-279-1:
+    children: []
+    id: CHART-explore-279-1
+    meta:
+      chartId: 279
+      height: 126
+      sliceName: Waterfall Predictions
+      uuid: 32fb90e3-8194-4f97-84ee-8a0ca314b009
+      width: 8
+    parents:
+    - ROOT_ID
+    - TABS-fpw8lo9gzDzyLLuGtLIjY
+    - TAB-you5uuQ78ubW1YyqP53r6
+    - ROW-evTT1bHFei5xMGXnSlehk
+    type: CHART
+  CHART-explore-280-1:
+    children: []
+    id: CHART-explore-280-1
+    meta:
+      chartId: 280
+      height: 126
+      sliceName: "Vari\xE1veis da predi\xE7\xE3o"
+      uuid: 33e5c228-9110-4cf9-b6d0-052f1b29ea23
+      width: 4
+    parents:
+    - ROOT_ID
+    - TABS-fpw8lo9gzDzyLLuGtLIjY
     - TAB-CIcPLeQgAuYBLmFnSPKct
-    - ROW-gUomRXWdYU6UbG617y7bA
+    - ROW-MhvToL5_H0RPWn1NcibI4
     type: CHART
   CHART-gNM9H7jaqq2ZbRBoIZ3qb:
     children: []
@@ -883,6 +913,18 @@ position:
     - TABS-ShEJBJkZ5m8uLEA4S_GBw
     - TAB-bNtMNNEYO8p9YQBpPGY_1
     type: ROW
+  ROW-evTT1bHFei5xMGXnSlehk:
+    children:
+    - CHART-explore-279-1
+    - CHART-explore-280-1
+    id: ROW-evTT1bHFei5xMGXnSlehk
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-fpw8lo9gzDzyLLuGtLIjY
+    - TAB-you5uuQ78ubW1YyqP53r6
+    type: ROW
   ROW-h_ZkApgB8n08z0J9d13Ww:
     children:
     - CHART-explore-199-1
@@ -1013,7 +1055,8 @@ position:
     - TABS-fpw8lo9gzDzyLLuGtLIjY
     type: TAB
   TAB-you5uuQ78ubW1YyqP53r6:
-    children: []
+    children:
+    - ROW-evTT1bHFei5xMGXnSlehk
     id: TAB-you5uuQ78ubW1YyqP53r6
     meta:
       defaultText: Tab title
@@ -1051,61 +1094,6 @@ metadata:
   refresh_frequency: 0
   color_scheme: ''
   label_colors: {}
-  shared_label_colors:
-  - December
-  - '2018'
-  - February
-  - March
-  - April
-  - May
-  - June
-  - July
-  - August
-  - September
-  - October
-  - November
-  - 'Yes'
-  - 'No'
-  - No Holiday
-  - Spring
-  - Summer
-  - Autumn
-  - Winter
-  - Holiday
-  map_label_colors:
-    '2018': '#454E7C'
-    SeoulBike__temperature: '#1FA8C9'
-    SeoulBike__hour: '#454E7C'
-    SeoulBike__humidity: '#5AC189'
-    SeoulBike__solar_radiation: '#FF7F44'
-    SeoulBike__dew_point_temperature: '#666666'
-    SeoulBike__wind_speed: '#E04355'
-    SeoulBike__visibility: '#FCC700'
-    SeoulBike__rainfall: '#A868B7'
-    SeoulBike__snowfall: '#3CCCCB'
-    SeoulBike__functioning_day_Yes: '#A38F79'
-    SeoulBike__functioning_day_No: '#8FD3E4'
-    SeoulBike__holiday_Holiday: '#A1A6BD'
-    SeoulBike__seasons_Winter: '#ACE1C4'
-    SeoulBike__holiday_No Holiday: '#FEC0A1'
-    SeoulBike__seasons_Spring: '#B2B2B2'
-    SeoulBike__seasons_Autumn: '#EFA1AA'
-    SeoulBike__seasons_Summer: '#FDE380'
-    SUM(value): '#1FA8C9'
-    SUM(y_pred): '#1FA8C9'
-    SUM(y_true): '#454E7C'
-    December: '#1FA8C9'
-    February: '#5AC189'
-    March: '#FF7F44'
-    April: '#666666'
-    May: '#E04355'
-    June: '#FCC700'
-    July: '#A868B7'
-    August: '#3CCCCB'
-    September: '#A38F79'
-    October: '#8FD3E4'
-    November: '#A1A6BD'
-  color_scheme_domain: []
   cross_filters_enabled: true
   chart_configuration:
     '160':
@@ -1153,6 +1141,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '161':
       id: 161
       crossFilters:
@@ -1198,6 +1188,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '163':
       id: 163
       crossFilters:
@@ -1243,6 +1235,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '164':
       id: 164
       crossFilters:
@@ -1288,6 +1282,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '165':
       id: 165
       crossFilters:
@@ -1333,6 +1329,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '166':
       id: 166
       crossFilters:
@@ -1378,6 +1376,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '167':
       id: 167
       crossFilters:
@@ -1423,6 +1423,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '168':
       id: 168
       crossFilters:
@@ -1468,6 +1470,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '169':
       id: 169
       crossFilters:
@@ -1513,6 +1517,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '170':
       id: 170
       crossFilters:
@@ -1558,6 +1564,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '171':
       id: 171
       crossFilters:
@@ -1603,6 +1611,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '172':
       id: 172
       crossFilters:
@@ -1648,6 +1658,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '173':
       id: 173
       crossFilters:
@@ -1693,6 +1705,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '174':
       id: 174
       crossFilters:
@@ -1738,6 +1752,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '175':
       id: 175
       crossFilters:
@@ -1783,6 +1799,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '176':
       id: 176
       crossFilters:
@@ -1828,6 +1846,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '177':
       id: 177
       crossFilters:
@@ -1873,6 +1893,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '178':
       id: 178
       crossFilters:
@@ -1918,6 +1940,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '179':
       id: 179
       crossFilters:
@@ -1963,6 +1987,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '180':
       id: 180
       crossFilters:
@@ -2008,6 +2034,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '181':
       id: 181
       crossFilters:
@@ -2053,6 +2081,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '182':
       id: 182
       crossFilters:
@@ -2098,6 +2128,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '183':
       id: 183
       crossFilters:
@@ -2143,6 +2175,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '184':
       id: 184
       crossFilters:
@@ -2188,6 +2222,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '185':
       id: 185
       crossFilters:
@@ -2233,6 +2269,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '186':
       id: 186
       crossFilters:
@@ -2278,6 +2316,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '187':
       id: 187
       crossFilters:
@@ -2323,6 +2363,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '188':
       id: 188
       crossFilters:
@@ -2368,6 +2410,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '189':
       id: 189
       crossFilters:
@@ -2413,6 +2457,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '190':
       id: 190
       crossFilters:
@@ -2458,6 +2504,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '191':
       id: 191
       crossFilters:
@@ -2503,6 +2551,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '192':
       id: 192
       crossFilters:
@@ -2548,6 +2598,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '193':
       id: 193
       crossFilters:
@@ -2593,6 +2645,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '194':
       id: 194
       crossFilters:
@@ -2638,6 +2692,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '195':
       id: 195
       crossFilters:
@@ -2683,6 +2739,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '196':
       id: 196
       crossFilters:
@@ -2728,6 +2786,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '197':
       id: 197
       crossFilters:
@@ -2773,6 +2833,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '198':
       id: 198
       crossFilters:
@@ -2818,6 +2880,8 @@ metadata:
         - 199
         - 200
         - 201
+        - 279
+        - 280
     '199':
       id: 199
       crossFilters:
@@ -2863,6 +2927,8 @@ metadata:
         - 198
         - 200
         - 201
+        - 279
+        - 280
     '200':
       id: 200
       crossFilters:
@@ -2908,6 +2974,8 @@ metadata:
         - 198
         - 199
         - 201
+        - 279
+        - 280
     '201':
       id: 201
       crossFilters:
@@ -2953,6 +3021,55 @@ metadata:
         - 198
         - 199
         - 200
+        - 279
+        - 280
+    '280':
+      id: 280
+      crossFilters:
+        scope: global
+        chartsInScope:
+        - 160
+        - 161
+        - 163
+        - 164
+        - 165
+        - 166
+        - 167
+        - 168
+        - 169
+        - 170
+        - 171
+        - 172
+        - 173
+        - 174
+        - 175
+        - 176
+        - 177
+        - 178
+        - 179
+        - 180
+        - 181
+        - 182
+        - 183
+        - 184
+        - 185
+        - 186
+        - 187
+        - 188
+        - 189
+        - 190
+        - 191
+        - 192
+        - 193
+        - 194
+        - 195
+        - 196
+        - 197
+        - 198
+        - 199
+        - 200
+        - 201
+        - 279
   global_chart_configuration:
     scope:
       rootPath:
@@ -3000,6 +3117,8 @@ metadata:
     - 199
     - 200
     - 201
+    - 279
+    - 280
   default_filters: '{}'
   native_filter_configuration:
   - id: NATIVE_FILTER-BpRBli-ABpWk2Fsxb0NVD
@@ -3052,10 +3171,11 @@ metadata:
     type: NATIVE_FILTER
     description: ''
     chartsInScope:
-    - 160
-    - 161
+    - 163
+    - 164
     tabsInScope:
-    - TAB-CIcPLeQgAuYBLmFnSPKct
+    - TAB-4ZUTDTTl41v5tlf2hBj3r
+    - TAB-gNa8tx8g5S7ZWX0DqlS_M
   - id: NATIVE_FILTER-CrTzToAs66NzlirFt5Bpz
     controlValues:
       enableEmptyFilter: true
@@ -4036,6 +4156,42 @@ metadata:
     cascadeParentIds: []
     scope:
       rootPath:
+      - TAB-you5uuQ78ubW1YyqP53r6
+      - TAB-huS-4SGaHQqHYpyEGwG-4
+      - TAB-CIcPLeQgAuYBLmFnSPKct
+      excluded: []
+    type: NATIVE_FILTER
+    description: ''
+    chartsInScope:
+    - 199
+    - 200
+    - 201
+    - 279
+    tabsInScope:
+    - TAB-you5uuQ78ubW1YyqP53r6
+    - TAB-huS-4SGaHQqHYpyEGwG-4
+  - id: NATIVE_FILTER-_jIS4LLYuhLDgrr_ePrLV
+    controlValues:
+      sortAscending: true
+      enableEmptyFilter: true
+      defaultToFirstItem: true
+      multiSelect: false
+      searchAllOptions: false
+      inverseSelection: false
+    requiredFirst: true
+    name: Data e hora
+    filterType: filter_select
+    targets:
+    - column:
+        name: timestamp
+      datasetUuid: 543aebfc-b74a-47f3-9b2f-9addd081b5bd
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    cascadeParentIds: []
+    scope:
+      rootPath:
       - ROOT_ID
       excluded:
       - 160
@@ -4076,45 +4232,40 @@ metadata:
       - 196
       - 197
       - 198
+      - 199
+      - 200
+      - 201
     type: NATIVE_FILTER
     description: ''
     chartsInScope:
-    - 199
-    - 200
+    - 279
     tabsInScope:
-    - TAB-CIcPLeQgAuYBLmFnSPKct
-    - TAB-huS-4SGaHQqHYpyEGwG-4
-  - id: NATIVE_FILTER-Ivi-2O-O9XcYxDDLIHTki
+    - TAB-you5uuQ78ubW1YyqP53r6
+  - id: NATIVE_FILTER-SOe6HY2gxPg4VVnrR8c6k
     controlValues:
+      sortAscending: true
       enableEmptyFilter: true
-      defaultToFirstItem: false
+      defaultToFirstItem: true
       multiSelect: false
       searchAllOptions: false
       inverseSelection: false
-    name: Projeto
+    requiredFirst: true
+    name: Entidade
     filterType: filter_select
     targets:
     - column:
-        name: projectname
-      datasetUuid: 00794dfd-0457-4a65-a871-7d548bee7776
+        name: idEntity
+      datasetUuid: 543aebfc-b74a-47f3-9b2f-9addd081b5bd
     defaultDataMask:
-      extraFormData:
-        filters:
-        - col: projectname
-          op: IN
-          val:
-          - SeoulBike
-      filterState:
-        validateMessage: false
-        validateStatus: false
-        label: SeoulBike
-        value:
-        - SeoulBike
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
     cascadeParentIds: []
     scope:
       rootPath:
       - ROOT_ID
       excluded:
+      - 160
       - 161
       - 163
       - 164
@@ -4154,10 +4305,42 @@ metadata:
       - 198
       - 199
       - 200
+      - 201
     type: NATIVE_FILTER
     description: ''
     chartsInScope:
-    - 160
+    - 279
+    - 280
     tabsInScope:
-    - TAB-CIcPLeQgAuYBLmFnSPKct
+    - TAB-you5uuQ78ubW1YyqP53r6
+  shared_label_colors:
+  - December
+  - '2018'
+  - February
+  - March
+  - April
+  - May
+  - June
+  - July
+  - August
+  - September
+  - October
+  - November
+  map_label_colors:
+    '2018': '#454E7C'
+    SUM(value): '#1FA8C9'
+    SUM(y_pred): '#1FA8C9'
+    SUM(y_true): '#454E7C'
+    December: '#1FA8C9'
+    February: '#5AC189'
+    March: '#FF7F44'
+    April: '#666666'
+    May: '#E04355'
+    June: '#FCC700'
+    July: '#A868B7'
+    August: '#3CCCCB'
+    September: '#A38F79'
+    October: '#8FD3E4'
+    November: '#A1A6BD'
+  color_scheme_domain: []
 version: 1.0.0

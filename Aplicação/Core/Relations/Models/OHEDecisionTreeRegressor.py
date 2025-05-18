@@ -69,12 +69,15 @@ class OHEDecisionTreeRegressor(Model):
         shap_df = pd.DataFrame(shap_values.values, columns=feature_names)
         shap_df['prediction_i'] = range(len(shap_df))
 
-        # Derreter para o formato longo (long format)
+        shap_df['bias'] = shap_values.base_values
+
+        extended_feature_names = feature_names + ['bias']
+
         shap_df_long = shap_df.melt(id_vars='prediction_i', var_name='feature', value_name='contribution')
-        shap_df_long.sort_values(by = 'prediction_i', ignore_index=True, inplace=True)
+        shap_df_long.sort_values(by = ['prediction_i','feature'], ignore_index=True, inplace=True)
 
         shap_df_long['obj'] = shap_df_long.apply(lambda x: PredictionFeatureContribution(feature= Feature(name  = x['feature']), contribution= x['contribution']) ,axis = 1)
-        contributions = shap_df_long.pivot(index='prediction_i', columns='feature', values='obj').values
+        contributions = shap_df_long.pivot(index='prediction_i', columns='feature', values='obj')[extended_feature_names].values
  
         for i in range(len(predictions)):
             prediction = predictions[i]
@@ -84,12 +87,14 @@ class OHEDecisionTreeRegressor(Model):
          
     
     def fit(self,X,y):
+        X = X.drop(columns = ['timestamp','idEntity'], errors = 'ignore')
         self.create_pipeline(X)
         self.model.fit(X,y)
         self.serialize()
     
     def predict(self,X, generate_explanations = False):
-        y_pred= self.model.predict(X)
+        X_pred = X.drop(columns = ['timestamp','idEntity'], errors = 'ignore')
+        y_pred= self.model.predict(X_pred)
         X['value'] = y_pred
         X['type'] = 'float'
 

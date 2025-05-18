@@ -21,16 +21,13 @@ class SeoulBikePredictionTask(Task):
                 df = df[df['timestamp']<parameters['end_date']].reset_index(drop = True)
             if 'start_date' in parameters.keys():
                 df = df[df['timestamp']>=parameters['start_date']].reset_index(drop = True)
-
-        df_vars = df.drop(columns = ['timestamp'], errors = 'ignore')
-
         
-        X = df_vars.drop(columns=[self.target_feature_name])
+        X = df.drop(columns=[self.target_feature_name])
         predictions = model.predict(X, generate_explanations = True)
 
         y_pred = [p.value for p in predictions]
 
-        y_truth = df_vars[self.target_feature_name]
+        y_truth = df[self.target_feature_name]
         measures = []
         for measureProcedure in self.measureProcedures:
             measure = measureProcedure.evaluate(y_truth = y_truth, y_pred = y_pred)

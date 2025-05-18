@@ -6,6 +6,7 @@ class Feature():
         self.nameSpace = nameSpace
 
     def get_full_name(self):
-        return str(self.nameSpace.name) +'__'+self.name
+        #return str(self.nameSpace.name) +'__'+self.name
+        return self.name
 
  
