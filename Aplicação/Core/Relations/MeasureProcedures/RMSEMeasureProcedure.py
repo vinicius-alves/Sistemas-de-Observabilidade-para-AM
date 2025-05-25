@@ -8,4 +8,4 @@ class RMSEMeasureProcedure(EvaluationProcedure):
         y_truth = kwargs.get("y_truth", None)
         y_pred = kwargs.get("y_pred", None) 
         rmse = root_mean_squared_error(y_truth, y_pred)
-        return Measure(name = 'rmse', value= rmse, evaluationProcedure = self)
+        return Measure(name = 'RMSE', value= rmse, evaluationProcedure = self)

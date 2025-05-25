@@ -1,6 +1,6 @@
 from ..Task import *
 from ..TaskType import * 
-from ..MeasureProcedures import RMSEMeasureProcedure
+from ..MeasureProcedures import *
 
 class SeoulBikePredictionTask(Task):
    
@@ -8,8 +8,7 @@ class SeoulBikePredictionTask(Task):
         self.taskType = TaskType( idTaskType = 2,type = 'Prediction')
         self.name = type(self).__name__
         self.dataset = dataset
-        measureProcedure = RMSEMeasureProcedure()
-        self.measureProcedures = [measureProcedure]
+        self.measureProcedures = [RMSEMeasureProcedure(),MAEMeasureProcedure(),R2MeasureProcedure()]
 
 
     def execute(self, model, parameters):

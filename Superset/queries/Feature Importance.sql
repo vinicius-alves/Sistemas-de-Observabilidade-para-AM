@@ -1,6 +1,6 @@
 with production_models as (
  select  t1.idmodel, 
-  max(t3.name) as projectname 
+  max(t3.name) as project 
   from mysql.mydb.prediction t0
   left join mysql.mydb.run t1
   on t0.idrun = t1.idrun

@@ -1,0 +1,81 @@
+slice_name: Model training parameters
+description: null
+certified_by: null
+certification_details: null
+viz_type: pivot_table_v2
+params:
+  datasource: 43__table
+  viz_type: pivot_table_v2
+  slice_id: 201
+  groupbyColumns:
+  - idmodel
+  groupbyRows:
+  - parameter
+  temporal_columns_lookup: {}
+  metrics:
+  - aggregate: MAX
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: value
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 868
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: VARCHAR(45)
+      type_generic: 1
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    label: MAX(value)
+    optionName: metric_312xg6d6de2_t12fvpc7z7
+    sqlExpression: null
+  metricsLayout: COLUMNS
+  adhoc_filters: []
+  row_limit: 1000
+  series_limit_metric:
+    aggregate: MAX
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: parameter
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 867
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: VARCHAR(45)
+      type_generic: 1
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    label: MAX(parameter)
+    optionName: metric_ygrjwcmm1si_izkjtprmjdk
+    sqlExpression: null
+  order_desc: true
+  aggregateFunction: Sum
+  valueFormat: SMART_NUMBER
+  date_format: smart_date
+  rowOrder: key_a_to_z
+  colOrder: key_a_to_z
+  extra_form_data: {}
+  dashboards:
+  - 13
+query_context: '{"datasource":{"id":43,"type":"table"},"force":false,"queries":[{"filters":[],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":["idmodel","parameter"],"metrics":[{"aggregate":"MAX","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"value","description":null,"expression":null,"filterable":true,"groupby":true,"id":868,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"VARCHAR(45)","type_generic":1,"verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"MAX(value)","optionName":"metric_312xg6d6de2_t12fvpc7z7","sqlExpression":null}],"orderby":[[{"aggregate":"MAX","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"parameter","description":null,"expression":null,"filterable":true,"groupby":true,"id":867,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"VARCHAR(45)","type_generic":1,"verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"MAX(parameter)","optionName":"metric_ygrjwcmm1si_izkjtprmjdk","sqlExpression":null},false]],"annotation_layers":[],"row_limit":1000,"series_limit":0,"series_limit_metric":{"aggregate":"MAX","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"parameter","description":null,"expression":null,"filterable":true,"groupby":true,"id":867,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"VARCHAR(45)","type_generic":1,"verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"MAX(parameter)","optionName":"metric_ygrjwcmm1si_izkjtprmjdk","sqlExpression":null},"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"43__table","viz_type":"pivot_table_v2","slice_id":201,"groupbyColumns":["idmodel"],"groupbyRows":["parameter"],"temporal_columns_lookup":{},"metrics":[{"aggregate":"MAX","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"value","description":null,"expression":null,"filterable":true,"groupby":true,"id":868,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"VARCHAR(45)","type_generic":1,"verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"MAX(value)","optionName":"metric_312xg6d6de2_t12fvpc7z7","sqlExpression":null}],"metricsLayout":"COLUMNS","adhoc_filters":[],"row_limit":1000,"series_limit_metric":{"aggregate":"MAX","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"parameter","description":null,"expression":null,"filterable":true,"groupby":true,"id":867,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"VARCHAR(45)","type_generic":1,"verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"MAX(parameter)","optionName":"metric_ygrjwcmm1si_izkjtprmjdk","sqlExpression":null},"order_desc":true,"aggregateFunction":"Sum","valueFormat":"SMART_NUMBER","date_format":"smart_date","rowOrder":"key_a_to_z","colOrder":"key_a_to_z","extra_form_data":{},"dashboards":[13],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+cache_timeout: null
+uuid: 93701493-ab49-493c-9149-d3cae98c3787
+version: 1.0.0
+dataset_uuid: 3ab1ebb9-a1e8-4a48-9424-0dc94d629f30
