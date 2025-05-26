@@ -31,11 +31,34 @@ with production_models as (
   where nrow = 1
 )
 
-select t0.*,   t3.name as feature,t2.importance  from production_models as t0
-left join base_relations as t1 
-on t0.idmodel = t1.idmodel
-left join mysql.mydb.featureimportance as t2 
-on t1.idrun = t2.idrun
-left join mysql.mydb.feature as t3 
-on t2.idfeature = t3.idfeature
-order by t0.idmodel, t2.importance desc
+, base_feature_importances as (
+
+  select t0.*,   t3.name as feature,t2.importance  from production_models as t0
+  left join base_relations as t1 
+  on t0.idmodel = t1.idmodel
+  left join mysql.mydb.featureimportance as t2 
+  on t1.idrun = t2.idrun
+  left join mysql.mydb.feature as t3 
+  on t2.idfeature = t3.idfeature
+)
+
+, base_feature_importances_max as (
+  select *, max(norm_importance) over (partition by feature) as max_norm_importance
+  from (
+    select *, importance/sum(importance) over(partition by idmodel) as norm_importance 
+    from base_feature_importances
+  )
+)
+
+select idmodel, project, feature, importance 
+from base_feature_importances_max
+where max_norm_importance >= 0.05
+
+union all 
+
+select idmodel, project, 'others' as feature, sum(importance) as importance 
+from base_feature_importances_max
+where max_norm_importance < 0.05
+group by 1,2
+
+order by 1, 2,4 desc
