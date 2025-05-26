@@ -12,7 +12,7 @@ class RunDTO(Base):
     idProject = Column(Integer, ForeignKey('Project.idProject'), nullable=True)
     createdTimestamp = Column(DateTime, default=datetime.now())  
      
-    measures = relationship('MeasureDTO', back_populates='run', cascade="all") 
+    measureValues = relationship('MeasureValueDTO', back_populates='run', cascade="all") 
     model = relationship('ModelDTO', back_populates='runs', cascade="all") 
     project = relationship('ProjectDTO', back_populates='runs', cascade="all") 
     parameters = relationship('ParameterDTO', back_populates='run', cascade="all")

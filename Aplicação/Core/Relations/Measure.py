@@ -1,7 +1,5 @@
 
 class Measure():
 
-    def __init__(self, value, name, evaluationProcedure):
-        self.value = value
+    def __init__(self,  name = None):
         self.name = name
-        self.evaluationProcedure = evaluationProcedure

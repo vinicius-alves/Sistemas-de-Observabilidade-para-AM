@@ -7,13 +7,11 @@ class EvaluationProcedureDTO(Base):
 
     idEvaluationProcedure = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(255), nullable=True)
-    object = Column(LargeBinary, nullable=True)
-    measures = relationship('MeasureDTO', back_populates='evaluationProcedure', cascade="all") 
+    measureValues = relationship('MeasureValueDTO', back_populates='evaluationProcedure', cascade="all") 
 
-    def __init__(self, name= None, object = None, idEvaluationProcedure = None):
+    def __init__(self, name= None,  idEvaluationProcedure = None):
         self.idEvaluationProcedure = idEvaluationProcedure
         self.name = name
-        self.object = object
 
     def get_secondary_key(self):
         return ['name']

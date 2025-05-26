@@ -30,11 +30,11 @@ class SeoulBikeTrainingTask(Task):
         model.fit(X_train, y_train)
         predictions = model.predict(X_test, generate_explanations = False)
         y_pred = [p.value for p in predictions]
-        measures = []
+        measureValues = []
         for measureProcedure in self.measureProcedures:
             measure = measureProcedure.evaluate(y_truth = y_test, y_pred = y_pred)
-            measures.append(measure)
+            measureValues.append(measure)
 
-        return None, measures
+        return None, measureValues
     
     

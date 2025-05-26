@@ -15,10 +15,10 @@ sql: "\r\n\r\nwith stard_date_parameter as (\r\n\r\n  select * from mysql.mydb.p
   \  inner join filter_task_type as t2 \r\n  on t1.idtasktype = t2.idtasktype \r\n\
   \  left join mysql.mydb.project as t3 \r\n  on t0.idproject = t3.idproject\r\n \
   \ inner join stard_date_parameter as t4\r\n  on t0.idRun = t4.idRun   \r\n     \r\
-  \n \r\n)\r\n\r\nselect timestamp, t0.project, t1.name as measure , cast(t1.value\
-  \ as double) as value\r\nfrom base as t0 \r\nleft join mysql.mydb.measure as t1\r\
-  \non t0.idrun = t1.idrun\r\nwhere t1.name = 'R2' \r\norder by timestamp, measure\r\
-  \n"
+  \n \r\n)\r\n\r\nselect timestamp, t0.project, t2.name as measure , cast(t1.value\
+  \ as double) as value\r\nfrom base as t0 \r\ninner join mysql.mydb.measurevalue\
+  \ as t1\r\non t0.idrun = t1.idrun\r\ninner join mysql.mydb.measure as t2\r\non t1.idmeasure\
+  \ = t2.idmeasure\r\nwhere t2.name = 'R2' \r\norder by timestamp, measure\r\n"
 params: null
 template_params: null
 filter_select_enabled: true
@@ -35,7 +35,8 @@ metrics:
   description: null
   d3format: null
   currency: null
-  extra: null
+  extra:
+    warning_markdown: ''
   warning_text: null
 columns:
 - column_name: measure
@@ -49,7 +50,7 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: project
   verbose_name: null
   is_dttm: false
@@ -61,7 +62,7 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: timestamp
   verbose_name: null
   is_dttm: true
@@ -73,7 +74,7 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: value
   verbose_name: null
   is_dttm: false
@@ -85,6 +86,6 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 version: 1.0.0
 database_uuid: d0f4d9f1-5c16-424b-9b1d-9b359370e237

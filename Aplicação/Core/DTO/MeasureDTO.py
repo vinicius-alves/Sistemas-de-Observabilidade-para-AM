@@ -1,5 +1,5 @@
 from .DatabaseManager import *
-from sqlalchemy import  Column, Integer, String, ForeignKey, Float
+from sqlalchemy import  Column, Integer, String
 from sqlalchemy.orm import relationship
 
 class MeasureDTO(Base):
@@ -7,17 +7,14 @@ class MeasureDTO(Base):
 
     idMeasure = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(1000), nullable=True)
-    value = Column(Float, nullable=True)
-    idRun = Column(Integer, ForeignKey('Run.idRun'), nullable=True)
-    idEvaluationProcedure = Column(Integer, ForeignKey('EvaluationProcedure.idEvaluationProcedure'), nullable=True)
+    measureValues = relationship('MeasureValueDTO', back_populates='measure')
 
-    run = relationship('RunDTO', back_populates='measures')
-    evaluationProcedure = relationship('EvaluationProcedureDTO', back_populates='measures')
-
-    def __init__(self, value = None, name = None, idMeasure = None):
+    def __init__(self,  name = None, idMeasure = None):
         self.idMeasure = idMeasure
-        self.value = value
         self.name = name
+
+    def get_secondary_key(self):
+        return ['name']
 
 class MeasureRepository(GenericRepository):
     def __init__(self, session):

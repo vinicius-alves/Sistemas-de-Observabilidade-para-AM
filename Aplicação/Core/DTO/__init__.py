@@ -6,6 +6,7 @@ from .ModelDTO import *
 from .ParameterTypeDTO import *
 from .ParameterDTO import *
 from .MeasureDTO import *
+from .MeasureValueDTO import *
 from .RunDTO import *  
 from .DatasetDTO import *
 from .DatabaseManager import *

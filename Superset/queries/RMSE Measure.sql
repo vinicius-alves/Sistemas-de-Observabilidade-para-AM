@@ -32,9 +32,11 @@ with stard_date_parameter as (
  
 )
 
-select timestamp, t0.project, t1.name as measure , cast(t1.value as double) as value
+select timestamp, t0.project, t2.name as measure , cast(t1.value as double) as value
 from base as t0 
-left join mysql.mydb.measure as t1
+inner join mysql.mydb.measurevalue as t1
 on t0.idrun = t1.idrun
-where t1.name = 'RMSE' 
+inner join mysql.mydb.measure as t2
+on t1.idmeasure = t2.idmeasure
+where t2.name = 'RMSE' 
 order by timestamp, measure

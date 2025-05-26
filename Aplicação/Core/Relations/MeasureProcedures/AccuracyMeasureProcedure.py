@@ -1,4 +1,5 @@
 from ..EvaluationProcedure import EvaluationProcedure
+from ..MeasureValue import MeasureValue
 from ..Measure import Measure
 from sklearn.metrics import accuracy_score  
 
@@ -8,4 +9,4 @@ class AccuracyMeasureProcedure(EvaluationProcedure):
         y_truth = kwargs.get("y_truth", None)
         y_pred = kwargs.get("y_pred", None)
         accuracy = accuracy_score(y_truth, y_pred)
-        return Measure(name = 'accuracy', value= accuracy, evaluationProcedure = self)
+        return MeasureValue(measure = Measure(name='Accuracy'), value= accuracy, evaluationProcedure = self)

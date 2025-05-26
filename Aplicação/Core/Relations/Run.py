@@ -16,13 +16,13 @@ class Run():
         
         if type(model_parameters) == dict:
             self.model.set_params(model_parameters)
-        predictions , measures= self.task.execute(model = self.model,  parameters = task_parameters)
+        predictions , measureValues= self.task.execute(model = self.model,  parameters = task_parameters)
 
         if predictions:
             self.predictions = predictions
 
-        if measures:
-            self.measures= measures
+        if measureValues:
+            self.measureValues= measureValues
 
         self.parameters += self.model.get_params()
 

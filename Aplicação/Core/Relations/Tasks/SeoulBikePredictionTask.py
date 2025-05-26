@@ -27,12 +27,12 @@ class SeoulBikePredictionTask(Task):
         y_pred = [p.value for p in predictions]
 
         y_truth = df[self.target_feature_name]
-        measures = []
+        measureValues = []
         for measureProcedure in self.measureProcedures:
             measure = measureProcedure.evaluate(y_truth = y_truth, y_pred = y_pred)
-            measures.append(measure)
+            measureValues.append(measure)
  
 
-        return predictions, measures
+        return predictions, measureValues
     
     

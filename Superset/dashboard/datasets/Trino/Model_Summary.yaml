@@ -19,11 +19,12 @@ sql: "with gen_summary as (\r\n\r\n     select  t1.idmodel,\r\n    max(t2.name) 
   \ order by t0.idrun desc) as nrow\r\n    from mysql.mydb.run as t0 \r\n    left\
   \ join mysql.mydb.task as t1 \r\n    on t0.idtask = t1.idtask\r\n    inner join\
   \ filter_training_run as t2 \r\n    on t1.idtasktype = t2.idtasktype\r\n  ) where\
-  \ nrow = 1\r\n)\r\n, measures_models as (\r\n    select t0.idmodel, t1.name as measure\
-  \ ,t1.value\r\n    from base as t0 \r\n    left join mysql.mydb.measure as t1\r\n\
-  \    on t0.idrun = t1.idrun\r\n    order by t0.idmodel, measure\r\n)\r\n\r\nselect\
-  \ t0.*, t1.measure, t1.value from gen_summary as t0 \r\nleft join measures_models\
-  \ as t1 \r\non t0.idmodel = t1.idmodel\r\n\r\norder by t0.idmodel, measure"
+  \ nrow = 1\r\n)\r\n, measures_models as (\r\n    select t0.idmodel, t2.name as measure\
+  \ ,t1.value\r\n    from base as t0 \r\n    left join mysql.mydb.measurevalue as\
+  \ t1\r\n    on t0.idrun = t1.idrun \r\n    left join mysql.mydb.measure as t2\r\n\
+  \    on t1.idmeasure = t2.idmeasure\r\n)\r\n\r\nselect t0.*, t1.measure, t1.value\
+  \ from gen_summary as t0 \r\nleft join measures_models as t1 \r\non t0.idmodel =\
+  \ t1.idmodel\r\n\r\norder by t0.idmodel, measure"
 params: null
 template_params: null
 filter_select_enabled: true

@@ -38,11 +38,12 @@ with gen_summary as (
   ) where nrow = 1
 )
 , measures_models as (
-    select t0.idmodel, t1.name as measure ,t1.value
+    select t0.idmodel, t2.name as measure ,t1.value
     from base as t0 
-    left join mysql.mydb.measure as t1
-    on t0.idrun = t1.idrun
-    order by t0.idmodel, measure
+    left join mysql.mydb.measurevalue as t1
+    on t0.idrun = t1.idrun 
+    left join mysql.mydb.measure as t2
+    on t1.idmeasure = t2.idmeasure
 )
 
 select t0.*, t1.measure, t1.value from gen_summary as t0 
