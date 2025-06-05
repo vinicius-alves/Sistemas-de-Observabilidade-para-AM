@@ -6,7 +6,7 @@ class ParameterTypeDTO(Base):
     __tablename__ = 'ParameterType'
 
     idParameterType = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255), nullable=False)
+    name = Column(String(256), nullable=False)
 
     parameters = relationship('ParameterDTO', back_populates='parameterType')
 

@@ -6,8 +6,8 @@ class ModelDTO(Base):
     __tablename__ = 'Model'
 
     idModel = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255), nullable=True)
-    version = Column(String(255), nullable=True)
+    name = Column(String(256), nullable=True)
+    version = Column(String(256), nullable=True)
     object = Column(LargeBinary, nullable=True)
 
     runs = relationship('RunDTO', back_populates='model')

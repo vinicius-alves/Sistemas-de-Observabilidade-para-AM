@@ -6,7 +6,7 @@ class TaskTypeDTO(Base):
     __tablename__ = 'TaskType'
 
     idTaskType = Column(Integer, primary_key=True, autoincrement=True)
-    type = Column(String(255), nullable=True)
+    type = Column(String(256), nullable=True)
     
     tasks = relationship('TaskDTO', back_populates='taskType')
 

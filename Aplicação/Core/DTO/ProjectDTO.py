@@ -6,7 +6,7 @@ class ProjectDTO(Base):
     __tablename__ = 'Project'
 
     idProject = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255), nullable=False) 
+    name = Column(String(256), nullable=False) 
     idProjectType = Column(Integer, ForeignKey('ProjectType.idProjectType'), nullable=False)
     idTargetFeature = Column(Integer, ForeignKey('Feature.idFeature'), nullable=False)
 

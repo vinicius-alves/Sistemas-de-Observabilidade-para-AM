@@ -12,7 +12,7 @@ class DatasetDTO(Base):
     __tablename__ = 'Dataset' 
 
     idDataset = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(45), nullable=True) 
+    name = Column(String(256), nullable=True) 
     startTimestamp = Column(DateTime, nullable=True) 
     endTimestamp = Column(DateTime, nullable=True) 
     tasks = relationship('TaskDTO', back_populates='dataset') 
@@ -100,10 +100,12 @@ class DatasetDTO(Base):
         df_data.columns = [i[1] for i in df_data.columns]
         df_data = df_data.reset_index()
         self.df = pd.DataFrame(df_data.to_dict())
+
     
     @property
     def dataset(self):
         params = self.__dict__.copy()
+        params['features'] =  self.get_all_features()
         return Dataset(**params)
 
 

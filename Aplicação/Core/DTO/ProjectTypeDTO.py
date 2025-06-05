@@ -6,7 +6,7 @@ class ProjectTypeDTO(Base):
     __tablename__ = 'ProjectType'
 
     idProjectType = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255), nullable=False)
+    name = Column(String(256), nullable=False)
 
     projects = relationship('ProjectDTO', back_populates='projectType')
 

@@ -6,7 +6,7 @@ class EvaluationProcedureDTO(Base):
     __tablename__ = 'EvaluationProcedure'
 
     idEvaluationProcedure = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255), nullable=True)
+    name = Column(String(256), nullable=True)
     measureValues = relationship('MeasureValueDTO', back_populates='evaluationProcedure', cascade="all") 
 
     def __init__(self, name= None,  idEvaluationProcedure = None):

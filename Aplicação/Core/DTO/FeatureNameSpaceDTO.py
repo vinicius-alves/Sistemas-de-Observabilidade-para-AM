@@ -6,7 +6,7 @@ class FeatureNameSpaceDTO(Base):
     __tablename__ = 'FeatureNameSpace' 
 
     idFeatureNameSpace = Column(Integer, primary_key=True, autoincrement=True) 
-    name = Column(String(45), nullable=True)  
+    name = Column(String(256), nullable=True)  
 
     features = relationship('FeatureDTO', back_populates='nameSpace')
 

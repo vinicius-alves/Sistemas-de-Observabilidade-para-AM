@@ -6,7 +6,7 @@ class TaskDTO(Base):
     __tablename__ = 'Task'
 
     idTask = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255), nullable=True)
+    name = Column(String(256), nullable=True)
     idTaskType = Column(Integer, ForeignKey('TaskType.idTaskType'), nullable=True)
     idDataset = Column(Integer, ForeignKey('Dataset.idDataset'), nullable=True)  
 

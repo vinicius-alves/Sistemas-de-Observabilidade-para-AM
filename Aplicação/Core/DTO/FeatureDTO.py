@@ -7,7 +7,7 @@ class FeatureDTO(Base):
 
     idFeature = Column(Integer, primary_key=True, autoincrement=True) 
     idFeatureNameSpace = Column(Integer, ForeignKey('FeatureNameSpace.idFeatureNameSpace'), nullable=True)
-    name = Column(String(45), nullable=True) 
+    name = Column(String(256), nullable=True) 
 
     nameSpace = relationship('FeatureNameSpaceDTO', back_populates='features') 
     projects = relationship('ProjectDTO', back_populates='targetFeature')

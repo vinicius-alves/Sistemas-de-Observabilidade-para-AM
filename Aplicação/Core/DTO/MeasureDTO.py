@@ -7,7 +7,7 @@ class MeasureDTO(Base):
     __tablename__ = 'Measure'
 
     idMeasure = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(1000), nullable=True)
+    name = Column(String(256), nullable=True)
     measureValues = relationship('MeasureValueDTO', back_populates='measure')
 
 

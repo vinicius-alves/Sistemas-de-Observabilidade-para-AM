@@ -14,7 +14,7 @@ class Run():
         target_feature_name = self.project.targetFeature.get_full_name()
         self.task.set_target_feature_name(target_feature_name = target_feature_name)
         
-        if type(model_parameters) == dict:
+        if type(model_parameters) == dict and self.model:
             self.model.set_params(model_parameters)
         predictions , measureValues= self.task.execute(model = self.model,  parameters = task_parameters)
 
@@ -24,7 +24,8 @@ class Run():
         if measureValues:
             self.measureValues= measureValues
 
-        self.parameters += self.model.get_params()
+        if self.model:
+            self.parameters += self.model.get_params()
 
         if type(task_parameters) == dict:
 
@@ -37,7 +38,7 @@ class Run():
 
             self.parameters += task_parameters_list
 
-        if self.task.taskType.type == 'Training':
+        if self.task.taskType.type == 'Training' and self.model:
             self.featureImportances = self.model.feature_importances()
 
         

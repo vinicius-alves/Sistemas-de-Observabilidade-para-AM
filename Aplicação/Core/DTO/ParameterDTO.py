@@ -6,9 +6,9 @@ class ParameterDTO(Base):
     __tablename__ = 'Parameter'
 
     idParameter = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255), nullable=False)
-    value = Column(String(255), nullable=False)
-    valueType = Column(String(255), nullable=False)
+    name = Column(String(256), nullable=False)
+    value = Column(String(256), nullable=False)
+    valueType = Column(String(256), nullable=False)
     idRun = Column(Integer, ForeignKey('Run.idRun'), nullable=False)
     idParameterType = Column(Integer, ForeignKey('ParameterType.idParameterType'), nullable=False)
 
