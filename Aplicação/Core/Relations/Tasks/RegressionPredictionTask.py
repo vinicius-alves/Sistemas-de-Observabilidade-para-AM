@@ -2,7 +2,7 @@ from ..Task import *
 from ..TaskType import * 
 from ..MeasureProcedures import *
 
-class SeoulBikePredictionTask(Task):
+class RegressionPredictionTask(Task):
    
     def __init__(self,   dataset= None ):
         self.taskType = TaskType( idTaskType = 2,type = 'Prediction')
@@ -29,8 +29,8 @@ class SeoulBikePredictionTask(Task):
         y_truth = df[self.target_feature_name]
         measureValues = []
         for measureProcedure in self.measureProcedures:
-            measure = measureProcedure.evaluate(y_truth = y_truth, y_pred = y_pred)
-            measureValues.append(measure)
+            measureValue = measureProcedure.evaluate(y_truth = y_truth, y_pred = y_pred)
+            measureValues.append(measureValue)
  
 
         return predictions, measureValues

@@ -3,14 +3,14 @@ from ..TaskType import *
 from sklearn.model_selection import train_test_split
 from ..MeasureProcedures import *
 
-class SeoulBikeTrainingTask(Task):
+class ClassificationTrainingTask(Task):
 
    
     def __init__(self,   dataset= None):
         self.taskType = TaskType( idTaskType = 1,type = 'Training')
         self.name = type(self).__name__
         self.dataset = dataset
-        self.measureProcedures = [RMSEMeasureProcedure(),MAEMeasureProcedure(),R2MeasureProcedure()]
+        self.measureProcedures = [F1MeasureProcedure(),AccuracyMeasureProcedure(),PrecisionMeasureProcedure(),LogLossMeasureProcedure()]
 
     def execute(self, model, parameters):
 
@@ -32,8 +32,14 @@ class SeoulBikeTrainingTask(Task):
         y_pred = [p.value for p in predictions]
         measureValues = []
         for measureProcedure in self.measureProcedures:
-            measure = measureProcedure.evaluate(y_truth = y_test, y_pred = y_pred)
-            measureValues.append(measure)
+            measureValue = measureProcedure.evaluate(y_truth = y_test, y_pred = y_pred)
+            measureValues.append(measureValue)
+
+        measureProcedure = ROCAUCMeasureProcedure()
+        y_pred_proba = model.predict_proba(X_test)
+        measureValue = measureProcedure.evaluate(y_truth = y_test, y_pred_proba = y_pred_proba)
+        measureValues.append(measureValue)
+
 
         return None, measureValues
     

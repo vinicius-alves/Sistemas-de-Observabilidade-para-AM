@@ -8,5 +8,5 @@ class AccuracyMeasureProcedure(EvaluationProcedure):
     def evaluate(self, **kwargs):
         y_truth = kwargs.get("y_truth", None)
         y_pred = kwargs.get("y_pred", None)
-        accuracy = accuracy_score(y_truth, y_pred)
-        return MeasureValue(measure = Measure(name='Accuracy'), value= accuracy, evaluationProcedure = self)
+        value = accuracy_score(y_truth, y_pred)
+        return MeasureValue(measure = Measure(name='Accuracy'), value= value, evaluationProcedure = self)
