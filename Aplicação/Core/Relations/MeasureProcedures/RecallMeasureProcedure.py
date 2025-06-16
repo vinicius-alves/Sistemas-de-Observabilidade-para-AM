@@ -10,4 +10,6 @@ class RecallMeasureProcedure(EvaluationProcedure):
         y_truth = kwargs.get("y_truth", None)
         y_pred = kwargs.get("y_pred", None) 
         value = recall_score(y_truth, y_pred, zero_division = np.nan)
+        if np.isnan(value):
+            value =None
         return MeasureValue(measure = Measure(name='Recall') , value= value, evaluationProcedure = self)
