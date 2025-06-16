@@ -1,0 +1,96 @@
+table_name: Real vs Predicted Median
+main_dttm_col: timestamp
+description: null
+default_endpoint: null
+offset: 0
+cache_timeout: 60
+catalog: mysql
+schema: mydb
+sql: "with t0 as (\n  select  DISTINCT t0.idproject, t0.name as project, timestamp,\
+  \ value, identity\n  from mysql.mydb.project as t0 \n  left join mongodb.mydb.featurevalue\
+  \ as t1 \n  on t0.idtargetfeature = t1.idfeature\n  left join mysql.mydb.projecttype\
+  \  as t2 \n  on t0.idprojecttype = t2.idprojecttype\n  where t2.name = 'Regression'\n\
+  )\n\n, t1 as (\nselect DISTINCT (timestamp - INTERVAL '3' HOUR) as timestamp, value,\
+  \ identity, t1.idproject\nfrom mysql.mydb.prediction as t0 \nleft join mysql.mydb.run\
+  \ as t1 \non t0.idrun = t1.idrun\n)\n \n\n, base_valores as (\n\n  select project\
+  \ , date(t1.timestamp) as timestamp, \n  cast(t0.value as double) as y_true, cast(t1.value\
+  \ as double) as y_pred\n  from t1 inner join t0 \n  on t0.timestamp = t1.timestamp\n\
+  \  and t0.identity = t1.identity\n  and t0.idproject = t1.idproject \n)\n\n, marcacao_ordem\
+  \ as (\n  select *, \n    row_number() over (partition by project, timestamp order\
+  \  by y_true) AS rn_true,\n    row_number() over (partition by project, timestamp\
+  \ order  by y_pred) AS rn_pred,\n    count(*) over (partition by project, timestamp)\
+  \ AS total\n  from base_valores \n)\n\nselect project, timestamp, \nAVG(case when\
+  \ rn_true in ((total + 1) / 2,\n        (total + 2) / 2) then y_true else null end\
+  \ ) AS y_true_median,\n        \nAVG(case when rn_pred in ((total + 1) / 2,\n  \
+  \      (total + 2) / 2) then y_pred else null end ) AS y_pred_median        \n\n\
+  from marcacao_ordem\ngroup by 1,2\n"
+params: null
+template_params: null
+filter_select_enabled: true
+fetch_values_predicate: null
+extra: null
+normalize_columns: false
+always_filter_main_dttm: false
+uuid: 00794dfd-0457-4a65-a871-7d548bee7776
+metrics:
+- metric_name: count
+  verbose_name: COUNT(*)
+  metric_type: count
+  expression: COUNT(*)
+  description: null
+  d3format: null
+  currency: null
+  extra:
+    warning_markdown: ''
+  warning_text: null
+columns:
+- column_name: project
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(45)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
+- column_name: timestamp
+  verbose_name: null
+  is_dttm: true
+  is_active: true
+  type: DATE
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
+- column_name: y_pred_median
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: DOUBLE
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
+- column_name: y_true_median
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: DOUBLE
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
+version: 1.0.0
+database_uuid: d0f4d9f1-5c16-424b-9b1d-9b359370e237

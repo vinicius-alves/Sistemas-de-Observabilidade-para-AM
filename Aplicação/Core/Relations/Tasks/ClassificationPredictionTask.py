@@ -8,7 +8,7 @@ class ClassificationPredictionTask(Task):
         self.taskType = TaskType( idTaskType = 2,type = 'Prediction')
         self.name = type(self).__name__
         self.dataset = dataset
-        self.measureProcedures = [F1MeasureProcedure(),AccuracyMeasureProcedure(),PrecisionMeasureProcedure(),LogLossMeasureProcedure()]
+        self.measureProcedures = [F1MeasureProcedure(),AccuracyMeasureProcedure(), RecallMeasureProcedure(),PrecisionMeasureProcedure(),LogLossMeasureProcedure()]
 
 
     def execute(self, model, parameters):

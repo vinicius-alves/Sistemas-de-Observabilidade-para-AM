@@ -23,7 +23,7 @@ with features_project as (
   where t0.idtargetfeature != t1.idfeature
 )
 
-select t1.*, t0.value, t0.timestamp, t0.identity 
+select t1.*, t0.value, t0.timestamp, t0.idEntity 
 from mongodb.mydb.featurevalue as t0 
 inner join detail_feature as t1 
 on t0.idfeature = t1.idfeature

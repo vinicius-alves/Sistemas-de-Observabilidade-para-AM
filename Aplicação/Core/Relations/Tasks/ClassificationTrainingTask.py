@@ -10,7 +10,7 @@ class ClassificationTrainingTask(Task):
         self.taskType = TaskType( idTaskType = 1,type = 'Training')
         self.name = type(self).__name__
         self.dataset = dataset
-        self.measureProcedures = [F1MeasureProcedure(),AccuracyMeasureProcedure(),PrecisionMeasureProcedure(),LogLossMeasureProcedure()]
+        self.measureProcedures = [F1MeasureProcedure(),AccuracyMeasureProcedure(),RecallMeasureProcedure(),PrecisionMeasureProcedure(),LogLossMeasureProcedure()]
 
     def execute(self, model, parameters):
 

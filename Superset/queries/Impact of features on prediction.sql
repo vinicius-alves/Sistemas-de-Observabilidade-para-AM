@@ -25,9 +25,8 @@ with contributions_base as (
 
 
 
-SELECT   t4.name as project, t2.timestamp, t2.idEntity,
-case when t1.name = 'bias' then 0 else 1 end as bias_var
-,coalesce(t1.name,'others') as feature,t0.contribution
+SELECT   t4.name as project, (t2.timestamp - INTERVAL '3' HOUR)  as timestamp, t2.idEntity,
+concat( case when t1.name = 'bias' then ' ' else '' end, coalesce(t1.name,'others')) as feature,t0.contribution
 FROM prediction_contribution_agg as t0 
 left join mysql.mydb.feature as t1 
 on t0.idFeature = t1.idFeature
@@ -37,4 +36,4 @@ left join mysql.mydb.run as t3
 on t2.idRun = t3.idRun
 left join mysql.mydb.project as t4 
 on t3.idProject = t4.idProject
-order by 1, 2,3,4,5
+order by 1, 2,3,4

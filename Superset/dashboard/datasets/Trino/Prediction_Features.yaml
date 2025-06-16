@@ -3,7 +3,7 @@ main_dttm_col: timestamp
 description: null
 default_endpoint: null
 offset: 0
-cache_timeout: null
+cache_timeout: 60
 catalog: mysql
 schema: mydb
 sql: "with features_project as (\n\n  select distinct t0.name as project, t0.idtargetfeature,\
@@ -15,7 +15,7 @@ sql: "with features_project as (\n\n  select distinct t0.name as project, t0.idt
   \ t2.name as featurenamespace \n  from features_project as t0 \n  left join mysql.mydb.feature\
   \ as t1 \n  on t0.idfeature = t1.idfeature\n  left join mysql.mydb.featurenamespace\
   \  as t2\n  on t1.idfeaturenamespace = t2.idfeaturenamespace\n  where t0.idtargetfeature\
-  \ != t1.idfeature\n)\n\nselect t1.*, t0.value, t0.timestamp, t0.identity \nfrom\
+  \ != t1.idfeature\n)\n\nselect t1.*, t0.value, t0.timestamp, t0.idEntity \nfrom\
   \ mongodb.mydb.featurevalue as t0 \ninner join detail_feature as t1 \non t0.idfeature\
   \ = t1.idfeature\norder by t1.featurenamespace, t1.feature"
 params: null
@@ -38,6 +38,42 @@ metrics:
     warning_markdown: ''
   warning_text: null
 columns:
+- column_name: featurenamespace
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(256)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
+- column_name: feature
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(256)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
+- column_name: project
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(256)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
 - column_name: timestamp
   verbose_name: null
   is_dttm: true
@@ -50,35 +86,11 @@ columns:
   description: null
   python_date_format: null
   extra: {}
-- column_name: featurenamespace
+- column_name: idEntity
   verbose_name: null
   is_dttm: false
   is_active: true
-  type: VARCHAR(45)
-  advanced_data_type: null
-  groupby: true
-  filterable: true
-  expression: null
-  description: null
-  python_date_format: null
-  extra: {}
-- column_name: feature
-  verbose_name: null
-  is_dttm: false
-  is_active: true
-  type: VARCHAR(45)
-  advanced_data_type: null
-  groupby: true
-  filterable: true
-  expression: null
-  description: null
-  python_date_format: null
-  extra: {}
-- column_name: project
-  verbose_name: null
-  is_dttm: false
-  is_active: true
-  type: VARCHAR(45)
+  type: VARCHAR
   advanced_data_type: null
   groupby: true
   filterable: true
@@ -91,18 +103,6 @@ columns:
   is_dttm: false
   is_active: true
   type: VARCHAR
-  advanced_data_type: null
-  groupby: true
-  filterable: true
-  expression: null
-  description: null
-  python_date_format: null
-  extra: {}
-- column_name: identity
-  verbose_name: null
-  is_dttm: false
-  is_active: true
-  type: BIGINT
   advanced_data_type: null
   groupby: true
   filterable: true

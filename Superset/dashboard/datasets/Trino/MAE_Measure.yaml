@@ -3,7 +3,7 @@ main_dttm_col: timestamp
 description: null
 default_endpoint: null
 offset: 0
-cache_timeout: null
+cache_timeout: 60
 catalog: mysql
 schema: mydb
 sql: "\r\n\r\nwith stard_date_parameter as (\r\n\r\n  select * from mysql.mydb.parameter\

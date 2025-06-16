@@ -1,9 +1,9 @@
-table_name: RMSE Measure
+table_name: Precision Measure
 main_dttm_col: timestamp
 description: null
 default_endpoint: null
 offset: 0
-cache_timeout: 60
+cache_timeout: null
 catalog: mysql
 schema: mydb
 sql: "\r\n\r\nwith stard_date_parameter as (\r\n\r\n  select * from mysql.mydb.parameter\
@@ -18,7 +18,8 @@ sql: "\r\n\r\nwith stard_date_parameter as (\r\n\r\n  select * from mysql.mydb.p
   \n \r\n)\r\n\r\nselect timestamp, t0.project, t2.name as measure , cast(t1.value\
   \ as double) as value\r\nfrom base as t0 \r\ninner join mysql.mydb.measurevalue\
   \ as t1\r\non t0.idrun = t1.idrun\r\ninner join mysql.mydb.measure as t2\r\non t1.idmeasure\
-  \ = t2.idmeasure\r\nwhere t2.name = 'RMSE' \r\norder by timestamp, measure\r\n"
+  \ = t2.idmeasure\r\nwhere t2.name = 'Precision' \r\norder by timestamp, measure\r\
+  \n"
 params: null
 template_params: null
 filter_select_enabled: true
@@ -26,7 +27,7 @@ fetch_values_predicate: null
 extra: null
 normalize_columns: false
 always_filter_main_dttm: false
-uuid: 09bb6128-8e09-4ab9-ae7e-08788bfc37a7
+uuid: 2c1219e4-2274-46b5-83a6-198b0daa6031
 metrics:
 - metric_name: count
   verbose_name: COUNT(*)
@@ -35,46 +36,33 @@ metrics:
   description: null
   d3format: null
   currency: null
-  extra:
-    warning_markdown: ''
+  extra: null
   warning_text: null
 columns:
 - column_name: measure
   verbose_name: null
   is_dttm: false
   is_active: true
-  type: VARCHAR(45)
+  type: VARCHAR(256)
   advanced_data_type: null
   groupby: true
   filterable: true
   expression: null
   description: null
   python_date_format: null
-  extra: {}
-- column_name: value
-  verbose_name: null
-  is_dttm: false
-  is_active: true
-  type: VARCHAR(45)
-  advanced_data_type: null
-  groupby: true
-  filterable: true
-  expression: null
-  description: null
-  python_date_format: null
-  extra: {}
+  extra: null
 - column_name: project
   verbose_name: null
   is_dttm: false
   is_active: true
-  type: VARCHAR(45)
+  type: VARCHAR(256)
   advanced_data_type: null
   groupby: true
   filterable: true
   expression: null
   description: null
   python_date_format: null
-  extra: {}
+  extra: null
 - column_name: timestamp
   verbose_name: null
   is_dttm: true
@@ -86,6 +74,18 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: {}
+  extra: null
+- column_name: value
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: DOUBLE
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: null
 version: 1.0.0
 database_uuid: d0f4d9f1-5c16-424b-9b1d-9b359370e237

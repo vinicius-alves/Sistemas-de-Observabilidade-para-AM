@@ -3,7 +3,7 @@ main_dttm_col: null
 description: null
 default_endpoint: null
 offset: 0
-cache_timeout: null
+cache_timeout: 60
 catalog: mysql
 schema: mydb
 sql: "with filter_training_run as (\r\n\r\n  select * from mysql.mydb.tasktype\r\n\

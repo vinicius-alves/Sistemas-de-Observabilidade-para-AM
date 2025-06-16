@@ -1,22 +1,23 @@
 table_name: Continuous Features
-main_dttm_col: timestamp
+main_dttm_col: mes
 description: null
 default_endpoint: null
 offset: 0
-cache_timeout: null
+cache_timeout: 60
 catalog: mysql
 schema: mydb
 sql: "with features_values as (\r\n  SELECT DISTINCT t0.*, t1.name, t2.name as namespace\r\
   \n   from mongodb.mydb.featurevalue t0\r\n  inner join mysql.mydb.feature t1 \r\n\
   \  on t0.idfeature = t1.idfeature \r\n  inner join mysql.mydb.featurenamespace t2\r\
-  \n  on t1.idfeaturenamespace = t2.idfeaturenamespace \r\n\r\n)\r\n\r\n, features_values_num\
+  \n  on t1.idfeaturenamespace = t2.idfeaturenamespace \r\n)\r\n\r\n, features_values_num\
   \ as (\r\n\r\n    select * from features_values\r\n    where   type  in ('int','float')\r\
-  \n)\r\n\r\n, rank_name as (\r\n\r\n    select *, \r\n    row_number() over (order\
-  \ by namespace, name) as rank\r\n     from (select distinct name, namespace from\
-  \ features_values_num)\r\n)\r\n\r\n\r\nselect date_trunc('month', timestamp) as\
-  \ mes, timestamp, cast(t0.value as double) value, t0.name, t0.namespace, rank\r\n\
-  from features_values_num as t0 \r\nleft join rank_name as t1 \r\non t0.name = t1.name\
-  \ \r\nand t0.namespace = t1.namespace\r\n "
+  \n)\r\n\r\n, rank_name as (\r\n\r\n    select *, \r\n    row_number() over (partition\
+  \ by namespace order by  name) as rank\r\n     from (select distinct name, namespace\
+  \ from features_values_num)\r\n)\r\n\r\n\r\n  select date_trunc('month', timestamp)\
+  \ as mes, format_datetime(timestamp, 'YYYY-MM') AS mes_formatado,\r\n  timestamp,\
+  \ cast(t0.value as double) value, t0.name, t0.namespace, rank\r\n  from features_values_num\
+  \ as t0 \r\n  left join rank_name as t1 \r\n  on t0.name = t1.name \r\n  and t0.namespace\
+  \ = t1.namespace\r\n "
 params: null
 template_params: null
 filter_select_enabled: true
@@ -37,6 +38,30 @@ metrics:
     warning_markdown: ''
   warning_text: null
 columns:
+- column_name: namespace
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(256)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
+- column_name: name
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(256)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
 - column_name: timestamp
   verbose_name: null
   is_dttm: true
@@ -61,23 +86,11 @@ columns:
   description: null
   python_date_format: null
   extra: {}
-- column_name: namespace
+- column_name: mes_formatado
   verbose_name: null
   is_dttm: false
   is_active: true
-  type: VARCHAR(45)
-  advanced_data_type: null
-  groupby: true
-  filterable: true
-  expression: null
-  description: null
-  python_date_format: null
-  extra: {}
-- column_name: name
-  verbose_name: null
-  is_dttm: false
-  is_active: true
-  type: VARCHAR(45)
+  type: VARCHAR
   advanced_data_type: null
   groupby: true
   filterable: true

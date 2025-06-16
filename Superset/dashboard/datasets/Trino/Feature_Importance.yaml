@@ -3,7 +3,7 @@ main_dttm_col: null
 description: null
 default_endpoint: null
 offset: 0
-cache_timeout: null
+cache_timeout: 60
 catalog: mysql
 schema: mydb
 sql: "with production_models as (\r\n select  t1.idmodel, \r\n  max(t3.name) as project\

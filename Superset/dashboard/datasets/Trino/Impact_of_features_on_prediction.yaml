@@ -3,7 +3,7 @@ main_dttm_col: timestamp
 description: null
 default_endpoint: null
 offset: 0
-cache_timeout: null
+cache_timeout: 60
 catalog: mysql
 schema: mydb
 sql: "with contributions_base as (\r\n\r\n  select idfeature, contribution, idprediction,\
@@ -15,12 +15,13 @@ sql: "with contributions_base as (\r\n\r\n  select idfeature, contribution, idpr
   \n  \r\n  union \r\n  \r\n  select \r\n  null as idfeature, sum(contribution) as\
   \ contribution, idprediction\r\n  \r\n  from contributions_base\r\n  where percent_contribution\
   \ < 0.02\r\n  group by idprediction\r\n)\r\n\r\n\r\n\r\nSELECT   t4.name as project,\
-  \ t2.timestamp, t2.idEntity,\r\ncase when t1.name = 'bias' then 0 else 1 end as\
-  \ bias_var\r\n,coalesce(t1.name,'others') as feature,t0.contribution\r\nFROM prediction_contribution_agg\
-  \ as t0 \r\nleft join mysql.mydb.feature as t1 \r\non t0.idFeature = t1.idFeature\r\
-  \nleft join mysql.mydb.prediction  as t2 \r\non t0.idPrediction = t2.idPrediction\r\
-  \nleft join mysql.mydb.run as t3 \r\non t2.idRun = t3.idRun\r\nleft join mysql.mydb.project\
-  \ as t4 \r\non t3.idProject = t4.idProject\r\norder by 1, 2,3,4,5"
+  \ (t2.timestamp - INTERVAL '3' HOUR)  as timestamp, t2.idEntity,\r\nconcat( case\
+  \ when t1.name = 'bias' then ' ' else '' end, coalesce(t1.name,'others')) as feature,t0.contribution\r\
+  \nFROM prediction_contribution_agg as t0 \r\nleft join mysql.mydb.feature as t1\
+  \ \r\non t0.idFeature = t1.idFeature\r\nleft join mysql.mydb.prediction  as t2 \r\
+  \non t0.idPrediction = t2.idPrediction\r\nleft join mysql.mydb.run as t3 \r\non\
+  \ t2.idRun = t3.idRun\r\nleft join mysql.mydb.project as t4 \r\non t3.idProject\
+  \ = t4.idProject\r\norder by 1, 2,3,4"
 params: null
 template_params: null
 filter_select_enabled: true
