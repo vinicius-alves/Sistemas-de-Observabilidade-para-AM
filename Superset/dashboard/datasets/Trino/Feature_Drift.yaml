@@ -3,7 +3,7 @@ main_dttm_col: null
 description: null
 default_endpoint: null
 offset: 0
-cache_timeout: 60
+cache_timeout: null
 catalog: mysql
 schema: mydb
 sql: "with base as (\r\n\r\n    SELECT  t1.name as measure,  date(parse_datetime(t2.value,\

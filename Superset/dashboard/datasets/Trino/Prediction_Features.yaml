@@ -3,7 +3,7 @@ main_dttm_col: timestamp
 description: null
 default_endpoint: null
 offset: 0
-cache_timeout: 60
+cache_timeout: null
 catalog: mysql
 schema: mydb
 sql: "with features_project as (\n\n  select distinct t0.name as project, t0.idtargetfeature,\

@@ -1,0 +1,84 @@
+slice_name: Impact of features on predictions general
+description: null
+certified_by: null
+certification_details: null
+viz_type: box_plot
+params:
+  datasource: 31__table
+  viz_type: box_plot
+  slice_id: 387
+  columns:
+  - timestamp
+  time_grain_sqla: P1D
+  temporal_columns_lookup:
+    timestamp: true
+  groupby:
+  - feature
+  metrics:
+  - aggregate: AVG
+    column:
+      advanced_data_type: null
+      changed_on: '2025-06-29T01:13:24.460025'
+      column_name: contribution
+      created_on: '2025-06-29T01:13:24.460021'
+      description: null
+      expression: null
+      extra: '{}'
+      filterable: true
+      groupby: true
+      id: 1124
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: DOUBLE
+      type_generic: 0
+      uuid: 9bdd669b-0acb-4d36-be53-31be060cf3ab
+      verbose_name: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    label: AVG(contribution)
+    optionName: metric_ci1l7s8iyak_oebob2m5zuj
+    sqlExpression: null
+  adhoc_filters:
+  - expressionType: SIMPLE
+    subject: timestamp
+    operator: TEMPORAL_RANGE
+    comparator: No filter
+    clause: WHERE
+    sqlExpression: null
+    isExtra: false
+    isNew: false
+    datasourceWarning: false
+    filterOptionName: filter_nhb75sjtkls_b0tp907bglj
+  - expressionType: SIMPLE
+    subject: feature
+    operator: '!='
+    operatorId: NOT_EQUALS
+    comparator: ' bias'
+    clause: WHERE
+    sqlExpression: null
+    isExtra: false
+    isNew: false
+    datasourceWarning: false
+    filterOptionName: filter_dn6wa3h4ww_897qonw8alh
+  whiskerOptions: Min/max (no outliers)
+  x_axis_title_margin: 15
+  y_axis_title_margin: 30
+  y_axis_title_position: Left
+  color_scheme: supersetColors
+  x_ticks_layout: auto
+  number_format: SMART_NUMBER
+  date_format: smart_date
+  extra_form_data: {}
+  dashboards:
+  - 14
+query_context: '{"datasource":{"id":31,"type":"table"},"force":false,"queries":[{"filters":[{"col":"timestamp","op":"TEMPORAL_RANGE","val":"No
+  filter"},{"col":"feature","op":"!=","val":" bias"}],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":[{"timeGrain":"P1D","columnType":"BASE_AXIS","sqlExpression":"timestamp","label":"timestamp","expressionType":"SQL"},"feature"],"metrics":[{"aggregate":"AVG","column":{"advanced_data_type":null,"changed_on":"2025-06-29T01:13:24.460025","column_name":"contribution","created_on":"2025-06-29T01:13:24.460021","description":null,"expression":null,"extra":"{}","filterable":true,"groupby":true,"id":1124,"is_active":true,"is_dttm":false,"python_date_format":null,"type":"DOUBLE","type_generic":0,"uuid":"9bdd669b-0acb-4d36-be53-31be060cf3ab","verbose_name":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"AVG(contribution)","optionName":"metric_ci1l7s8iyak_oebob2m5zuj","sqlExpression":null}],"annotation_layers":[],"series_columns":["feature"],"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[{"operation":"boxplot","options":{"whisker_type":"min/max","groupby":["feature"],"metrics":["AVG(contribution)"]}}]}],"form_data":{"datasource":"31__table","viz_type":"box_plot","slice_id":387,"columns":["timestamp"],"time_grain_sqla":"P1D","temporal_columns_lookup":{"timestamp":true},"groupby":["feature"],"metrics":[{"aggregate":"AVG","column":{"advanced_data_type":null,"changed_on":"2025-06-29T01:13:24.460025","column_name":"contribution","created_on":"2025-06-29T01:13:24.460021","description":null,"expression":null,"extra":"{}","filterable":true,"groupby":true,"id":1124,"is_active":true,"is_dttm":false,"python_date_format":null,"type":"DOUBLE","type_generic":0,"uuid":"9bdd669b-0acb-4d36-be53-31be060cf3ab","verbose_name":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"AVG(contribution)","optionName":"metric_ci1l7s8iyak_oebob2m5zuj","sqlExpression":null}],"adhoc_filters":[{"expressionType":"SIMPLE","subject":"timestamp","operator":"TEMPORAL_RANGE","comparator":"No
+  filter","clause":"WHERE","sqlExpression":null,"isExtra":false,"isNew":false,"datasourceWarning":false,"filterOptionName":"filter_nhb75sjtkls_b0tp907bglj"},{"expressionType":"SIMPLE","subject":"feature","operator":"!=","operatorId":"NOT_EQUALS","comparator":"
+  bias","clause":"WHERE","sqlExpression":null,"isExtra":false,"isNew":false,"datasourceWarning":false,"filterOptionName":"filter_dn6wa3h4ww_897qonw8alh"}],"whiskerOptions":"Min/max
+  (no outliers)","x_axis_title_margin":15,"y_axis_title_margin":30,"y_axis_title_position":"Left","color_scheme":"supersetColors","x_ticks_layout":"auto","number_format":"SMART_NUMBER","date_format":"smart_date","extra_form_data":{},"dashboards":[14],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+cache_timeout: null
+uuid: d76106b0-bf55-486a-ac0b-4a13de435a8b
+version: 1.0.0
+dataset_uuid: 543aebfc-b74a-47f3-9b2f-9addd081b5bd

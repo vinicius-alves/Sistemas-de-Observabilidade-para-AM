@@ -3,7 +3,7 @@ main_dttm_col: mes
 description: null
 default_endpoint: null
 offset: 0
-cache_timeout: 60
+cache_timeout: null
 catalog: mysql
 schema: mydb
 sql: "with features_values as (\r\n  SELECT DISTINCT t0.*, t1.name, t2.name as namespace\r\

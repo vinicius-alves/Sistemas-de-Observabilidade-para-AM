@@ -3,7 +3,7 @@ main_dttm_col: first_prediction
 description: null
 default_endpoint: null
 offset: 0
-cache_timeout: 60
+cache_timeout: null
 catalog: mysql
 schema: mydb
 sql: "with gen_summary as (\r\n\r\n     select  t1.idmodel,\r\n    max(t2.name) as\
