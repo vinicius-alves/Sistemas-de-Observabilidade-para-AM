@@ -9,5 +9,6 @@ allow_dml: false
 allow_file_upload: false
 extra:
   allows_virtual_table_explore: true
+impersonate_user: false
 uuid: d0f4d9f1-5c16-424b-9b1d-9b359370e237
 version: 1.0.0

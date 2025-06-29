@@ -1,0 +1,107 @@
+slice_name: Impact of features on prediction
+description: null
+certified_by: null
+certification_details: null
+viz_type: waterfall
+params:
+  datasource: 31__table
+  viz_type: waterfall
+  slice_id: 279
+  x_axis: feature
+  groupby: []
+  metric:
+    aggregate: SUM
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: contribution
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 877
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: DOUBLE
+      type_generic: 0
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    label: SUM(contribution)
+    optionName: metric_qznvu4njvz_6c6cirmj2dx
+    sqlExpression: null
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_v4ujo3jr2za_sy4evig5l5d
+    isExtra: false
+    isNew: false
+    operator: TEMPORAL_RANGE
+    sqlExpression: null
+    subject: timestamp
+  row_limit: 1000
+  show_value: true
+  show_legend: true
+  increase_color:
+    a: 1
+    b: 201
+    g: 168
+    r: 31
+  decrease_color:
+    a: 1
+    b: 85
+    g: 67
+    r: 224
+  total_color:
+    a: 1
+    b: 102
+    g: 102
+    r: 102
+  x_axis_time_format: smart_date
+  x_ticks_layout: auto
+  y_axis_format: SMART_NUMBER
+  extra_form_data: {}
+  dashboards:
+  - 13
+  annotation_layers: []
+query_context: '{"datasource": {"id": 31, "type": "table"}, "force": false, "queries":
+  [{"filters": [{"col": "timestamp", "op": "TEMPORAL_RANGE", "val": "No filter"}],
+  "extras": {"having": "", "where": ""}, "applied_time_extras": {}, "columns": [{"columnType":
+  "BASE_AXIS", "sqlExpression": "feature", "label": "feature", "expressionType": "SQL"}],
+  "metrics": [{"aggregate": "SUM", "column": {"advanced_data_type": null, "certification_details":
+  null, "certified_by": null, "column_name": "contribution", "description": null,
+  "expression": null, "filterable": true, "groupby": true, "id": 877, "is_certified":
+  false, "is_dttm": false, "python_date_format": null, "type": "DOUBLE", "type_generic":
+  0, "verbose_name": null, "warning_markdown": null}, "datasourceWarning": false,
+  "expressionType": "SIMPLE", "hasCustomLabel": false, "label": "SUM(contribution)",
+  "optionName": "metric_qznvu4njvz_6c6cirmj2dx", "sqlExpression": null}], "orderby":
+  [["feature", true]], "annotation_layers": [], "row_limit": 1000, "series_limit":
+  0, "order_desc": true, "url_params": {}, "custom_params": {}, "custom_form_data":
+  {}}], "form_data": {"datasource": "31__table", "viz_type": "waterfall", "slice_id":
+  279, "x_axis": "feature", "groupby": [], "metric": {"aggregate": "SUM", "column":
+  {"advanced_data_type": null, "certification_details": null, "certified_by": null,
+  "column_name": "contribution", "description": null, "expression": null, "filterable":
+  true, "groupby": true, "id": 877, "is_certified": false, "is_dttm": false, "python_date_format":
+  null, "type": "DOUBLE", "type_generic": 0, "verbose_name": null, "warning_markdown":
+  null}, "datasourceWarning": false, "expressionType": "SIMPLE", "hasCustomLabel":
+  false, "label": "SUM(contribution)", "optionName": "metric_qznvu4njvz_6c6cirmj2dx",
+  "sqlExpression": null}, "adhoc_filters": [{"clause": "WHERE", "comparator": "No
+  filter", "datasourceWarning": false, "expressionType": "SIMPLE", "filterOptionName":
+  "filter_v4ujo3jr2za_sy4evig5l5d", "isExtra": false, "isNew": false, "operator":
+  "TEMPORAL_RANGE", "sqlExpression": null, "subject": "timestamp"}], "row_limit":
+  1000, "show_value": true, "show_legend": true, "increase_color": {"a": 1, "b": 201,
+  "g": 168, "r": 31}, "decrease_color": {"a": 1, "b": 85, "g": 67, "r": 224}, "total_color":
+  {"a": 1, "b": 102, "g": 102, "r": 102}, "x_axis_time_format": "smart_date", "x_ticks_layout":
+  "auto", "y_axis_format": "SMART_NUMBER", "extra_form_data": {}, "dashboards": [13],
+  "force": false, "result_format": "json", "result_type": "full"}, "result_format":
+  "json", "result_type": "full"}'
+cache_timeout: null
+uuid: 32fb90e3-8194-4f97-84ee-8a0ca314b009
+version: 1.0.0
+dataset_uuid: 543aebfc-b74a-47f3-9b2f-9addd081b5bd
