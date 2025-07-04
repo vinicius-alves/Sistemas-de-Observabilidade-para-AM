@@ -8,3 +8,4 @@ from .RecallMeasureProcedure import *
 from .F1MeasureProcedure import *
 from .LogLossMeasureProcedure import *
 from .ROCAUCMeasureProcedure import *
+from .IsolationForestMeasureProcedure import *

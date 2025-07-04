@@ -15,7 +15,6 @@ class FeatureDriftCheckTask(Task):
     def execute(self, model=None, parameters= {}):
 
         df = self.dataset.df.drop(columns = ['idEntity'], errors='ignore') 
-        name_space_obj = self.dataset.features[0].nameSpace
         name_space_map = {}
         for feature in self.dataset.features:
             name_space_map[feature.name] = feature.nameSpace
