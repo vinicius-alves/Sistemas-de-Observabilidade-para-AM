@@ -15,6 +15,7 @@ class FeatureDTO(Base):
     featureDatasets = relationship('FeatureDatasetDTO', back_populates='feature')
     predictionFeatureContributions = relationship('PredictionFeatureContributionDTO', back_populates='feature')
     subjectFeatures = relationship('SubjectFeatureDTO', back_populates='feature')
+    slices = relationship('SliceDTO', back_populates='feature')
 
     def __init__(self,  idFeature = None, name = None, nameSpace = None):
         self.idFeature = idFeature 

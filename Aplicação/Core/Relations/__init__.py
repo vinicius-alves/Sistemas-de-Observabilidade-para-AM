@@ -21,3 +21,6 @@ from .FeatureDataset import *
 from .PredictionFeatureContribution import *
 from .SubjectMeasure import *
 from .SubjectFeature import *
+from .SubjectSlice import *
+from .SubjectEntity import *
+from .Slice import *

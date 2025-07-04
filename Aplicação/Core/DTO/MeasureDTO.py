@@ -16,6 +16,8 @@ class MeasureDTO(Base):
     subjectReferenceMeasures = relationship('SubjectMeasureDTO', back_populates='referenceMeasure',
     foreign_keys=lambda : [SubjectMeasureDTO.idReferenceMeasure])
     subjectFeatures = relationship('SubjectFeatureDTO', back_populates='measure')
+    subjectSlices = relationship('SubjectSliceDTO', back_populates='measure')
+    subjectEntities = relationship('SubjectEntityDTO', back_populates='measure')
 
     def __init__(self,  name = None, idMeasure = None):
         self.idMeasure = idMeasure

@@ -20,3 +20,6 @@ from .FeatureDatasetDTO import *
 from .PredictionFeatureContributionDTO import *
 from .SubjectMeasureDTO import *
 from .SubjectFeatureDTO import *
+from .SubjectSliceDTO import *
+from .SubjectEntityDTO import *
+from .SliceDTO import *
