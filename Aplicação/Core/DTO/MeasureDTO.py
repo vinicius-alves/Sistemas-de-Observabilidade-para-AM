@@ -23,9 +23,7 @@ class MeasureDTO(Base):
         self.idMeasure = idMeasure
         self.name = name
 
-    def get_secondary_key(self):
-        return ['name']
-
+  
 class MeasureRepository(GenericRepository):
     def __init__(self, session):
         super().__init__(session, MeasureDTO)

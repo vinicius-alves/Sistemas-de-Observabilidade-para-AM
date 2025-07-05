@@ -1,0 +1,63 @@
+slice_name: Outliers Table
+description: null
+certified_by: null
+certification_details: null
+viz_type: table
+params:
+  datasource: 44__table
+  viz_type: table
+  query_mode: raw
+  groupby: []
+  time_grain_sqla: P1D
+  temporal_columns_lookup:
+    timestamp: true
+    mes: true
+  all_columns:
+  - timestamp
+  - identity
+  percent_metrics: []
+  adhoc_filters:
+  - expressionType: SIMPLE
+    subject: timestamp
+    operator: TEMPORAL_RANGE
+    comparator: No filter
+    clause: WHERE
+    sqlExpression: null
+    isExtra: false
+    isNew: false
+    datasourceWarning: false
+    filterOptionName: filter_hpm4o0xswhc_9lm2uzzxdsp
+  - expressionType: SIMPLE
+    subject: outlier
+    operator: IN
+    operatorId: IN
+    comparator:
+    - 1
+    clause: WHERE
+    sqlExpression: null
+    isExtra: false
+    isNew: false
+    datasourceWarning: false
+    filterOptionName: filter_lm7iteg3e57_0kd502m4kc2o
+  order_by_cols: []
+  order_desc: true
+  server_pagination: true
+  row_limit: 1000
+  server_page_length: 10
+  table_timestamp_format: smart_date
+  allow_render_html: true
+  show_cell_bars: true
+  color_pn: true
+  comparison_color_scheme: Green
+  comparison_type: values
+  extra_form_data: {}
+  dashboards:
+  - 14
+query_context: '{"datasource":{"id":44,"type":"table"},"force":false,"queries":[{"filters":[{"col":"timestamp","op":"TEMPORAL_RANGE","val":"No
+  filter"},{"col":"outlier","op":"IN","val":[1]}],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":["timestamp","identity"],"orderby":[],"annotation_layers":[],"row_limit":10,"row_offset":0,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[],"time_offsets":[]},{"filters":[{"col":"timestamp","op":"TEMPORAL_RANGE","val":"No
+  filter"},{"col":"outlier","op":"IN","val":[1]}],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":["timestamp","identity"],"orderby":[],"annotation_layers":[],"row_limit":0,"row_offset":0,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[],"time_offsets":[],"is_rowcount":true}],"form_data":{"datasource":"44__table","viz_type":"table","query_mode":"raw","groupby":[],"time_grain_sqla":"P1D","temporal_columns_lookup":{"timestamp":true,"mes":true},"all_columns":["timestamp","identity"],"percent_metrics":[],"adhoc_filters":[{"expressionType":"SIMPLE","subject":"timestamp","operator":"TEMPORAL_RANGE","comparator":"No
+  filter","clause":"WHERE","sqlExpression":null,"isExtra":false,"isNew":false,"datasourceWarning":false,"filterOptionName":"filter_hpm4o0xswhc_9lm2uzzxdsp"},{"expressionType":"SIMPLE","subject":"outlier","operator":"IN","operatorId":"IN","comparator":[1],"clause":"WHERE","sqlExpression":null,"isExtra":false,"isNew":false,"datasourceWarning":false,"filterOptionName":"filter_lm7iteg3e57_0kd502m4kc2o"}],"order_by_cols":[],"order_desc":true,"server_pagination":true,"row_limit":1000,"server_page_length":10,"table_timestamp_format":"smart_date","allow_render_html":true,"show_cell_bars":true,"color_pn":true,"comparison_color_scheme":"Green","comparison_type":"values","extra_form_data":{},"dashboards":[14],"force":false,"result_format":"json","result_type":"full","include_time":false},"result_format":"json","result_type":"full"}'
+cache_timeout: null
+uuid: 7a0aed3d-07fc-4e7c-acbe-6d329246bca8
+version: 1.0.0
+dataset_uuid: f06f0240-a398-4690-809d-57318d9957a9

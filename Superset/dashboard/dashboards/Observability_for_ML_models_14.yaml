@@ -732,6 +732,36 @@ position:
     - TAB-8NIamZtsQvzmVpvw7TmND
     - ROW-qWBDdCiIQe3jAGd_PTC9F
     type: CHART
+  CHART-explore-389-1:
+    children: []
+    id: CHART-explore-389-1
+    meta:
+      chartId: 389
+      height: 112
+      sliceName: Outliers
+      uuid: 91506c9a-942d-4e31-bf25-c8431c6e9c8f
+      width: 7
+    parents:
+    - ROOT_ID
+    - TABS-fpw8lo9gzDzyLLuGtLIjY
+    - TAB-YmpZJxJ0JzLGElxBD8ZxC
+    - ROW-_oRWAstxp4KG1Ja0T1FhS
+    type: CHART
+  CHART-explore-390-1:
+    children: []
+    id: CHART-explore-390-1
+    meta:
+      chartId: 390
+      height: 112
+      sliceName: Outliers Table
+      uuid: 7a0aed3d-07fc-4e7c-acbe-6d329246bca8
+      width: 5
+    parents:
+    - ROOT_ID
+    - TABS-fpw8lo9gzDzyLLuGtLIjY
+    - TAB-CIcPLeQgAuYBLmFnSPKct
+    - ROW-CLrTUHLoQeH5ZQxffoYCQ
+    type: CHART
   CHART-explore-397-1:
     children: []
     id: CHART-explore-397-1
@@ -1042,6 +1072,18 @@ position:
     - TABS-fpw8lo9gzDzyLLuGtLIjY
     - TAB-huS-4SGaHQqHYpyEGwG-4
     type: ROW
+  ROW-GRSyML1hhfH4VqGcl42mB:
+    children:
+    - CHART-explore-389-1
+    - CHART-explore-390-1
+    id: ROW-GRSyML1hhfH4VqGcl42mB
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-fpw8lo9gzDzyLLuGtLIjY
+    - TAB-YmpZJxJ0JzLGElxBD8ZxC
+    type: ROW
   ROW-HsAEoVh7kYMStgbuwWbLe:
     children:
     - CHART-UN1ROqCY2kgEYoCUV0smO
@@ -1287,6 +1329,18 @@ position:
     - TAB-you5uuQ78ubW1YyqP53r6
     - TABS-F01nzc3I2VUejZr6YEI01
     type: TAB
+  TAB-YmpZJxJ0JzLGElxBD8ZxC:
+    children:
+    - ROW-GRSyML1hhfH4VqGcl42mB
+    id: TAB-YmpZJxJ0JzLGElxBD8ZxC
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Outliers
+    parents:
+    - ROOT_ID
+    - TABS-fpw8lo9gzDzyLLuGtLIjY
+    type: TAB
   TAB-bNtMNNEYO8p9YQBpPGY_1:
     children:
     - ROW-0QaXqX3uSBhS9ZpX_0qda
@@ -1406,6 +1460,7 @@ position:
     - TAB-you5uuQ78ubW1YyqP53r6
     - TAB-huS-4SGaHQqHYpyEGwG-4
     - TAB-6CWBzu9b2oPkZv7mZoP6B
+    - TAB-YmpZJxJ0JzLGElxBD8ZxC
     id: TABS-fpw8lo9gzDzyLLuGtLIjY
     meta: {}
     parents:
@@ -1475,6 +1530,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '246':
       id: 246
       crossFilters:
@@ -1531,6 +1588,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '247':
       id: 247
       crossFilters:
@@ -1587,6 +1646,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '248':
       id: 248
       crossFilters:
@@ -1643,6 +1704,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '249':
       id: 249
       crossFilters:
@@ -1699,6 +1762,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '250':
       id: 250
       crossFilters:
@@ -1755,6 +1820,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '251':
       id: 251
       crossFilters:
@@ -1811,6 +1878,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '252':
       id: 252
       crossFilters:
@@ -1867,6 +1936,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '253':
       id: 253
       crossFilters:
@@ -1923,6 +1994,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '254':
       id: 254
       crossFilters:
@@ -1979,6 +2052,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '255':
       id: 255
       crossFilters:
@@ -2035,6 +2110,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '256':
       id: 256
       crossFilters:
@@ -2091,6 +2168,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '257':
       id: 257
       crossFilters:
@@ -2147,6 +2226,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '258':
       id: 258
       crossFilters:
@@ -2203,6 +2284,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '259':
       id: 259
       crossFilters:
@@ -2259,6 +2342,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '260':
       id: 260
       crossFilters:
@@ -2315,6 +2400,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '261':
       id: 261
       crossFilters:
@@ -2371,6 +2458,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '262':
       id: 262
       crossFilters:
@@ -2427,6 +2516,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '263':
       id: 263
       crossFilters:
@@ -2483,6 +2574,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '264':
       id: 264
       crossFilters:
@@ -2539,6 +2632,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '265':
       id: 265
       crossFilters:
@@ -2595,6 +2690,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '266':
       id: 266
       crossFilters:
@@ -2651,6 +2748,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '267':
       id: 267
       crossFilters:
@@ -2707,6 +2806,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '268':
       id: 268
       crossFilters:
@@ -2763,6 +2864,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '269':
       id: 269
       crossFilters:
@@ -2819,6 +2922,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '270':
       id: 270
       crossFilters:
@@ -2875,6 +2980,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '271':
       id: 271
       crossFilters:
@@ -2931,6 +3038,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '272':
       id: 272
       crossFilters:
@@ -2987,6 +3096,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '273':
       id: 273
       crossFilters:
@@ -3043,6 +3154,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '274':
       id: 274
       crossFilters:
@@ -3099,6 +3212,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '275':
       id: 275
       crossFilters:
@@ -3155,6 +3270,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '276':
       id: 276
       crossFilters:
@@ -3211,6 +3328,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '277':
       id: 277
       crossFilters:
@@ -3267,6 +3386,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '278':
       id: 278
       crossFilters:
@@ -3323,6 +3444,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '279':
       id: 279
       crossFilters:
@@ -3379,6 +3502,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '280':
       id: 280
       crossFilters:
@@ -3435,6 +3560,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '281':
       id: 281
       crossFilters:
@@ -3491,6 +3618,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '336':
       id: 336
       crossFilters:
@@ -3547,6 +3676,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '337':
       id: 337
       crossFilters:
@@ -3603,6 +3734,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '338':
       id: 338
       crossFilters:
@@ -3659,6 +3792,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '339':
       id: 339
       crossFilters:
@@ -3715,6 +3850,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '340':
       id: 340
       crossFilters:
@@ -3771,6 +3908,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '341':
       id: 341
       crossFilters:
@@ -3827,6 +3966,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '342':
       id: 342
       crossFilters:
@@ -3883,6 +4024,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '343':
       id: 343
       crossFilters:
@@ -3939,6 +4082,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '344':
       id: 344
       crossFilters:
@@ -3995,6 +4140,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '345':
       id: 345
       crossFilters:
@@ -4051,6 +4198,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '346':
       id: 346
       crossFilters:
@@ -4107,6 +4256,8 @@ metadata:
         - 347
         - 348
         - 387
+        - 389
+        - 390
     '347':
       id: 347
       crossFilters:
@@ -4163,6 +4314,8 @@ metadata:
         - 346
         - 348
         - 387
+        - 389
+        - 390
     '387':
       id: 387
       crossFilters:
@@ -4219,6 +4372,124 @@ metadata:
         - 346
         - 347
         - 348
+        - 389
+        - 390
+    '389':
+      id: 389
+      crossFilters:
+        scope: global
+        chartsInScope:
+        - 245
+        - 246
+        - 247
+        - 248
+        - 249
+        - 250
+        - 251
+        - 252
+        - 253
+        - 254
+        - 255
+        - 256
+        - 257
+        - 258
+        - 259
+        - 260
+        - 261
+        - 262
+        - 263
+        - 264
+        - 265
+        - 266
+        - 267
+        - 268
+        - 269
+        - 270
+        - 271
+        - 272
+        - 273
+        - 274
+        - 275
+        - 276
+        - 277
+        - 278
+        - 279
+        - 280
+        - 281
+        - 282
+        - 336
+        - 337
+        - 338
+        - 339
+        - 340
+        - 341
+        - 342
+        - 343
+        - 344
+        - 345
+        - 346
+        - 347
+        - 348
+        - 387
+        - 390
+    '390':
+      id: 390
+      crossFilters:
+        scope: global
+        chartsInScope:
+        - 245
+        - 246
+        - 247
+        - 248
+        - 249
+        - 250
+        - 251
+        - 252
+        - 253
+        - 254
+        - 255
+        - 256
+        - 257
+        - 258
+        - 259
+        - 260
+        - 261
+        - 262
+        - 263
+        - 264
+        - 265
+        - 266
+        - 267
+        - 268
+        - 269
+        - 270
+        - 271
+        - 272
+        - 273
+        - 274
+        - 275
+        - 276
+        - 277
+        - 278
+        - 279
+        - 280
+        - 281
+        - 282
+        - 336
+        - 337
+        - 338
+        - 339
+        - 340
+        - 341
+        - 342
+        - 343
+        - 344
+        - 345
+        - 346
+        - 347
+        - 348
+        - 387
+        - 389
   global_chart_configuration:
     scope:
       rootPath:
@@ -4277,6 +4548,8 @@ metadata:
     - 347
     - 348
     - 387
+    - 389
+    - 390
   native_filter_configuration:
   - id: NATIVE_FILTER-DJGNlNoomEa8veEto5zLn
     controlValues:
@@ -4307,25 +4580,13 @@ metadata:
     cascadeParentIds: []
     scope:
       rootPath:
-      - TAB-you5uuQ78ubW1YyqP53r6
       - TAB-huS-4SGaHQqHYpyEGwG-4
+      - TAB-YmpZJxJ0JzLGElxBD8ZxC
+      - TAB-you5uuQ78ubW1YyqP53r6
       - TAB-CIcPLeQgAuYBLmFnSPKct
       excluded: []
     type: NATIVE_FILTER
     description: ''
-    chartsInScope:
-    - 160
-    - 161
-    - 199
-    - 200
-    - 201
-    - 279
-    - 281
-    - 282
-    tabsInScope:
-    - TAB-CIcPLeQgAuYBLmFnSPKct
-    - TAB-you5uuQ78ubW1YyqP53r6
-    - TAB-huS-4SGaHQqHYpyEGwG-4
   - id: NATIVE_FILTER-D7no_UIPMeidfE9hNKrRl
     controlValues:
       enableEmptyFilter: true
@@ -4417,8 +4678,10 @@ metadata:
     cascadeParentIds: []
     scope:
       rootPath:
-      - TAB-CIcPLeQgAuYBLmFnSPKct
       - TAB-huS-4SGaHQqHYpyEGwG-4
+      - TAB-YmpZJxJ0JzLGElxBD8ZxC
+      - TAB-6CWBzu9b2oPkZv7mZoP6B
+      - TAB-CIcPLeQgAuYBLmFnSPKct
       - TAB-4ZUTDTTl41v5tlf2hBj3r
       - TAB-you5uuQ78ubW1YyqP53r6
       excluded:
@@ -4426,67 +4689,6 @@ metadata:
       - 340
     type: NATIVE_FILTER
     description: ''
-    chartsInScope:
-    - 388
-    - 387
-    - 245
-    - 246
-    - 247
-    - 248
-    - 249
-    - 250
-    - 251
-    - 252
-    - 253
-    - 254
-    - 255
-    - 256
-    - 257
-    - 258
-    - 259
-    - 260
-    - 261
-    - 262
-    - 263
-    - 264
-    - 265
-    - 266
-    - 267
-    - 268
-    - 269
-    - 270
-    - 271
-    - 272
-    - 273
-    - 274
-    - 275
-    - 276
-    - 277
-    - 278
-    - 279
-    - 280
-    - 281
-    - 336
-    - 337
-    - 338
-    - 339
-    - 341
-    - 342
-    - 343
-    - 344
-    - 345
-    - 346
-    - 347
-    tabsInScope:
-    - TAB-CIcPLeQgAuYBLmFnSPKct
-    - TAB-you5uuQ78ubW1YyqP53r6
-    - TAB-8NIamZtsQvzmVpvw7TmND
-    - TAB-4ZUTDTTl41v5tlf2hBj3r
-    - TAB-bNtMNNEYO8p9YQBpPGY_1
-    - TAB-gNa8tx8g5S7ZWX0DqlS_M
-    - TAB-JFWdCog6yyYiSDY3ZuplM
-    - TAB-rHK1YrxCsBim2VhdGUNB2
-    - TAB-huS-4SGaHQqHYpyEGwG-4
   - id: NATIVE_FILTER-BpRBli-ABpWk2Fsxb0NVD
     controlValues:
       enableEmptyFilter: true
@@ -5674,12 +5876,17 @@ metadata:
   - addr_state_WV
   - addr_state_WY
   - annual_inc
+  - dew_point_temperature
   - dti
   - emp_length
+  - functioning_day_No
+  - functioning_day_Yes
   - home_ownership_MORTGAGE
   - home_ownership_OTHER
   - home_ownership_OWN
   - home_ownership_RENT
+  - hour
+  - humidity
   - installment
   - int_rate
   - loan_amnt
@@ -5698,101 +5905,22 @@ metadata:
   - purpose_small_business
   - purpose_vacation
   - purpose_wedding
+  - rainfall
+  - snowfall
+  - solar_radiation
+  - temperature
   - term
   - verification_status_Not Verified
   - verification_status_Source Verified
   - verification_status_Verified
+  - visibility
+  - wind_speed
   map_label_colors:
-    bias: '#1FA8C9'
-    dew_point_temperature: '#1FA8C9'
-    functioning_day_No: '#454E7C'
-    functioning_day_Yes: '#5AC189'
-    holiday_Holiday: '#FF7F44'
-    holiday_No Holiday: '#666666'
-    hour: '#E04355'
-    humidity: '#FCC700'
-    others: '#1FA8C9'
-    rainfall: '#A868B7'
-    snowfall: '#3CCCCB'
-    solar_radiation: '#A38F79'
-    temperature: '#8FD3E4'
-    visibility: '#A1A6BD'
-    wind_speed: '#ACE1C4'
-    addr_state_AK: '#1FA8C9'
-    addr_state_AL: '#454E7C'
-    addr_state_AR: '#5AC189'
-    addr_state_AZ: '#FF7F44'
-    addr_state_CA: '#666666'
-    addr_state_CO: '#E04355'
-    addr_state_CT: '#FCC700'
-    addr_state_DC: '#A868B7'
-    addr_state_DE: '#3CCCCB'
-    addr_state_FL: '#A38F79'
-    addr_state_GA: '#8FD3E4'
-    addr_state_HI: '#A1A6BD'
-    addr_state_IL: '#ACE1C4'
-    addr_state_KS: '#FEC0A1'
-    addr_state_KY: '#B2B2B2'
-    addr_state_LA: '#EFA1AA'
-    addr_state_MA: '#FDE380'
-    addr_state_MD: '#D3B3DA'
-    addr_state_MI: '#9EE5E5'
-    addr_state_MN: '#D1C6BC'
-    addr_state_MO: '#454E7C'
-    addr_state_MS: '#5AC189'
-    addr_state_MT: '#FF7F44'
-    addr_state_NC: '#666666'
-    addr_state_NH: '#E04355'
-    addr_state_NJ: '#FCC700'
-    addr_state_NM: '#A868B7'
-    addr_state_NV: '#3CCCCB'
-    addr_state_NY: '#A38F79'
-    addr_state_OH: '#8FD3E4'
-    addr_state_OK: '#A1A6BD'
-    addr_state_OR: '#ACE1C4'
-    addr_state_PA: '#FEC0A1'
-    addr_state_RI: '#B2B2B2'
-    addr_state_SC: '#EFA1AA'
-    addr_state_SD: '#FDE380'
-    addr_state_TX: '#D3B3DA'
-    addr_state_UT: '#9EE5E5'
-    addr_state_VA: '#D1C6BC'
-    addr_state_VT: '#D1C6BC'
-    addr_state_WA: '#454E7C'
-    addr_state_WI: '#5AC189'
-    addr_state_WV: '#FF7F44'
-    addr_state_WY: '#666666'
-    annual_inc: '#666666'
-    dti: '#5AC189'
-    emp_length: '#FCC700'
-    home_ownership_MORTGAGE: '#E04355'
-    home_ownership_OTHER: '#A868B7'
-    home_ownership_OWN: '#3CCCCB'
-    home_ownership_RENT: '#A38F79'
-    installment: '#454E7C'
-    int_rate: '#FF7F44'
-    loan_amnt: '#E04355'
-    purpose_car: '#8FD3E4'
-    purpose_credit_card: '#A1A6BD'
-    purpose_debt_consolidation: '#ACE1C4'
-    purpose_educational: '#FEC0A1'
-    purpose_home_improvement: '#B2B2B2'
-    purpose_house: '#EFA1AA'
-    purpose_major_purchase: '#FDE380'
-    purpose_medical: '#D3B3DA'
-    purpose_moving: '#9EE5E5'
-    purpose_other: '#D3B3DA'
-    purpose_renewable_energy: '#9EE5E5'
-    purpose_small_business: '#D1C6BC'
-    purpose_vacation: '#FCC700'
-    purpose_wedding: '#A868B7'
-    term: '#3CCCCB'
-    verification_status_Not Verified: '#A38F79'
-    verification_status_Source Verified: '#8FD3E4'
-    verification_status_Verified: '#A1A6BD'
+    COUNT(identity): '#1FA8C9'
     MAX(value): '#1FA8C9'
-    MAX(y_true): '#1FA8C9'
-    MAX(y_pred): '#454E7C'
+    SUM(value): '#004960'
+    MAX(y_pred_median): '#1FA8C9'
+    MAX(y_true_median): '#454E7C'
   color_scheme_domain: []
   default_filters: '{}'
 version: 1.0.0
