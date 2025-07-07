@@ -732,35 +732,35 @@ position:
     - TAB-8NIamZtsQvzmVpvw7TmND
     - ROW-qWBDdCiIQe3jAGd_PTC9F
     type: CHART
-  CHART-explore-389-1:
-    children: []
-    id: CHART-explore-389-1
-    meta:
-      chartId: 389
-      height: 112
-      sliceName: Outliers
-      uuid: 91506c9a-942d-4e31-bf25-c8431c6e9c8f
-      width: 7
-    parents:
-    - ROOT_ID
-    - TABS-fpw8lo9gzDzyLLuGtLIjY
-    - TAB-YmpZJxJ0JzLGElxBD8ZxC
-    - ROW-_oRWAstxp4KG1Ja0T1FhS
-    type: CHART
   CHART-explore-390-1:
     children: []
     id: CHART-explore-390-1
     meta:
       chartId: 390
       height: 112
-      sliceName: Outliers Table
+      sliceName: Outliers Detail
       uuid: 7a0aed3d-07fc-4e7c-acbe-6d329246bca8
       width: 5
     parents:
     - ROOT_ID
     - TABS-fpw8lo9gzDzyLLuGtLIjY
+    - TAB-YmpZJxJ0JzLGElxBD8ZxC
+    - ROW-GRSyML1hhfH4VqGcl42mB
+    type: CHART
+  CHART-explore-392-1:
+    children: []
+    id: CHART-explore-392-1
+    meta:
+      chartId: 392
+      height: 112
+      sliceName: Outliers Summary
+      uuid: 339e3bb1-90e7-4927-b86e-84939d84ff62
+      width: 7
+    parents:
+    - ROOT_ID
+    - TABS-fpw8lo9gzDzyLLuGtLIjY
     - TAB-CIcPLeQgAuYBLmFnSPKct
-    - ROW-CLrTUHLoQeH5ZQxffoYCQ
+    - ROW-tRXkRRCA8mIAk5scWAOv1
     type: CHART
   CHART-explore-397-1:
     children: []
@@ -1074,7 +1074,7 @@ position:
     type: ROW
   ROW-GRSyML1hhfH4VqGcl42mB:
     children:
-    - CHART-explore-389-1
+    - CHART-explore-392-1
     - CHART-explore-390-1
     id: ROW-GRSyML1hhfH4VqGcl42mB
     meta:
@@ -1530,8 +1530,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '246':
       id: 246
       crossFilters:
@@ -1588,8 +1588,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '247':
       id: 247
       crossFilters:
@@ -1646,8 +1646,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '248':
       id: 248
       crossFilters:
@@ -1704,8 +1704,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '249':
       id: 249
       crossFilters:
@@ -1762,8 +1762,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '250':
       id: 250
       crossFilters:
@@ -1820,8 +1820,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '251':
       id: 251
       crossFilters:
@@ -1878,8 +1878,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '252':
       id: 252
       crossFilters:
@@ -1936,8 +1936,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '253':
       id: 253
       crossFilters:
@@ -1994,8 +1994,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '254':
       id: 254
       crossFilters:
@@ -2052,8 +2052,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '255':
       id: 255
       crossFilters:
@@ -2110,8 +2110,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '256':
       id: 256
       crossFilters:
@@ -2168,8 +2168,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '257':
       id: 257
       crossFilters:
@@ -2226,8 +2226,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '258':
       id: 258
       crossFilters:
@@ -2284,8 +2284,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '259':
       id: 259
       crossFilters:
@@ -2342,8 +2342,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '260':
       id: 260
       crossFilters:
@@ -2400,8 +2400,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '261':
       id: 261
       crossFilters:
@@ -2458,8 +2458,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '262':
       id: 262
       crossFilters:
@@ -2516,8 +2516,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '263':
       id: 263
       crossFilters:
@@ -2574,8 +2574,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '264':
       id: 264
       crossFilters:
@@ -2632,8 +2632,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '265':
       id: 265
       crossFilters:
@@ -2690,8 +2690,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '266':
       id: 266
       crossFilters:
@@ -2748,8 +2748,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '267':
       id: 267
       crossFilters:
@@ -2806,8 +2806,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '268':
       id: 268
       crossFilters:
@@ -2864,8 +2864,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '269':
       id: 269
       crossFilters:
@@ -2922,8 +2922,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '270':
       id: 270
       crossFilters:
@@ -2980,8 +2980,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '271':
       id: 271
       crossFilters:
@@ -3038,8 +3038,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '272':
       id: 272
       crossFilters:
@@ -3096,8 +3096,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '273':
       id: 273
       crossFilters:
@@ -3154,8 +3154,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '274':
       id: 274
       crossFilters:
@@ -3212,8 +3212,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '275':
       id: 275
       crossFilters:
@@ -3270,8 +3270,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '276':
       id: 276
       crossFilters:
@@ -3328,8 +3328,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '277':
       id: 277
       crossFilters:
@@ -3386,8 +3386,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '278':
       id: 278
       crossFilters:
@@ -3444,8 +3444,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '279':
       id: 279
       crossFilters:
@@ -3502,8 +3502,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '280':
       id: 280
       crossFilters:
@@ -3560,8 +3560,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '281':
       id: 281
       crossFilters:
@@ -3618,8 +3618,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '336':
       id: 336
       crossFilters:
@@ -3676,8 +3676,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '337':
       id: 337
       crossFilters:
@@ -3734,8 +3734,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '338':
       id: 338
       crossFilters:
@@ -3792,8 +3792,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '339':
       id: 339
       crossFilters:
@@ -3850,8 +3850,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '340':
       id: 340
       crossFilters:
@@ -3908,8 +3908,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '341':
       id: 341
       crossFilters:
@@ -3966,8 +3966,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '342':
       id: 342
       crossFilters:
@@ -4024,8 +4024,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '343':
       id: 343
       crossFilters:
@@ -4082,8 +4082,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '344':
       id: 344
       crossFilters:
@@ -4140,8 +4140,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '345':
       id: 345
       crossFilters:
@@ -4198,8 +4198,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '346':
       id: 346
       crossFilters:
@@ -4256,8 +4256,8 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '347':
       id: 347
       crossFilters:
@@ -4314,8 +4314,8 @@ metadata:
         - 346
         - 348
         - 387
-        - 389
         - 390
+        - 392
     '387':
       id: 387
       crossFilters:
@@ -4372,66 +4372,8 @@ metadata:
         - 346
         - 347
         - 348
-        - 389
         - 390
-    '389':
-      id: 389
-      crossFilters:
-        scope: global
-        chartsInScope:
-        - 245
-        - 246
-        - 247
-        - 248
-        - 249
-        - 250
-        - 251
-        - 252
-        - 253
-        - 254
-        - 255
-        - 256
-        - 257
-        - 258
-        - 259
-        - 260
-        - 261
-        - 262
-        - 263
-        - 264
-        - 265
-        - 266
-        - 267
-        - 268
-        - 269
-        - 270
-        - 271
-        - 272
-        - 273
-        - 274
-        - 275
-        - 276
-        - 277
-        - 278
-        - 279
-        - 280
-        - 281
-        - 282
-        - 336
-        - 337
-        - 338
-        - 339
-        - 340
-        - 341
-        - 342
-        - 343
-        - 344
-        - 345
-        - 346
-        - 347
-        - 348
-        - 387
-        - 390
+        - 392
     '390':
       id: 390
       crossFilters:
@@ -4489,7 +4431,65 @@ metadata:
         - 347
         - 348
         - 387
-        - 389
+        - 392
+    '392':
+      id: 392
+      crossFilters:
+        scope: global
+        chartsInScope:
+        - 245
+        - 246
+        - 247
+        - 248
+        - 249
+        - 250
+        - 251
+        - 252
+        - 253
+        - 254
+        - 255
+        - 256
+        - 257
+        - 258
+        - 259
+        - 260
+        - 261
+        - 262
+        - 263
+        - 264
+        - 265
+        - 266
+        - 267
+        - 268
+        - 269
+        - 270
+        - 271
+        - 272
+        - 273
+        - 274
+        - 275
+        - 276
+        - 277
+        - 278
+        - 279
+        - 280
+        - 281
+        - 282
+        - 336
+        - 337
+        - 338
+        - 339
+        - 340
+        - 341
+        - 342
+        - 343
+        - 344
+        - 345
+        - 346
+        - 347
+        - 348
+        - 387
+        - 390
   global_chart_configuration:
     scope:
       rootPath:
@@ -4548,8 +4548,8 @@ metadata:
     - 347
     - 348
     - 387
-    - 389
     - 390
+    - 392
   native_filter_configuration:
   - id: NATIVE_FILTER-DJGNlNoomEa8veEto5zLn
     controlValues:
@@ -4587,6 +4587,33 @@ metadata:
       excluded: []
     type: NATIVE_FILTER
     description: ''
+    chartsInScope:
+    - 387
+    - 392
+    - 390
+    - 281
+    - 336
+    - 337
+    - 338
+    - 339
+    - 340
+    - 341
+    - 342
+    - 343
+    - 344
+    - 345
+    - 346
+    - 347
+    - 348
+    tabsInScope:
+    - TAB-you5uuQ78ubW1YyqP53r6
+    - TAB-8NIamZtsQvzmVpvw7TmND
+    - TAB-CIcPLeQgAuYBLmFnSPKct
+    - TAB-YmpZJxJ0JzLGElxBD8ZxC
+    - TAB-JFWdCog6yyYiSDY3ZuplM
+    - TAB-rHK1YrxCsBim2VhdGUNB2
+    - TAB-huS-4SGaHQqHYpyEGwG-4
+    - TAB-VbZBqp2Uwm7XyeqAc_30r
   - id: NATIVE_FILTER-D7no_UIPMeidfE9hNKrRl
     controlValues:
       enableEmptyFilter: true
@@ -4689,6 +4716,71 @@ metadata:
       - 340
     type: NATIVE_FILTER
     description: ''
+    chartsInScope:
+    - 247
+    - 387
+    - 249
+    - 392
+    - 253
+    - 255
+    - 259
+    - 261
+    - 390
+    - 245
+    - 246
+    - 248
+    - 250
+    - 252
+    - 251
+    - 254
+    - 256
+    - 258
+    - 257
+    - 260
+    - 262
+    - 263
+    - 264
+    - 265
+    - 266
+    - 267
+    - 268
+    - 269
+    - 270
+    - 271
+    - 272
+    - 273
+    - 274
+    - 275
+    - 276
+    - 277
+    - 278
+    - 279
+    - 280
+    - 281
+    - 282
+    - 336
+    - 337
+    - 338
+    - 339
+    - 341
+    - 342
+    - 343
+    - 344
+    - 345
+    - 346
+    - 347
+    tabsInScope:
+    - TAB-4ZUTDTTl41v5tlf2hBj3r
+    - TAB-bNtMNNEYO8p9YQBpPGY_1
+    - TAB-you5uuQ78ubW1YyqP53r6
+    - TAB-8NIamZtsQvzmVpvw7TmND
+    - TAB-CIcPLeQgAuYBLmFnSPKct
+    - TAB-YmpZJxJ0JzLGElxBD8ZxC
+    - TAB-gNa8tx8g5S7ZWX0DqlS_M
+    - TAB-JFWdCog6yyYiSDY3ZuplM
+    - TAB-6CWBzu9b2oPkZv7mZoP6B
+    - TAB-rHK1YrxCsBim2VhdGUNB2
+    - TAB-huS-4SGaHQqHYpyEGwG-4
   - id: NATIVE_FILTER-BpRBli-ABpWk2Fsxb0NVD
     controlValues:
       enableEmptyFilter: true
@@ -5916,11 +6008,8 @@ metadata:
   - visibility
   - wind_speed
   map_label_colors:
-    COUNT(identity): '#1FA8C9'
-    MAX(value): '#1FA8C9'
-    SUM(value): '#004960'
-    MAX(y_pred_median): '#1FA8C9'
-    MAX(y_true_median): '#454E7C'
+    MAX(outliers): '#1FA8C9'
+    MAX(percentage_outliers): '#454E7C'
   color_scheme_domain: []
   default_filters: '{}'
 version: 1.0.0

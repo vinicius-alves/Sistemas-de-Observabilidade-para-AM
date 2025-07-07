@@ -7,7 +7,7 @@ class ParameterDTO(Base):
 
     idParameter = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(256), nullable=False)
-    value = Column(String(256), nullable=False)
+    value = Column(String(16000), nullable=False)
     valueType = Column(String(256), nullable=False)
     idRun = Column(Integer, ForeignKey('Run.idRun'), nullable=False)
     idParameterType = Column(Integer, ForeignKey('ParameterType.idParameterType'), nullable=False)

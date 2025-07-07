@@ -1,6 +1,8 @@
 from ..Task import *
 from ..TaskType import * 
 from ..MeasureProcedures import *
+from ..Slice import *
+from ..SubjectSlice import *
 
 class RegressionPredictionTask(Task):
    
@@ -25,13 +27,37 @@ class RegressionPredictionTask(Task):
         predictions = model.predict(X, generate_explanations = True)
 
         y_pred = [p.value for p in predictions]
-
-        y_truth = df[self.target_feature_name]
+        df['y_pred'] = y_pred 
+        #y_truth = df[self.target_feature_name]
         measureValues = []
-        for measureProcedure in self.measureProcedures:
-            measureValue = measureProcedure.evaluate(y_truth = y_truth, y_pred = y_pred)
-            measureValues.append(measureValue)
- 
+
+        slices = [None]
+        if 'slices' in parameters.keys():
+            slices += parameters['slices']
+
+        for slice in slices:
+
+            slice_obj = None
+            if slice is None:
+                df_iter =df  
+            else:
+                description = None 
+                if 'description' in slice.keys():
+                    description = slice['description']
+                condition = slice['condition']
+
+                df_iter = df.query(condition)
+                slice_obj = Slice(description= description, condition =condition)
+
+            y_pred_iter = df_iter['y_pred']
+            y_truth_iter = df_iter[self.target_feature_name]
+
+            for measureProcedure in self.measureProcedures:
+                measureValue = measureProcedure.evaluate(y_truth = y_truth_iter, y_pred = y_pred_iter)
+                if slice_obj is not None:
+                    measureValue.measure.subjectSlices = [SubjectSlice(slice=slice_obj)]
+                measureValues.append(measureValue)
+    
 
         return predictions, measureValues
     

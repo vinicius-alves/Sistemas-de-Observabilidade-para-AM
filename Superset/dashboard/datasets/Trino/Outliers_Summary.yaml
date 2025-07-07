@@ -1,0 +1,104 @@
+table_name: Outliers Summary
+main_dttm_col: mes
+description: null
+default_endpoint: null
+offset: 0
+cache_timeout: null
+catalog: mysql
+schema: mydb
+sql: "with base as (\r\n\r\n    SELECT  \r\n    t3.identity, (t3.timestamp - INTERVAL\
+  \ '3' HOUR) as timestamp, case when cast(t0.value as double) = -1 then 1 else 0\
+  \ end as outlier, t5.name as project \r\n    FROM mysql.mydb.measurevalue as t0\
+  \ \r\n    inner join mysql.mydb.measure as t1\r\n    on t0.idmeasure = t1.idmeasure\r\
+  \n    inner join mysql.mydb.parameter  as t2 \r\n    on t0.idrun = t2.idrun\r\n\
+  \    inner join mysql.mydb.subjectentity  as t3 \r\n    on t0.idmeasure = t3.idmeasure\r\
+  \n    inner join mysql.mydb.run as t4 \r\n    on t0.idrun = t4.idrun\r\n    inner\
+  \ join mysql.mydb.project as t5 \r\n    on t4.idproject = t5.idproject\r\n    \r\
+  \n\r\n\r\n    where t1.name = 'Outlier'\r\n    and t2.name = 'start_current_date'\r\
+  \n\r\n\r\n)\r\n\r\n, marcacao_mes as (\r\n  select *, date_trunc('month', timestamp)\
+  \ as month\r\n  from base  \r\n)\r\n\r\n, summary as (\r\n\r\n  select month, project,\
+  \ sum(outlier) as outliers,  count(*) as total from marcacao_mes\r\n  group by month,\
+  \ project \r\n)\r\n\r\nselect *, round(outliers/cast( total as double),2) as percentage_outliers\
+  \ from summary"
+params: null
+template_params: null
+filter_select_enabled: true
+fetch_values_predicate: null
+extra: null
+normalize_columns: false
+always_filter_main_dttm: false
+uuid: d2af364d-aad1-4a12-8577-19db68644586
+metrics:
+- metric_name: count
+  verbose_name: COUNT(*)
+  metric_type: count
+  expression: COUNT(*)
+  description: null
+  d3format: null
+  currency: null
+  extra:
+    warning_markdown: ''
+  warning_text: null
+columns:
+- column_name: month
+  verbose_name: null
+  is_dttm: true
+  is_active: true
+  type: TIMESTAMP(6) WITH TIME ZONE
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
+- column_name: project
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(256)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
+- column_name: percentage_outliers
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: DOUBLE
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
+- column_name: total
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: BIGINT
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
+- column_name: outliers
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: BIGINT
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
+version: 1.0.0
+database_uuid: d0f4d9f1-5c16-424b-9b1d-9b359370e237
