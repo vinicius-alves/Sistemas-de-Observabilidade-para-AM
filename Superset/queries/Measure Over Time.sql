@@ -32,11 +32,14 @@ with stard_date_parameter as (
  
 )
 
-select timestamp, t0.project, t2.name as measure , cast(t1.value as double) as value
+select timestamp, t0.project, t2.name as measure , coalesce(t4.description,'General') as slice, cast(t1.value as double) as value
 from base as t0 
 inner join mysql.mydb.measurevalue as t1
 on t0.idrun = t1.idrun
 inner join mysql.mydb.measure as t2
 on t1.idmeasure = t2.idmeasure
-where t2.name = 'ROC AUC' 
+left join mydb.subjectslice as t3 
+on t1.idmeasure = t3.idmeasure
+left join mydb.slice as t4 
+on t3.idslice = t4.idslice  
 order by timestamp, measure

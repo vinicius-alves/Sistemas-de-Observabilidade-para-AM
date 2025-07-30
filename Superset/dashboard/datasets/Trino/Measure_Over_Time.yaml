@@ -1,9 +1,9 @@
-table_name: R2 Measure
+table_name: Measure Over Time
 main_dttm_col: timestamp
 description: null
 default_endpoint: null
 offset: 0
-cache_timeout: null
+cache_timeout: 60
 catalog: mysql
 schema: mydb
 sql: "\r\n\r\nwith stard_date_parameter as (\r\n\r\n  select * from mysql.mydb.parameter\
@@ -15,10 +15,12 @@ sql: "\r\n\r\nwith stard_date_parameter as (\r\n\r\n  select * from mysql.mydb.p
   \  inner join filter_task_type as t2 \r\n  on t1.idtasktype = t2.idtasktype \r\n\
   \  left join mysql.mydb.project as t3 \r\n  on t0.idproject = t3.idproject\r\n \
   \ inner join stard_date_parameter as t4\r\n  on t0.idRun = t4.idRun   \r\n     \r\
-  \n \r\n)\r\n\r\nselect timestamp, t0.project, t2.name as measure , cast(t1.value\
-  \ as double) as value\r\nfrom base as t0 \r\ninner join mysql.mydb.measurevalue\
-  \ as t1\r\non t0.idrun = t1.idrun\r\ninner join mysql.mydb.measure as t2\r\non t1.idmeasure\
-  \ = t2.idmeasure\r\nwhere t2.name = 'R2' \r\norder by timestamp, measure\r\n"
+  \n \r\n)\r\n\r\nselect timestamp, t0.project, t2.name as measure , coalesce(t4.description,'General')\
+  \ as slice, cast(t1.value as double) as value\r\nfrom base as t0 \r\ninner join\
+  \ mysql.mydb.measurevalue as t1\r\non t0.idrun = t1.idrun\r\ninner join mysql.mydb.measure\
+  \ as t2\r\non t1.idmeasure = t2.idmeasure\r\nleft join mydb.subjectslice as t3 \r\
+  \non t1.idmeasure = t3.idmeasure\r\nleft join mydb.slice as t4 \r\non t3.idslice\
+  \ = t4.idslice  \r\norder by timestamp, measure\r\n"
 params: null
 template_params: null
 filter_select_enabled: true
@@ -26,7 +28,7 @@ fetch_values_predicate: null
 extra: null
 normalize_columns: false
 always_filter_main_dttm: false
-uuid: 96779d09-9ac2-46f4-86d7-05b59525f499
+uuid: 35f62e0b-2697-42cd-8926-cf24a6129df8
 metrics:
 - metric_name: count
   verbose_name: COUNT(*)
@@ -43,7 +45,19 @@ columns:
   verbose_name: null
   is_dttm: false
   is_active: true
-  type: VARCHAR(45)
+  type: VARCHAR(256)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
+- column_name: slice
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(256)
   advanced_data_type: null
   groupby: true
   filterable: true
@@ -55,7 +69,7 @@ columns:
   verbose_name: null
   is_dttm: false
   is_active: true
-  type: VARCHAR(45)
+  type: VARCHAR(256)
   advanced_data_type: null
   groupby: true
   filterable: true
