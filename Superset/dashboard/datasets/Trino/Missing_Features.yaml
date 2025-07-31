@@ -1,0 +1,113 @@
+table_name: Missing Features
+main_dttm_col: timestamp
+description: null
+default_endpoint: null
+offset: 0
+cache_timeout: null
+catalog: mysql
+schema: mydb
+sql: "with base as (\r\n\r\n    SELECT  t1.name as measure,  date(parse_datetime(t2.value,\
+  \ 'yyyy-MM-dd HH:mm:ss')) as timestamp, \r\n    t4.name as feature, t5.name as namespace,\
+  \ cast(t0.value as double) value\r\n    FROM mysql.mydb.measurevalue as t0 \r\n\
+  \    inner join mysql.mydb.measure as t1\r\n    on t0.idmeasure = t1.idmeasure\r\
+  \n    inner join mysql.mydb.parameter  as t2 \r\n    on t0.idrun = t2.idrun\r\n\
+  \    inner join mysql.mydb.subjectfeature as t3 \r\n    on t0.idmeasure = t3.idmeasure\r\
+  \n    inner join mysql.mydb.feature as t4\r\n    on t3.idfeature = t4.idfeature\r\
+  \n    left join mysql.mydb.featurenamespace  as t5\r\n    on t4.idfeaturenamespace\
+  \ = t5.idfeaturenamespace\r\n\r\n\r\n    where t1.name like '%Missing%'\r\n    and\
+  \ t2.name = 'start_current_date'\r\n\r\n\r\n)\r\n\r\nselect *, max(value) over(partition\
+  \ by namespace,feature) as max_value \r\nfrom base\r\norder by  max_value desc,\
+  \ feature, timestamp"
+params: null
+template_params: null
+filter_select_enabled: true
+fetch_values_predicate: null
+extra: null
+normalize_columns: false
+always_filter_main_dttm: false
+uuid: 29b9d690-aa39-43a5-bfcf-38dee10e6202
+metrics:
+- metric_name: count
+  verbose_name: COUNT(*)
+  metric_type: count
+  expression: COUNT(*)
+  description: null
+  d3format: null
+  currency: null
+  extra: null
+  warning_text: null
+columns:
+- column_name: namespace
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(256)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: feature
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(256)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: measure
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(256)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: timestamp
+  verbose_name: null
+  is_dttm: true
+  is_active: true
+  type: DATE
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: max_value
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: DOUBLE
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: value
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: DOUBLE
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: null
+version: 1.0.0
+database_uuid: d0f4d9f1-5c16-424b-9b1d-9b359370e237

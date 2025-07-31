@@ -14,3 +14,7 @@ from .BrierScoreMeasureProcedure import *
 from .MeanErrorMeasureProcedure import *
 from .KruskalWallisMeasureProcedure import *
 from .SelectionRateMeasureProcedure import *
+from .KSMeasureProcedure import *
+from .Lift10MeasureProcedure import *
+from .Lift20MeasureProcedure import *
+from .FeatureMissingMeasureProcedure import *

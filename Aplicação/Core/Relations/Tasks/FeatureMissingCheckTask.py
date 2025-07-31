@@ -1,6 +1,6 @@
 from ..Task import *
 from ..TaskType import * 
-from ..MeasureProcedures import FeatureMissingMeasureProcedure
+from ..MeasureProcedures import JSMeasureProcedure
 
 import pandas as pd
 
@@ -25,7 +25,7 @@ class FeatureDriftCheckTask(Task):
         df_reference = df[df['timestamp']<pd.Timestamp(parameters['end_reference_date'])].drop(columns = ['timestamp'], errors='ignore')
         df_current = df[(df['timestamp']>=pd.Timestamp(parameters['start_current_date'])) & (df['timestamp']<=pd.Timestamp(parameters['end_current_date']))].drop(columns = ['timestamp'], errors='ignore')
 
-        procedure = FeatureMissingMeasureProcedure()
+        procedure = JSMeasureProcedure()
         measureValues = procedure.evaluate(df_reference = df_reference, df_current = df_current, name_space_map = name_space_map)
 
         return None, measureValues

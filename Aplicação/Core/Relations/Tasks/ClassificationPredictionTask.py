@@ -12,7 +12,7 @@ class ClassificationPredictionTask(Task):
         self.dataset = dataset
         self.measureProcedures = [F1MeasureProcedure(),AccuracyMeasureProcedure(),RecallMeasureProcedure(),PrecisionMeasureProcedure(),\
                                   LogLossMeasureProcedure(), FPRMeasureProcedure(), SelectionRateMeasureProcedure()]
-        self.measureProceduresProba = [ROCAUCMeasureProcedure(), BrierScoreMeasureProcedure()]
+        self.measureProceduresProba = [ROCAUCMeasureProcedure(), BrierScoreMeasureProcedure(), KSMeasureProcedure(), Lift10MeasureProcedure(), Lift20MeasureProcedure()]
 
 
     def execute(self, model, parameters):
