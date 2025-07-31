@@ -10,7 +10,9 @@ class ClassificationPredictionTask(Task):
         self.taskType = TaskType( idTaskType = 2,type = 'Prediction')
         self.name = type(self).__name__
         self.dataset = dataset
-        self.measureProcedures = [F1MeasureProcedure(),AccuracyMeasureProcedure(), RecallMeasureProcedure(),PrecisionMeasureProcedure(),LogLossMeasureProcedure()]
+        self.measureProcedures = [F1MeasureProcedure(),AccuracyMeasureProcedure(),RecallMeasureProcedure(),PrecisionMeasureProcedure(),\
+                                  LogLossMeasureProcedure(), FPRMeasureProcedure(), SelectionRateMeasureProcedure()]
+        self.measureProceduresProba = [ROCAUCMeasureProcedure(), BrierScoreMeasureProcedure()]
 
 
     def execute(self, model, parameters):
@@ -59,13 +61,13 @@ class ClassificationPredictionTask(Task):
                     measureValue.measure.subjectSlices = [SubjectSlice(slice=slice_obj)]
 
                 measureValues.append(measureValue)
-
-            measureProcedure = ROCAUCMeasureProcedure()
+           
             y_pred_proba = model.predict_proba(X_iter)
-            measureValue = measureProcedure.evaluate(y_truth = y_truth_iter, y_pred_proba = y_pred_proba)
-            if slice_obj is not None:
-                measureValue.measure.subjectSlices = [SubjectSlice(slice=slice_obj)]
-            measureValues.append(measureValue)
+            for measureProcedure in self.measureProceduresProba:
+                measureValue = measureProcedure.evaluate(y_truth = y_truth_iter, y_pred_proba = y_pred_proba)
+                if slice_obj is not None:
+                    measureValue.measure.subjectSlices = [SubjectSlice(slice=slice_obj)]
+                measureValues.append(measureValue)
  
 
         return predictions, measureValues

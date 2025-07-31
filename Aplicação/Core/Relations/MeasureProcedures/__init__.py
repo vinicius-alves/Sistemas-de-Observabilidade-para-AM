@@ -9,3 +9,8 @@ from .F1MeasureProcedure import *
 from .LogLossMeasureProcedure import *
 from .ROCAUCMeasureProcedure import *
 from .IsolationForestMeasureProcedure import *
+from .FPRMeasureProcedure import *
+from .BrierScoreMeasureProcedure import *
+from .MeanErrorMeasureProcedure import *
+from .KruskalWallisMeasureProcedure import *
+from .SelectionRateMeasureProcedure import *

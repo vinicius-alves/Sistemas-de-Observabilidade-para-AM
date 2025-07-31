@@ -10,7 +10,7 @@ class RegressionTrainingTask(Task):
         self.taskType = TaskType( idTaskType = 1,type = 'Training')
         self.name = type(self).__name__
         self.dataset = dataset
-        self.measureProcedures = [RMSEMeasureProcedure(),MAEMeasureProcedure(),R2MeasureProcedure()]
+        self.measureProcedures = [RMSEMeasureProcedure(),MAEMeasureProcedure(),R2MeasureProcedure(),MeanErrorMeasureProcedure()]
 
     def execute(self, model, parameters):
 

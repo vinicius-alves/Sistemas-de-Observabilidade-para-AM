@@ -10,7 +10,7 @@ class RegressionPredictionTask(Task):
         self.taskType = TaskType( idTaskType = 2,type = 'Prediction')
         self.name = type(self).__name__
         self.dataset = dataset
-        self.measureProcedures = [RMSEMeasureProcedure(),MAEMeasureProcedure(),R2MeasureProcedure()]
+        self.measureProcedures = [RMSEMeasureProcedure(),MAEMeasureProcedure(),R2MeasureProcedure(),MeanErrorMeasureProcedure()]
 
 
     def execute(self, model, parameters):
@@ -28,13 +28,13 @@ class RegressionPredictionTask(Task):
 
         y_pred = [p.value for p in predictions]
         df['y_pred'] = y_pred 
-        #y_truth = df[self.target_feature_name]
-        measureValues = []
 
+        measureValues = []
         slices = [None]
         if 'slices' in parameters.keys():
             slices += parameters['slices']
 
+        lst_arrays_pred_slices = []
         for slice in slices:
 
             slice_obj = None
@@ -52,12 +52,19 @@ class RegressionPredictionTask(Task):
             y_pred_iter = df_iter['y_pred']
             y_truth_iter = df_iter[self.target_feature_name]
 
+            if slice is not None:
+                lst_arrays_pred_slices.append( y_pred_iter- y_truth_iter)
+
             for measureProcedure in self.measureProcedures:
                 measureValue = measureProcedure.evaluate(y_truth = y_truth_iter, y_pred = y_pred_iter)
                 if slice_obj is not None:
                     measureValue.measure.subjectSlices = [SubjectSlice(slice=slice_obj)]
                 measureValues.append(measureValue)
-    
+
+        if len(lst_arrays_pred_slices)>1:
+            measureProcedure = KruskalWallisMeasureProcedure()
+            measureValue = measureProcedure.evaluate(lst_arrays = lst_arrays_pred_slices)
+            measureValues.append(measureValue)
 
         return predictions, measureValues
     

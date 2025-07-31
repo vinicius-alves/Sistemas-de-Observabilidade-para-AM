@@ -10,7 +10,8 @@ class ClassificationTrainingTask(Task):
         self.taskType = TaskType( idTaskType = 1,type = 'Training')
         self.name = type(self).__name__
         self.dataset = dataset
-        self.measureProcedures = [F1MeasureProcedure(),AccuracyMeasureProcedure(),RecallMeasureProcedure(),PrecisionMeasureProcedure(),LogLossMeasureProcedure()]
+        self.measureProcedures = [F1MeasureProcedure(),AccuracyMeasureProcedure(),RecallMeasureProcedure(),PrecisionMeasureProcedure(),LogLossMeasureProcedure(), FPRMeasureProcedure()]
+        self.measureProceduresProba = [ROCAUCMeasureProcedure(), BrierScoreMeasureProcedure()]
 
     def execute(self, model, parameters):
 
@@ -35,10 +36,10 @@ class ClassificationTrainingTask(Task):
             measureValue = measureProcedure.evaluate(y_truth = y_test, y_pred = y_pred)
             measureValues.append(measureValue)
 
-        measureProcedure = ROCAUCMeasureProcedure()
         y_pred_proba = model.predict_proba(X_test)
-        measureValue = measureProcedure.evaluate(y_truth = y_test, y_pred_proba = y_pred_proba)
-        measureValues.append(measureValue)
+        for measureProcedure in self.measureProceduresProba:
+            measureValue = measureProcedure.evaluate(y_truth = y_test, y_pred_proba = y_pred_proba)
+            measureValues.append(measureValue)
 
 
         return None, measureValues
