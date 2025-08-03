@@ -18,3 +18,4 @@ from .KSMeasureProcedure import *
 from .Lift10MeasureProcedure import *
 from .Lift20MeasureProcedure import *
 from .FeatureMissingMeasureProcedure import *
+from .FeatureCorrelationMeasureProcedure import *

@@ -11,7 +11,7 @@ class FeatureMissingMeasureProcedure(EvaluationProcedure):
         df_current = kwargs.get("df_current", None).drop(columns=['timestamp','idEntity'], errors = 'ignore')
         name_space_map  = kwargs.get("name_space_map", None) 
 
-        serie_missing = df_current.isnull().mean() * 100
+        serie_missing = df_current.isnull().mean()  
         df_missing = pd.DataFrame(serie_missing.values, serie_missing.index).T
         dict_missing = df_missing.to_dict(orient = 'records')[0]
         measureValues = []

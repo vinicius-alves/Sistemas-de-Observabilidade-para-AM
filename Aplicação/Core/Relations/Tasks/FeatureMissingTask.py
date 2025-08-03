@@ -4,7 +4,7 @@ from ..MeasureProcedures import FeatureMissingMeasureProcedure
 
 import pandas as pd
 
-class FeatureDriftCheckTask(Task):
+class FeatureMissingTask(Task):
 
    
     def __init__(self,   dataset= None):
