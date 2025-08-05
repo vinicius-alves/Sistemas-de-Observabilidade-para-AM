@@ -10101,6 +10101,30 @@ metadata:
   - 2011-10
   - 2011-11
   - 2011-12
+  - 2013-01
+  - 2013-02
+  - 2013-03
+  - 2013-04
+  - 2013-05
+  - 2013-06
+  - 2013-07
+  - 2013-08
+  - 2013-09
+  - 2013-10
+  - 2013-11
+  - 2013-12
+  - 2014-01
+  - 2014-02
+  - 2014-03
+  - 2014-04
+  - 2014-05
+  - 2014-06
+  - 2014-07
+  - 2014-08
+  - 2014-09
+  - 2014-10
+  - 2014-11
+  - 2014-12
   - 2017-12
   - '2018'
   - 2018-01
@@ -10131,9 +10155,14 @@ metadata:
   - June
   - MA
   - MAX(value)
+  - MAX(value), African-American
   - MAX(value), CA
+  - MAX(value), Caucasian
   - MAX(value), FL
+  - MAX(value), Female
+  - MAX(value), Hispanic
   - MAX(value), IL
+  - MAX(value), Male
   - MAX(value), NY
   - MAX(value), TX
   - MAX(value), business hours
@@ -10156,6 +10185,7 @@ metadata:
   - OH
   - OWN
   - October
+  - Other
   - PA
   - RENT
   - SC

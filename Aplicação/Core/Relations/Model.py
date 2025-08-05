@@ -1,4 +1,4 @@
-import pickle, io
+import  joblib, io
 
 class Model():
 
@@ -24,15 +24,16 @@ class Model():
     def feature_importances(self):
         raise NotImplementedError('Classe abstrata')
     
+    
     def serialize(self):
         if self.model is not None:
             buffer = io.BytesIO()
-            pickle.dump(self.model, buffer)
+            joblib.dump(self.model, buffer, compress=('xz', 9))
             self.object = buffer.getvalue()
 
     def deserialize(self):
         if self.object is not None:
-            self.model =  pickle.loads(self.object)
+            self.model =  joblib.load(io.BytesIO(self.object))
 
     # automatic serialize
     @property
@@ -46,12 +47,13 @@ class Model():
         self.serialize()
 
     # automatic deserialize
-    @property
-    def object(self):
-        return self.__dict__["object"]  
+    #@property
+    #def object(self):
+    #    return self.__dict__["object"]  
 
-    @object.setter
-    def object(self, novo_valor):
-       if novo_valor != self.__dict__.get("object", None):
-           self.__dict__["object"] = novo_valor 
-           self.deserialize()
+    #@object.setter
+    #def object(self, novo_valor):
+    #   if novo_valor != self.__dict__.get("object", None):
+    #       self.__dict__["object"] = novo_valor 
+    #      self.deserialize()
+    

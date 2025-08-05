@@ -33,7 +33,7 @@ with subjectfeatures_pair as (
 ,base as (
 
     SELECT  t1.name as measure,  date(parse_datetime(t2.value, 'yyyy-MM-dd HH:mm:ss')) as timestamp, 
-    t3.feature_reference, t3.feature_compare, t3.feature_reference_namespace as namespace, t3.feature_compare_namespace, try_cast(t0.value as double)/100 value
+    t3.feature_reference, t3.feature_compare, t3.feature_reference_namespace as namespace, t3.feature_compare_namespace, round(try_cast(t0.value as double),2) value
     FROM mysql.mydb.measurevalue as t0 
     inner join mysql.mydb.measure as t1
     on t0.idmeasure = t1.idmeasure

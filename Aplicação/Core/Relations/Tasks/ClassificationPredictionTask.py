@@ -24,6 +24,9 @@ class ClassificationPredictionTask(Task):
                 df = df[df['timestamp']<parameters['end_date']].reset_index(drop = True)
             if 'start_date' in parameters.keys():
                 df = df[df['timestamp']>=parameters['start_date']].reset_index(drop = True)
+
+        if df.shape[0] ==0:
+            return None, None
         
         X = df.drop(columns=[self.target_feature_name])
         predictions = model.predict(X, generate_explanations = True)
