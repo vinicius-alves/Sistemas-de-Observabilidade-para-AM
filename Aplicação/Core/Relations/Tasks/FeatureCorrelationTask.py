@@ -7,12 +7,11 @@ import pandas as pd
 class FeatureCorrelationTask(Task):
 
    
-    def __init__(self,   dataset= None):
+    def __init__(self):
         self.taskType = TaskType(type = 'Others')
         self.name = type(self).__name__
-        self.dataset = dataset
 
-    def execute(self, model=None, parameters= {}):
+    def execute(self, parameters= {}):
 
         df = self.dataset.df.drop(columns = ['idEntity'], errors='ignore') 
         name_space_map = {}

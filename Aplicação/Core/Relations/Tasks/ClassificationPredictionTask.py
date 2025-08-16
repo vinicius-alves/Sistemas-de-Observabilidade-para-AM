@@ -6,16 +6,15 @@ from ..SubjectSlice import *
 
 class ClassificationPredictionTask(Task):
    
-    def __init__(self,   dataset= None ):
+    def __init__(self ):
         self.taskType = TaskType( idTaskType = 2,type = 'Prediction')
         self.name = type(self).__name__
-        self.dataset = dataset
         self.measureProcedures = [F1MeasureProcedure(),AccuracyMeasureProcedure(),RecallMeasureProcedure(),PrecisionMeasureProcedure(),\
                                   LogLossMeasureProcedure(), FPRMeasureProcedure(), SelectionRateMeasureProcedure()]
         self.measureProceduresProba = [ROCAUCMeasureProcedure(), BrierScoreMeasureProcedure(), KSMeasureProcedure(), Lift10MeasureProcedure(), Lift20MeasureProcedure()]
 
 
-    def execute(self, model, parameters):
+    def execute(self, parameters):
 
         df = self.dataset.df
 
@@ -29,7 +28,7 @@ class ClassificationPredictionTask(Task):
             return None, None
         
         X = df.drop(columns=[self.target_feature_name])
-        predictions = model.predict(X, generate_explanations = True)
+        predictions = self.model.predict(X, generate_explanations = True)
 
         y_pred = [p.value for p in predictions]
         df['y_pred'] = y_pred 
@@ -65,7 +64,7 @@ class ClassificationPredictionTask(Task):
 
                 measureValues.append(measureValue)
            
-            y_pred_proba = model.predict_proba(X_iter)
+            y_pred_proba = self.model.predict_proba(X_iter)
             for measureProcedure in self.measureProceduresProba:
                 measureValue = measureProcedure.evaluate(y_truth = y_truth_iter, y_pred_proba = y_pred_proba)
                 if slice_obj is not None:

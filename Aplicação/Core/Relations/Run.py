@@ -3,12 +3,15 @@ from .ParameterType import ParameterType
 
 class Run():
 
-    def __init__(self, project = None , task = None, model = None):
+    def __init__(self, project = None , dataset = None, task = None, model = None):
         self.project = project
         self.task = task
         self.model = model
+        self.dataset = dataset
 
     def execute(self,  task_parameters = None, model_parameters = None):
+
+        self.task.set_dataset(self.dataset)
        
         self.parameters = []
         target_feature_name = self.project.targetFeature.get_full_name()
@@ -16,7 +19,9 @@ class Run():
         
         if type(model_parameters) == dict and self.model:
             self.model.set_params(model_parameters)
-        predictions , measureValues= self.task.execute(model = self.model,  parameters = task_parameters)
+
+        self.task.set_model(self.model)
+        predictions , measureValues= self.task.execute(parameters = task_parameters)
 
         if predictions:
             self.predictions = predictions

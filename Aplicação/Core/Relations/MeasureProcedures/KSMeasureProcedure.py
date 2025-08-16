@@ -16,7 +16,7 @@ class KSMeasureProcedure(EvaluationProcedure):
         y_truth = kwargs.get("y_truth", None)
         y_pred_proba = kwargs.get("y_pred_proba", None) 
 
-        value =  self.ks_statistic(y_pred_proba, y_truth)
+        value =  self.ks_statistic(y_truth,y_pred_proba)
         if np.isnan(value):
             value =None
         return MeasureValue(measure = Measure(name='KS') , value= value, evaluationProcedure = self)

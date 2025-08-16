@@ -6,15 +6,14 @@ from ..MeasureProcedures import *
 class ClassificationTrainingTask(Task):
 
    
-    def __init__(self,   dataset= None):
+    def __init__(self):
         self.taskType = TaskType( idTaskType = 1,type = 'Training')
         self.name = type(self).__name__
-        self.dataset = dataset
         self.measureProcedures = [F1MeasureProcedure(),AccuracyMeasureProcedure(),RecallMeasureProcedure(),PrecisionMeasureProcedure(),\
                                   LogLossMeasureProcedure(), FPRMeasureProcedure(), SelectionRateMeasureProcedure()]
         self.measureProceduresProba = [ROCAUCMeasureProcedure(), BrierScoreMeasureProcedure(), KSMeasureProcedure(), Lift10MeasureProcedure(), Lift20MeasureProcedure()]
 
-    def execute(self, model, parameters):
+    def execute(self, parameters):
 
         df = self.dataset.df 
 
@@ -29,15 +28,15 @@ class ClassificationTrainingTask(Task):
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-        model.fit(X_train, y_train)
-        predictions = model.predict(X_test, generate_explanations = False)
+        self.model.fit(X_train, y_train)
+        predictions = self.model.predict(X_test, generate_explanations = False)
         y_pred = [p.value for p in predictions]
         measureValues = []
         for measureProcedure in self.measureProcedures:
             measureValue = measureProcedure.evaluate(y_truth = y_test, y_pred = y_pred)
             measureValues.append(measureValue)
 
-        y_pred_proba = model.predict_proba(X_test)
+        y_pred_proba = self.model.predict_proba(X_test)
         for measureProcedure in self.measureProceduresProba:
             measureValue = measureProcedure.evaluate(y_truth = y_test, y_pred_proba = y_pred_proba)
             measureValues.append(measureValue)

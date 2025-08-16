@@ -4,10 +4,8 @@ with features_project as (
   from mysql.mydb.project as t0
   inner join mysql.mydb.run as t1 
   on t0.idproject = t1.idproject 
-  inner join mysql.mydb.task as t2 
-  on t1.idtask = t2.idtask 
   inner join mysql.mydb.dataset as t3 
-  on t2.idDataset = t3.idDataset
+  on t1.idDataset = t3.idDataset
   inner join mysql.mydb.featuredataset as t4 
   on t3.iddataset = t4.iddataset
 

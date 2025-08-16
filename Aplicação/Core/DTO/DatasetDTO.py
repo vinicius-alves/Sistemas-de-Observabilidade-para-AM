@@ -15,7 +15,7 @@ class DatasetDTO(Base):
     name = Column(String(256), nullable=True) 
     startTimestamp = Column(DateTime, nullable=True) 
     endTimestamp = Column(DateTime, nullable=True) 
-    tasks = relationship('TaskDTO', back_populates='dataset') 
+    runs = relationship('RunDTO', back_populates='dataset') 
     featureDatasets = relationship('FeatureDatasetDTO', back_populates='dataset')
 
     def __init__(self,  idDataset=None, name= None, instructions = None):

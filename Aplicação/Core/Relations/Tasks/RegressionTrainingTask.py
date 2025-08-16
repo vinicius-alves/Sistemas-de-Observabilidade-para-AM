@@ -6,13 +6,12 @@ from ..MeasureProcedures import *
 class RegressionTrainingTask(Task):
 
    
-    def __init__(self,   dataset= None):
+    def __init__(self):
         self.taskType = TaskType( idTaskType = 1,type = 'Training')
         self.name = type(self).__name__
-        self.dataset = dataset
         self.measureProcedures = [RMSEMeasureProcedure(),MAEMeasureProcedure(),R2MeasureProcedure(),MeanErrorMeasureProcedure()]
 
-    def execute(self, model, parameters):
+    def execute(self, parameters):
 
         df = self.dataset.df 
 
@@ -27,8 +26,8 @@ class RegressionTrainingTask(Task):
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-        model.fit(X_train, y_train)
-        predictions = model.predict(X_test, generate_explanations = False)
+        self.model.fit(X_train, y_train)
+        predictions = self.model.predict(X_test, generate_explanations = False)
         y_pred = [p.value for p in predictions]
         measureValues = []
         for measureProcedure in self.measureProcedures:

@@ -6,18 +6,18 @@ offset: 0
 cache_timeout: null
 catalog: mysql
 schema: mydb
-sql: "with features_project as (\n\n  select distinct t0.name as project, t0.idtargetfeature,\
-  \ t4.idfeature\n  from mysql.mydb.project as t0\n  inner join mysql.mydb.run as\
-  \ t1 \n  on t0.idproject = t1.idproject \n  inner join mysql.mydb.task as t2 \n\
-  \  on t1.idtask = t2.idtask \n  inner join mysql.mydb.dataset as t3 \n  on t2.idDataset\
-  \ = t3.idDataset\n  inner join mysql.mydb.featuredataset as t4 \n  on t3.iddataset\
-  \ = t4.iddataset\n\n)\n\n,detail_feature as (\n  select t0.*, t1.name as feature,\
-  \ t2.name as featurenamespace \n  from features_project as t0 \n  left join mysql.mydb.feature\
-  \ as t1 \n  on t0.idfeature = t1.idfeature\n  left join mysql.mydb.featurenamespace\
-  \  as t2\n  on t1.idfeaturenamespace = t2.idfeaturenamespace\n  where t0.idtargetfeature\
-  \ != t1.idfeature\n)\n\nselect t1.*, t0.value, t0.timestamp, t0.idEntity \nfrom\
-  \ mongodb.mydb.featurevalue as t0 \ninner join detail_feature as t1 \non t0.idfeature\
-  \ = t1.idfeature\norder by t1.featurenamespace, t1.feature"
+sql: "with features_project as (\r\n\r\n  select distinct t0.name as project, t0.idtargetfeature,\
+  \ t4.idfeature\r\n  from mysql.mydb.project as t0\r\n  inner join mysql.mydb.run\
+  \ as t1 \r\n  on t0.idproject = t1.idproject \r\n  inner join mysql.mydb.dataset\
+  \ as t3 \r\n  on t1.idDataset = t3.idDataset\r\n  inner join mysql.mydb.featuredataset\
+  \ as t4 \r\n  on t3.iddataset = t4.iddataset\r\n\r\n)\r\n\r\n,detail_feature as\
+  \ (\r\n  select t0.*, t1.name as feature, t2.name as featurenamespace \r\n  from\
+  \ features_project as t0 \r\n  left join mysql.mydb.feature as t1 \r\n  on t0.idfeature\
+  \ = t1.idfeature\r\n  left join mysql.mydb.featurenamespace  as t2\r\n  on t1.idfeaturenamespace\
+  \ = t2.idfeaturenamespace\r\n  where t0.idtargetfeature != t1.idfeature\r\n)\r\n\
+  \r\nselect t1.*, t0.value, t0.timestamp, t0.idEntity \r\nfrom mongodb.mydb.featurevalue\
+  \ as t0 \r\ninner join detail_feature as t1 \r\non t0.idfeature = t1.idfeature\r\
+  \norder by t1.featurenamespace, t1.feature"
 params: null
 template_params: null
 filter_select_enabled: true

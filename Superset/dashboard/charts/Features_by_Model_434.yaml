@@ -1,0 +1,53 @@
+slice_name: Features by Model
+description: null
+certified_by: null
+certification_details: null
+viz_type: pivot_table_v2
+params:
+  datasource: 50__table
+  viz_type: pivot_table_v2
+  groupbyColumns:
+  - idmodel
+  groupbyRows:
+  - feature
+  time_grain_sqla: P1D
+  temporal_columns_lookup: {}
+  metrics:
+  - expressionType: SQL
+    sqlExpression: '1'
+    column: null
+    aggregate: null
+    datasourceWarning: false
+    hasCustomLabel: false
+    label: '1'
+    optionName: metric_izevt19osfj_mstq7iztv2
+  metricsLayout: COLUMNS
+  adhoc_filters:
+  - expressionType: SIMPLE
+    subject: project
+    operator: IN
+    operatorId: IN
+    comparator:
+    - LoanDefaultPrediction
+    clause: WHERE
+    sqlExpression: null
+    isExtra: false
+    isNew: false
+    datasourceWarning: false
+    filterOptionName: filter_hbw72bf6v9s_s7shypavbge
+  row_limit: 50000
+  order_desc: true
+  aggregateFunction: Sum
+  valueFormat: SMART_NUMBER
+  date_format: smart_date
+  rowOrder: key_a_to_z
+  colOrder: key_a_to_z
+  allow_render_html: true
+  extra_form_data: {}
+  dashboards:
+  - 17
+query_context: '{"datasource":{"id":50,"type":"table"},"force":false,"queries":[{"filters":[{"col":"project","op":"IN","val":["LoanDefaultPrediction"]}],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":["idmodel","feature"],"metrics":[{"expressionType":"SQL","sqlExpression":"1","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"1","optionName":"metric_izevt19osfj_mstq7iztv2"}],"orderby":[[{"expressionType":"SQL","sqlExpression":"1","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"1","optionName":"metric_izevt19osfj_mstq7iztv2"},false]],"annotation_layers":[],"row_limit":50000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"50__table","viz_type":"pivot_table_v2","groupbyColumns":["idmodel"],"groupbyRows":["feature"],"time_grain_sqla":"P1D","temporal_columns_lookup":{},"metrics":[{"expressionType":"SQL","sqlExpression":"1","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"1","optionName":"metric_izevt19osfj_mstq7iztv2"}],"metricsLayout":"COLUMNS","adhoc_filters":[{"expressionType":"SIMPLE","subject":"project","operator":"IN","operatorId":"IN","comparator":["LoanDefaultPrediction"],"clause":"WHERE","sqlExpression":null,"isExtra":false,"isNew":false,"datasourceWarning":false,"filterOptionName":"filter_hbw72bf6v9s_s7shypavbge"}],"row_limit":50000,"order_desc":true,"aggregateFunction":"Sum","valueFormat":"SMART_NUMBER","date_format":"smart_date","rowOrder":"key_a_to_z","colOrder":"key_a_to_z","allow_render_html":true,"extra_form_data":{},"dashboards":[17],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+cache_timeout: null
+uuid: dde50ac0-5915-4aa4-ad29-3aabf130f5fe
+version: 1.0.0
+dataset_uuid: aae6eb49-5025-450a-8aed-05d786537ecd

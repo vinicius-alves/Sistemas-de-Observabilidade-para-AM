@@ -11,7 +11,9 @@ class RunDTO(Base):
     idModel = Column(Integer, ForeignKey('Model.idModel'), nullable=True)
     idProject = Column(Integer, ForeignKey('Project.idProject'), nullable=True)
     createdTimestamp = Column(DateTime, default=datetime.now())  
-     
+    idDataset = Column(Integer, ForeignKey('Dataset.idDataset'), nullable=True)  
+
+    dataset = relationship('DatasetDTO', back_populates='runs', cascade="all")  
     measureValues = relationship('MeasureValueDTO', back_populates='run', cascade="all") 
     model = relationship('ModelDTO', back_populates='runs', cascade="all") 
     project = relationship('ProjectDTO', back_populates='runs', cascade="all") 
@@ -20,10 +22,11 @@ class RunDTO(Base):
     task = relationship('TaskDTO', back_populates='runs', cascade="all")
     featureImportances = relationship('FeatureImportanceDTO', back_populates='run')
 
-    def __init__(self, idTask = None, idModel = None,  idRun = None):
+    def __init__(self, idTask = None, dataset= None, idModel = None,  idRun = None):
         self.idRun = idRun
         self.idTask = idTask
         self.idModel = idModel
+        self.dataset = dataset
 
     
 

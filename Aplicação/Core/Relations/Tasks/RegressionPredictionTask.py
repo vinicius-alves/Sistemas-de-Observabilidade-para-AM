@@ -6,14 +6,13 @@ from ..SubjectSlice import *
 
 class RegressionPredictionTask(Task):
    
-    def __init__(self,   dataset= None ):
+    def __init__(self ):
         self.taskType = TaskType( idTaskType = 2,type = 'Prediction')
         self.name = type(self).__name__
-        self.dataset = dataset
         self.measureProcedures = [RMSEMeasureProcedure(),MAEMeasureProcedure(),R2MeasureProcedure(),MeanErrorMeasureProcedure()]
 
 
-    def execute(self, model, parameters):
+    def execute(self, parameters):
 
         df = self.dataset.df
 
@@ -27,7 +26,7 @@ class RegressionPredictionTask(Task):
             return None, None
         
         X = df.drop(columns=[self.target_feature_name])
-        predictions = model.predict(X, generate_explanations = True)
+        predictions = self.model.predict(X, generate_explanations = True)
 
         y_pred = [p.value for p in predictions]
         df['y_pred'] = y_pred 
