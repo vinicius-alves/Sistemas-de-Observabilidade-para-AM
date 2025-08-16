@@ -6,11 +6,12 @@ viz_type: heatmap_v2
 params:
   datasource: 48__table
   viz_type: heatmap_v2
+  slice_id: 432
   x_axis: timestamp
   time_grain_sqla: P1M
   groupby: feature
   metric:
-    expressionType: SIMPLE
+    aggregate: MAX
     column:
       advanced_data_type: null
       certification_details: null
@@ -28,24 +29,24 @@ params:
       type_generic: 0
       verbose_name: null
       warning_markdown: null
-    aggregate: MAX
-    sqlExpression: null
     datasourceWarning: false
+    expressionType: SIMPLE
     hasCustomLabel: false
     label: MAX(value)
     optionName: metric_p8723rfhbb_k2jz6k7cma
+    sqlExpression: null
   adhoc_filters:
   - clause: WHERE
-    subject: timestamp
-    operator: TEMPORAL_RANGE
     comparator: No filter
     expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: timestamp
   row_limit: 50000
   sort_x_axis: alpha_asc
   sort_y_axis: value_desc
   normalize_across: heatmap
   legend_type: continuous
-  linear_color_scheme: superset_seq_1
+  linear_color_scheme: schemeBlues
   xscale_interval: -1
   yscale_interval: -1
   left_margin: auto
@@ -62,8 +63,8 @@ params:
   dashboards:
   - 17
 query_context: '{"datasource":{"id":48,"type":"table"},"force":false,"queries":[{"filters":[{"col":"timestamp","op":"TEMPORAL_RANGE","val":"No
-  filter"}],"extras":{"time_grain_sqla":"P1M","having":"","where":""},"applied_time_extras":{},"columns":[{"timeGrain":"P1M","columnType":"BASE_AXIS","sqlExpression":"timestamp","label":"timestamp","expressionType":"SQL"},"feature"],"metrics":[{"expressionType":"SIMPLE","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"value","description":null,"expression":null,"filterable":true,"groupby":true,"id":1207,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"DOUBLE","type_generic":0,"verbose_name":null,"warning_markdown":null},"aggregate":"MAX","sqlExpression":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"MAX(value)","optionName":"metric_p8723rfhbb_k2jz6k7cma"}],"orderby":[["timestamp",true],["MAX(value)",false]],"annotation_layers":[],"row_limit":50000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[{"operation":"rank","options":{"metric":"MAX(value)"}}]}],"form_data":{"datasource":"48__table","viz_type":"heatmap_v2","x_axis":"timestamp","time_grain_sqla":"P1M","groupby":"feature","metric":{"expressionType":"SIMPLE","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"value","description":null,"expression":null,"filterable":true,"groupby":true,"id":1207,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"DOUBLE","type_generic":0,"verbose_name":null,"warning_markdown":null},"aggregate":"MAX","sqlExpression":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"MAX(value)","optionName":"metric_p8723rfhbb_k2jz6k7cma"},"adhoc_filters":[{"clause":"WHERE","subject":"timestamp","operator":"TEMPORAL_RANGE","comparator":"No
-  filter","expressionType":"SIMPLE"}],"row_limit":50000,"sort_x_axis":"alpha_asc","sort_y_axis":"value_desc","normalize_across":"heatmap","legend_type":"continuous","linear_color_scheme":"superset_seq_1","xscale_interval":-1,"yscale_interval":-1,"left_margin":"auto","bottom_margin":"auto","value_bounds":[0,1],"y_axis_format":".2%","x_axis_time_format":"smart_date","show_legend":true,"show_percentage":true,"show_values":true,"extra_form_data":{},"dashboards":[17],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+  filter"}],"extras":{"time_grain_sqla":"P1M","having":"","where":""},"applied_time_extras":{},"columns":[{"timeGrain":"P1M","columnType":"BASE_AXIS","sqlExpression":"timestamp","label":"timestamp","expressionType":"SQL"},"feature"],"metrics":[{"aggregate":"MAX","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"value","description":null,"expression":null,"filterable":true,"groupby":true,"id":1207,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"DOUBLE","type_generic":0,"verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"MAX(value)","optionName":"metric_p8723rfhbb_k2jz6k7cma","sqlExpression":null}],"orderby":[["timestamp",true],["MAX(value)",false]],"annotation_layers":[],"row_limit":50000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[{"operation":"rank","options":{"metric":"MAX(value)"}}]}],"form_data":{"datasource":"48__table","viz_type":"heatmap_v2","slice_id":432,"x_axis":"timestamp","time_grain_sqla":"P1M","groupby":"feature","metric":{"aggregate":"MAX","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"value","description":null,"expression":null,"filterable":true,"groupby":true,"id":1207,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"DOUBLE","type_generic":0,"verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"MAX(value)","optionName":"metric_p8723rfhbb_k2jz6k7cma","sqlExpression":null},"adhoc_filters":[{"clause":"WHERE","comparator":"No
+  filter","expressionType":"SIMPLE","operator":"TEMPORAL_RANGE","subject":"timestamp"}],"row_limit":50000,"sort_x_axis":"alpha_asc","sort_y_axis":"value_desc","normalize_across":"heatmap","legend_type":"continuous","linear_color_scheme":"schemeBlues","xscale_interval":-1,"yscale_interval":-1,"left_margin":"auto","bottom_margin":"auto","value_bounds":[0,1],"y_axis_format":".2%","x_axis_time_format":"smart_date","show_legend":true,"show_percentage":true,"show_values":true,"extra_form_data":{},"dashboards":[17],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 cache_timeout: null
 uuid: 3b4ce384-e828-478a-94ec-b777b2703df5
 version: 1.0.0

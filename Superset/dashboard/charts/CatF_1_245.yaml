@@ -9,9 +9,6 @@ params:
   slice_id: 245
   x_axis: mes
   time_grain_sqla: P1M
-  x_axis_sort_asc: true
-  x_axis_sort_series: name
-  x_axis_sort_series_ascending: true
   metrics:
   - aggregate: MAX
     column:
@@ -50,8 +47,7 @@ params:
     operator: TEMPORAL_RANGE
     sqlExpression: null
     subject: mes
-  order_desc: true
-  row_limit: 1000
+  row_limit: 50000
   truncate_metric: true
   show_empty_columns: true
   comparison_type: values
@@ -63,8 +59,10 @@ params:
   y_axis_title_margin: 15
   y_axis_title_position: Left
   sort_series_type: sum
-  color_scheme: supersetColors
+  color_scheme: d3Category10
+  time_shift_color: true
   stack: Stack
+  only_total: true
   show_legend: true
   legendType: scroll
   legendOrientation: top
@@ -80,10 +78,10 @@ params:
   tooltipTimeFormat: smart_date
   extra_form_data: {}
   dashboards:
-  - 14
+  - 17
 query_context: '{"datasource":{"id":26,"type":"table"},"force":false,"queries":[{"filters":[{"col":"mes","op":"TEMPORAL_RANGE","val":"No
-  filter"}],"extras":{"time_grain_sqla":"P1M","having":"","where":""},"applied_time_extras":{},"columns":[{"timeGrain":"P1M","columnType":"BASE_AXIS","sqlExpression":"mes","label":"mes","expressionType":"SQL"},"value"],"metrics":[{"aggregate":"MAX","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"qt_percent","description":null,"expression":null,"filterable":true,"groupby":true,"id":1097,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"DOUBLE","type_generic":0,"verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"MAX(qt_percent)","optionName":"metric_je8v3yppo1a_i5x5jsc1zp8","sqlExpression":null}],"orderby":[[{"aggregate":"MAX","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"qt_percent","description":null,"expression":null,"filterable":true,"groupby":true,"id":1097,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"DOUBLE","type_generic":0,"verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"MAX(qt_percent)","optionName":"metric_je8v3yppo1a_i5x5jsc1zp8","sqlExpression":null},false]],"annotation_layers":[],"row_limit":1000,"series_columns":["value"],"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"time_offsets":[],"post_processing":[{"operation":"pivot","options":{"index":["mes"],"columns":["value"],"aggregates":{"MAX(qt_percent)":{"operator":"mean"}},"drop_missing_columns":false}},{"operation":"rename","options":{"columns":{"MAX(qt_percent)":null},"level":0,"inplace":true}},{"operation":"flatten"}]}],"form_data":{"datasource":"26__table","viz_type":"echarts_timeseries_bar","slice_id":245,"x_axis":"mes","time_grain_sqla":"P1M","x_axis_sort_asc":true,"x_axis_sort_series":"name","x_axis_sort_series_ascending":true,"metrics":[{"aggregate":"MAX","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"qt_percent","description":null,"expression":null,"filterable":true,"groupby":true,"id":1097,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"DOUBLE","type_generic":0,"verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"MAX(qt_percent)","optionName":"metric_je8v3yppo1a_i5x5jsc1zp8","sqlExpression":null}],"groupby":["value"],"adhoc_filters":[{"clause":"WHERE","comparator":"No
-  filter","datasourceWarning":false,"expressionType":"SIMPLE","filterOptionName":"filter_7s96vvgprmt_e0g6tt4niif","isExtra":false,"isNew":false,"operator":"TEMPORAL_RANGE","sqlExpression":null,"subject":"mes"}],"order_desc":true,"row_limit":1000,"truncate_metric":true,"show_empty_columns":true,"comparison_type":"values","annotation_layers":[],"forecastPeriods":10,"forecastInterval":0.8,"orientation":"vertical","x_axis_title_margin":15,"y_axis_title_margin":15,"y_axis_title_position":"Left","sort_series_type":"sum","color_scheme":"supersetColors","stack":"Stack","show_legend":true,"legendType":"scroll","legendOrientation":"top","x_axis_time_format":"smart_date","y_axis_format":"SMART_NUMBER","y_axis_bounds":[null,null],"truncateXAxis":true,"rich_tooltip":true,"showTooltipTotal":true,"showTooltipPercentage":true,"tooltipTimeFormat":"smart_date","extra_form_data":{},"dashboards":[14],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+  filter"}],"extras":{"time_grain_sqla":"P1M","having":"","where":""},"applied_time_extras":{},"columns":[{"timeGrain":"P1M","columnType":"BASE_AXIS","sqlExpression":"mes","label":"mes","expressionType":"SQL"},"value"],"metrics":[{"aggregate":"MAX","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"qt_percent","description":null,"expression":null,"filterable":true,"groupby":true,"id":1097,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"DOUBLE","type_generic":0,"verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"MAX(qt_percent)","optionName":"metric_je8v3yppo1a_i5x5jsc1zp8","sqlExpression":null}],"orderby":[[{"aggregate":"MAX","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"qt_percent","description":null,"expression":null,"filterable":true,"groupby":true,"id":1097,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"DOUBLE","type_generic":0,"verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"MAX(qt_percent)","optionName":"metric_je8v3yppo1a_i5x5jsc1zp8","sqlExpression":null},false]],"annotation_layers":[],"row_limit":50000,"series_columns":["value"],"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"time_offsets":[],"post_processing":[{"operation":"pivot","options":{"index":["mes"],"columns":["value"],"aggregates":{"MAX(qt_percent)":{"operator":"mean"}},"drop_missing_columns":false}},{"operation":"rename","options":{"columns":{"MAX(qt_percent)":null},"level":0,"inplace":true}},{"operation":"flatten"}]}],"form_data":{"datasource":"26__table","viz_type":"echarts_timeseries_bar","slice_id":245,"x_axis":"mes","time_grain_sqla":"P1M","metrics":[{"aggregate":"MAX","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"qt_percent","description":null,"expression":null,"filterable":true,"groupby":true,"id":1097,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"DOUBLE","type_generic":0,"verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"MAX(qt_percent)","optionName":"metric_je8v3yppo1a_i5x5jsc1zp8","sqlExpression":null}],"groupby":["value"],"adhoc_filters":[{"clause":"WHERE","comparator":"No
+  filter","datasourceWarning":false,"expressionType":"SIMPLE","filterOptionName":"filter_7s96vvgprmt_e0g6tt4niif","isExtra":false,"isNew":false,"operator":"TEMPORAL_RANGE","sqlExpression":null,"subject":"mes"}],"row_limit":50000,"truncate_metric":true,"show_empty_columns":true,"comparison_type":"values","annotation_layers":[],"forecastPeriods":10,"forecastInterval":0.8,"orientation":"vertical","x_axis_title_margin":15,"y_axis_title_margin":15,"y_axis_title_position":"Left","sort_series_type":"sum","color_scheme":"d3Category10","time_shift_color":true,"stack":"Stack","only_total":true,"show_legend":true,"legendType":"scroll","legendOrientation":"top","x_axis_time_format":"smart_date","y_axis_format":"SMART_NUMBER","y_axis_bounds":[null,null],"truncateXAxis":true,"rich_tooltip":true,"showTooltipTotal":true,"showTooltipPercentage":true,"tooltipTimeFormat":"smart_date","extra_form_data":{},"dashboards":[17],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 cache_timeout: null
 uuid: 4d0c8d79-962c-4ea2-a347-6d21c3e2ee3f
 version: 1.0.0

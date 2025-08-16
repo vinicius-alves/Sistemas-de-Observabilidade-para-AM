@@ -1304,20 +1304,20 @@ position:
     - TAB-NdO2Dt_v5CavwFrpYqgAG
     - ROW-tgV5S2PT12axICncoxrc3
     type: CHART
-  CHART-explore-434-1:
+  CHART-explore-435-1:
     children: []
-    id: CHART-explore-434-1
+    id: CHART-explore-435-1
     meta:
-      chartId: 434
+      chartId: 435
       height: 50
       sliceName: Features by Model
-      uuid: dde50ac0-5915-4aa4-ad29-3aabf130f5fe
+      uuid: 4192890b-7e31-4946-92f6-f118a262575d
       width: 12
     parents:
     - ROOT_ID
     - TABS-fpw8lo9gzDzyLLuGtLIjY
-    - TAB-huS-4SGaHQqHYpyEGwG-4
-    - ROW-KmG82edyZdtxAePh9Rw2Q
+    - TAB-CIcPLeQgAuYBLmFnSPKct
+    - ROW-6tFYoSYmgLeHuBLBwXiiM
     type: CHART
   CHART-explore-440-1:
     children: []
@@ -1729,6 +1729,17 @@ position:
     - TABS-fpw8lo9gzDzyLLuGtLIjY
     - TAB-huS-4SGaHQqHYpyEGwG-4
     type: ROW
+  ROW-Dv35pP639JLG4tA8Ivj-D:
+    children:
+    - CHART-explore-435-1
+    id: ROW-Dv35pP639JLG4tA8Ivj-D
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-fpw8lo9gzDzyLLuGtLIjY
+    - TAB-huS-4SGaHQqHYpyEGwG-4
+    type: ROW
   ROW-EW8hAIusGVIzUEspMHPvk:
     children:
     - CHART-explore-420-1
@@ -1800,17 +1811,6 @@ position:
     - TAB-4ZUTDTTl41v5tlf2hBj3r
     - TABS-ShEJBJkZ5m8uLEA4S_GBw
     - TAB-gNa8tx8g5S7ZWX0DqlS_M
-    type: ROW
-  ROW-KmG82edyZdtxAePh9Rw2Q:
-    children:
-    - CHART-explore-434-1
-    id: ROW-KmG82edyZdtxAePh9Rw2Q
-    meta:
-      background: BACKGROUND_TRANSPARENT
-    parents:
-    - ROOT_ID
-    - TABS-fpw8lo9gzDzyLLuGtLIjY
-    - TAB-huS-4SGaHQqHYpyEGwG-4
     type: ROW
   ROW-MqyXqNxB71vt0Vpsj5Qyr:
     children:
@@ -2212,7 +2212,7 @@ position:
     children:
     - ROW-h_ZkApgB8n08z0J9d13Ww
     - ROW--oXQdqU6P-xct1m6EuMuD
-    - ROW-KmG82edyZdtxAePh9Rw2Q
+    - ROW-Dv35pP639JLG4tA8Ivj-D
     - ROW-DrkwrwXvEAFXXeArqTOJ5
     id: TAB-huS-4SGaHQqHYpyEGwG-4
     meta:
@@ -2396,7 +2396,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '246':
       id: 246
       crossFilters:
@@ -2481,7 +2481,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '247':
       id: 247
       crossFilters:
@@ -2566,7 +2566,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '248':
       id: 248
       crossFilters:
@@ -2651,7 +2651,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '249':
       id: 249
       crossFilters:
@@ -2736,7 +2736,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '250':
       id: 250
       crossFilters:
@@ -2821,7 +2821,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '251':
       id: 251
       crossFilters:
@@ -2906,7 +2906,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '252':
       id: 252
       crossFilters:
@@ -2991,7 +2991,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '253':
       id: 253
       crossFilters:
@@ -3076,7 +3076,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '254':
       id: 254
       crossFilters:
@@ -3161,7 +3161,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '255':
       id: 255
       crossFilters:
@@ -3246,7 +3246,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '256':
       id: 256
       crossFilters:
@@ -3331,7 +3331,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '257':
       id: 257
       crossFilters:
@@ -3416,7 +3416,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '258':
       id: 258
       crossFilters:
@@ -3501,7 +3501,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '259':
       id: 259
       crossFilters:
@@ -3586,7 +3586,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '260':
       id: 260
       crossFilters:
@@ -3671,7 +3671,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '261':
       id: 261
       crossFilters:
@@ -3756,7 +3756,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '262':
       id: 262
       crossFilters:
@@ -3841,7 +3841,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '263':
       id: 263
       crossFilters:
@@ -3926,7 +3926,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '264':
       id: 264
       crossFilters:
@@ -4011,7 +4011,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '265':
       id: 265
       crossFilters:
@@ -4096,7 +4096,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '266':
       id: 266
       crossFilters:
@@ -4181,7 +4181,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '267':
       id: 267
       crossFilters:
@@ -4266,7 +4266,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '268':
       id: 268
       crossFilters:
@@ -4351,7 +4351,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '269':
       id: 269
       crossFilters:
@@ -4436,7 +4436,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '270':
       id: 270
       crossFilters:
@@ -4521,7 +4521,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '271':
       id: 271
       crossFilters:
@@ -4606,7 +4606,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '272':
       id: 272
       crossFilters:
@@ -4691,7 +4691,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '273':
       id: 273
       crossFilters:
@@ -4776,7 +4776,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '274':
       id: 274
       crossFilters:
@@ -4861,7 +4861,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '275':
       id: 275
       crossFilters:
@@ -4946,7 +4946,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '276':
       id: 276
       crossFilters:
@@ -5031,7 +5031,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '277':
       id: 277
       crossFilters:
@@ -5116,7 +5116,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '278':
       id: 278
       crossFilters:
@@ -5201,7 +5201,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '279':
       id: 279
       crossFilters:
@@ -5286,7 +5286,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '280':
       id: 280
       crossFilters:
@@ -5371,7 +5371,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '337':
       id: 337
       crossFilters:
@@ -5456,7 +5456,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '338':
       id: 338
       crossFilters:
@@ -5541,7 +5541,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '340':
       id: 340
       crossFilters:
@@ -5626,7 +5626,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '342':
       id: 342
       crossFilters:
@@ -5711,7 +5711,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '343':
       id: 343
       crossFilters:
@@ -5796,7 +5796,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '347':
       id: 347
       crossFilters:
@@ -5881,7 +5881,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '387':
       id: 387
       crossFilters:
@@ -5966,7 +5966,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '390':
       id: 390
       crossFilters:
@@ -6051,7 +6051,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '392':
       id: 392
       crossFilters:
@@ -6136,7 +6136,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '393':
       id: 393
       crossFilters:
@@ -6221,7 +6221,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '394':
       id: 394
       crossFilters:
@@ -6306,7 +6306,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '395':
       id: 395
       crossFilters:
@@ -6391,7 +6391,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '396':
       id: 396
       crossFilters:
@@ -6476,7 +6476,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '398':
       id: 398
       crossFilters:
@@ -6561,7 +6561,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '399':
       id: 399
       crossFilters:
@@ -6646,7 +6646,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '400':
       id: 400
       crossFilters:
@@ -6731,7 +6731,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '401':
       id: 401
       crossFilters:
@@ -6816,7 +6816,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '409':
       id: 409
       crossFilters:
@@ -6901,7 +6901,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '410':
       id: 410
       crossFilters:
@@ -6986,7 +6986,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '411':
       id: 411
       crossFilters:
@@ -7071,7 +7071,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '412':
       id: 412
       crossFilters:
@@ -7156,7 +7156,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '413':
       id: 413
       crossFilters:
@@ -7241,7 +7241,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '414':
       id: 414
       crossFilters:
@@ -7326,7 +7326,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '415':
       id: 415
       crossFilters:
@@ -7411,7 +7411,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '416':
       id: 416
       crossFilters:
@@ -7496,7 +7496,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '417':
       id: 417
       crossFilters:
@@ -7581,7 +7581,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '418':
       id: 418
       crossFilters:
@@ -7666,7 +7666,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '419':
       id: 419
       crossFilters:
@@ -7751,7 +7751,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '420':
       id: 420
       crossFilters:
@@ -7836,7 +7836,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '421':
       id: 421
       crossFilters:
@@ -7921,7 +7921,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '422':
       id: 422
       crossFilters:
@@ -8006,7 +8006,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '423':
       id: 423
       crossFilters:
@@ -8091,7 +8091,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '424':
       id: 424
       crossFilters:
@@ -8176,7 +8176,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '425':
       id: 425
       crossFilters:
@@ -8261,7 +8261,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '426':
       id: 426
       crossFilters:
@@ -8346,7 +8346,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '427':
       id: 427
       crossFilters:
@@ -8431,7 +8431,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '428':
       id: 428
       crossFilters:
@@ -8516,7 +8516,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '429':
       id: 429
       crossFilters:
@@ -8601,7 +8601,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '430':
       id: 430
       crossFilters:
@@ -8686,7 +8686,7 @@ metadata:
         - 431
         - 432
         - 433
-        - 434
+        - 435
     '431':
       id: 431
       crossFilters:
@@ -8771,92 +8771,7 @@ metadata:
         - 430
         - 432
         - 433
-        - 434
-    '434':
-      id: 434
-      crossFilters:
-        scope: global
-        chartsInScope:
-        - 245
-        - 246
-        - 247
-        - 248
-        - 249
-        - 250
-        - 251
-        - 252
-        - 253
-        - 254
-        - 255
-        - 256
-        - 257
-        - 258
-        - 259
-        - 260
-        - 261
-        - 262
-        - 263
-        - 264
-        - 265
-        - 266
-        - 267
-        - 268
-        - 269
-        - 270
-        - 271
-        - 272
-        - 273
-        - 274
-        - 275
-        - 276
-        - 277
-        - 278
-        - 279
-        - 280
-        - 282
-        - 337
-        - 338
-        - 340
-        - 342
-        - 343
-        - 347
-        - 348
-        - 387
-        - 390
-        - 392
-        - 393
-        - 394
-        - 395
-        - 396
-        - 398
-        - 399
-        - 400
-        - 401
-        - 409
-        - 410
-        - 411
-        - 412
-        - 413
-        - 414
-        - 415
-        - 416
-        - 417
-        - 418
-        - 419
-        - 420
-        - 421
-        - 422
-        - 423
-        - 424
-        - 425
-        - 426
-        - 427
-        - 428
-        - 429
-        - 430
-        - 431
-        - 432
-        - 433
+        - 435
   global_chart_configuration:
     scope:
       rootPath:
@@ -8943,7 +8858,7 @@ metadata:
     - 431
     - 432
     - 433
-    - 434
+    - 435
   native_filter_configuration:
   - id: NATIVE_FILTER-DJGNlNoomEa8veEto5zLn
     controlValues:
@@ -10686,28 +10601,24 @@ metadata:
   - wedding
   - wind_speed
   map_label_colors:
-    MAX(value): '#1FA8C9'
-    MAX(value), General: '#1FA8C9'
-    MAX(value), business hours: '#1FA8C9'
-    MAX(value), not business hours: '#454E7C'
-    MAX(y_pred_median): '#1FA8C9'
-    MAX(y_true_median): '#454E7C'
     temperature: '#A1A6BD'
     hour: '#E04355'
     humidity: '#FCC700'
     solar_radiation: '#8FD3E4'
     dew_point_temperature: '#1FA8C9'
     visibility: '#ACE1C4'
-    others: '#A868B7'
     wind_speed: '#FEC0A1'
+    others: '#A868B7'
     rainfall: '#3CCCCB'
     snowfall: '#A38F79'
-    functioning_day_Yes: '#5AC189'
-    MAX(outliers): '#1FA8C9'
-    MAX(percentage_outliers): '#454E7C'
     functioning_day_No: '#454E7C'
-    holiday_Holiday: '#FF7F44'
-    holiday_No Holiday: '#666666'
+    seasons_Winter: '#5AC189'
+    MAX(value): '#1FA8C9'
+    MAX(value), General: '#1FA8C9'
+    MAX(value), business hours: '#1FA8C9'
+    MAX(value), not business hours: '#454E7C'
+    MAX(y_pred_median): '#1FA8C9'
+    MAX(y_true_median): '#454E7C'
   color_scheme_domain: []
   default_filters: '{}'
 version: 1.0.0

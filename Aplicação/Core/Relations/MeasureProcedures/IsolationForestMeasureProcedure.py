@@ -16,7 +16,7 @@ class IsolationForestEvaluationProcedure(EvaluationProcedure):
 
         df_reference.drop(columns = cols_to_drop, errors='ignore', inplace =True)
         
-        clf = IsolationForest(random_state=0)
+        clf = IsolationForest(random_state=0, contamination=0.05,n_estimators=200,max_samples=0.05)
         clf.fit(df_reference)
         df_current['value'] = clf.predict(df_current.drop(columns = cols_to_drop, errors='ignore'))
         df_current['subjectEntity'] = df_current.apply(lambda x: SubjectEntity(**x), axis =1)

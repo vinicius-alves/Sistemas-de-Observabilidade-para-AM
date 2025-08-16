@@ -6,26 +6,13 @@ offset: 0
 cache_timeout: null
 catalog: mysql
 schema: mydb
-sql: "with production_models as (\r\n select  t1.idmodel, \r\n  max(t3.name) as project\
-  \ \r\n  from mysql.mydb.prediction t0\r\n  left join mysql.mydb.run t1\r\n  on t0.idrun\
-  \ = t1.idrun\r\n  left join mysql.mydb.model as t2\r\n  on t1.idmodel = t2.idmodel\r\
-  \n  left join mysql.mydb.project as t3 \r\n  on t1.idproject = t3.idproject\r\n\
-  \  group by 1\r\n)\r\n\r\n, featureimportances_runs as (\r\n\r\n  select distinct\
-  \ idrun  from mysql.mydb.featureimportance \r\n\r\n)\r\n\r\n, runs_production_models\
-  \ as (\r\n  select * from mysql.mydb.run\r\n  where idmodel in (select idmodel from\
-  \ production_models)\r\n  and idrun in (select idrun from featureimportances_runs)\r\
-  \n)\r\n\r\n, base_relations as (\r\n  select * from (\r\n    select *, row_number\
-  \ () over (partition by idmodel order by idrun desc ) as nrow  \r\n    from runs_production_models\r\
-  \n  )\r\n  where nrow = 1\r\n)\r\n\r\n, base_feature_importances as (\r\n\r\n  select\
-  \ t0.*,   t3.name as feature,t2.importance  from production_models as t0\r\n  left\
-  \ join base_relations as t1 \r\n  on t0.idmodel = t1.idmodel\r\n  left join mysql.mydb.featureimportance\
-  \ as t2 \r\n  on t1.idrun = t2.idrun\r\n  left join mysql.mydb.feature as t3 \r\n\
-  \  on t2.idfeature = t3.idfeature\r\n)\r\n\r\n, base_feature_importances_max as\
-  \ (\r\n  select *, max(norm_importance) over (partition by feature) as max_norm_importance\r\
-  \n  from (\r\n    select *, importance/sum(importance) over(partition by idmodel)\
-  \ as norm_importance \r\n    from base_feature_importances\r\n  )\r\n)\r\n\r\nselect\
-  \ idmodel, project, feature \r\nfrom base_feature_importances_max\r\n \r\n\r\norder\
-  \ by 1, 2  desc\r\n"
+sql: "select distinct t0.name as project, t1.idmodel, t5.name as feature, 1 as flag\r\
+  \n  from mysql.mydb.project as t0\r\n  inner join mysql.mydb.run as t1 \r\n  on\
+  \ t0.idproject = t1.idproject \r\n  inner join mysql.mydb.dataset as t3 \r\n  on\
+  \ t1.idDataset = t3.idDataset\r\n  inner join mysql.mydb.featuredataset as t4 \r\
+  \n  on t3.iddataset = t4.iddataset\r\n  inner join mysql.mydb.feature as t5 \r\n\
+  \  on t4.idfeature = t5.idfeature\r\n  where t1.idmodel is not null \r\n  and t4.idfeature\
+  \ != t0.idtargetfeature"
 params: null
 template_params: null
 filter_select_enabled: true
@@ -42,7 +29,8 @@ metrics:
   description: null
   d3format: null
   currency: null
-  extra: null
+  extra:
+    warning_markdown: ''
   warning_text: null
 columns:
 - column_name: feature
@@ -53,10 +41,10 @@ columns:
   advanced_data_type: null
   groupby: true
   filterable: true
-  expression: null
+  expression: ''
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: project
   verbose_name: null
   is_dttm: false
@@ -65,11 +53,23 @@ columns:
   advanced_data_type: null
   groupby: true
   filterable: true
-  expression: null
+  expression: ''
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: idmodel
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: INTEGER
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: ''
+  description: null
+  python_date_format: null
+  extra: {}
+- column_name: flag
   verbose_name: null
   is_dttm: false
   is_active: true
@@ -80,6 +80,6 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 version: 1.0.0
 database_uuid: d0f4d9f1-5c16-424b-9b1d-9b359370e237
