@@ -148,7 +148,7 @@ position:
     id: CHART-_v3KhU5uFSrgHkEYMDSHL
     meta:
       chartId: 342
-      height: 95
+      height: 60
       sliceName: Real vs Predicted Median
       uuid: bddd2762-2eef-4b13-86c6-d911af4f9f3f
       width: 4
@@ -767,7 +767,7 @@ position:
     id: CHART-explore-395-1
     meta:
       chartId: 395
-      height: 95
+      height: 58
       sliceName: MAE Measure
       uuid: 490ace2d-60a5-488d-af89-1b2d73ee25df
       width: 4
@@ -816,7 +816,7 @@ position:
     id: CHART-explore-398-1
     meta:
       chartId: 398
-      height: 95
+      height: 59
       sliceName: RMSE Measure
       uuid: 254d7589-9c4d-43e3-bd8e-c3d875921f87
       width: 4
@@ -1316,8 +1316,8 @@ position:
     parents:
     - ROOT_ID
     - TABS-fpw8lo9gzDzyLLuGtLIjY
-    - TAB-CIcPLeQgAuYBLmFnSPKct
-    - ROW-6tFYoSYmgLeHuBLBwXiiM
+    - TAB-huS-4SGaHQqHYpyEGwG-4
+    - ROW-Dv35pP639JLG4tA8Ivj-D
     type: CHART
   CHART-explore-440-1:
     children: []
@@ -1556,17 +1556,6 @@ position:
     - TAB-4ZUTDTTl41v5tlf2hBj3r
     - TABS-ShEJBJkZ5m8uLEA4S_GBw
     - TAB-bNtMNNEYO8p9YQBpPGY_1
-    type: ROW
-  ROW-13mwFMCnnX9Nw2UOU319A:
-    children:
-    - MARKDOWN-Tkt_DZ-paFKV8EefQjAOu
-    id: ROW-13mwFMCnnX9Nw2UOU319A
-    meta:
-      background: BACKGROUND_TRANSPARENT
-    parents:
-    - ROOT_ID
-    - TABS-fpw8lo9gzDzyLLuGtLIjY
-    - TAB-4ZUTDTTl41v5tlf2hBj3r
     type: ROW
   ROW-1LhXk8BJA2czYyX78nKCr:
     children:
@@ -1812,6 +1801,19 @@ position:
     - TABS-ShEJBJkZ5m8uLEA4S_GBw
     - TAB-gNa8tx8g5S7ZWX0DqlS_M
     type: ROW
+  ROW-KA6EcJpviYZ-lClG7to2r:
+    children:
+    - MARKDOWN-Tkt_DZ-paFKV8EefQjAOu
+    id: ROW-KA6EcJpviYZ-lClG7to2r
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-fpw8lo9gzDzyLLuGtLIjY
+    - TAB-4ZUTDTTl41v5tlf2hBj3r
+    - TABS-ShEJBJkZ5m8uLEA4S_GBw
+    - TAB-NdO2Dt_v5CavwFrpYqgAG
+    type: ROW
   ROW-MqyXqNxB71vt0Vpsj5Qyr:
     children:
     - CHART-explore-163-1
@@ -2042,7 +2044,6 @@ position:
   TAB-4ZUTDTTl41v5tlf2hBj3r:
     children:
     - TABS-ShEJBJkZ5m8uLEA4S_GBw
-    - ROW-13mwFMCnnX9Nw2UOU319A
     id: TAB-4ZUTDTTl41v5tlf2hBj3r
     meta:
       defaultText: Tab title
@@ -2118,6 +2119,7 @@ position:
   TAB-NdO2Dt_v5CavwFrpYqgAG:
     children:
     - ROW-tgV5S2PT12axICncoxrc3
+    - ROW-KA6EcJpviYZ-lClG7to2r
     id: TAB-NdO2Dt_v5CavwFrpYqgAG
     meta:
       defaultText: Tab title
@@ -10601,24 +10603,18 @@ metadata:
   - wedding
   - wind_speed
   map_label_colors:
-    temperature: '#A1A6BD'
-    hour: '#E04355'
-    humidity: '#FCC700'
-    solar_radiation: '#8FD3E4'
-    dew_point_temperature: '#1FA8C9'
-    visibility: '#ACE1C4'
-    wind_speed: '#FEC0A1'
-    others: '#A868B7'
-    rainfall: '#3CCCCB'
-    snowfall: '#A38F79'
-    functioning_day_No: '#454E7C'
-    seasons_Winter: '#5AC189'
-    MAX(value): '#1FA8C9'
-    MAX(value), General: '#1FA8C9'
-    MAX(value), business hours: '#1FA8C9'
-    MAX(value), not business hours: '#454E7C'
-    MAX(y_pred_median): '#1FA8C9'
-    MAX(y_true_median): '#454E7C'
+    2017-12: '#1f77b4'
+    2018-01: '#ff7f0e'
+    2018-02: '#2ca02c'
+    2018-03: '#d62728'
+    2018-04: '#9467bd'
+    2018-05: '#8c564b'
+    2018-06: '#e377c2'
+    2018-07: '#7f7f7f'
+    2018-08: '#bcbd22'
+    2018-09: '#17becf'
+    2018-10: '#ff7f0e'
+    2018-11: '#2ca02c'
   color_scheme_domain: []
   default_filters: '{}'
 version: 1.0.0
