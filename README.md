@@ -1,4 +1,4 @@
-# Evaluation Store Project
+# Sistemas de Observabilidade para AM
 Este software é parte do meu projeto de mestrado em Ciências da Computação USP.
 
 ##  Autor
